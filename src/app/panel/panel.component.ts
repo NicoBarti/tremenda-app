@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class PanelComponent {
   cards = [
-    { title: 'Card 1', cols: 2, rows: 1 },
-    { title: 'Card 2', cols: 1, rows: 1 },
-    { title: 'Card 3', cols: 1, rows: 2 },
-    { title: 'Card 4', cols: 1, rows: 1 }
+    { title: 'Mide tu consumo', cols: 1, rows: 1, img: "/../../assets/imagenes/gauge-type1-20-500px.png" },
+    { title: 'Consejos para ti', cols: 1, rows: 1, img: "/../../assets/imagenes/bombilla.png" },
+    { title: 'Metas personales', cols: 1, rows: 1, img: "/../../assets/imagenes/meta.png"},
+    { title: 'Información', cols: 1, rows: 1, img: "/../../assets/imagenes/info.png" },
   ];
 }
