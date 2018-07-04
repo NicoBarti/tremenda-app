@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {NavegacionComponent} from './navegacion/navegacion.component'
+import {PanelComponent} from './panel/panel.component'
+
+import {InfoComponent} from './info/info.component'
 
 const routes: Routes = [
 
-  {
-    path: '',
-    component: NavegacionComponent   },
-   {
-    path: '**', redirectTo: '' }
+  {path: 'panel',
+  component: PanelComponent},
+  {path: 'info',
+  component: InfoComponent},
+  {path: '**', redirectTo: 'panel' }
  ];
 
 @NgModule({

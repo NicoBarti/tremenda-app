@@ -8,13 +8,17 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
 
 import { OHRoutingModule } from './app-routing.module';
-import { PanelComponent } from './panel/panel.component'
+import { PanelComponent } from './panel/panel.component';
+import { InfoComponent } from './info/info.component';
+import { ListatragosComponent } from './listatragos/listatragos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavegacionComponent,
-    PanelComponent
+    PanelComponent,
+    InfoComponent,
+    ListatragosComponent
   ],
   imports: [
     BrowserModule,

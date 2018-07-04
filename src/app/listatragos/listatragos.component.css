@@ -1,0 +1,18 @@
+
+.trago-lista-imagen {
+  height: 2.8em;
+  position: left;
+}
+
+.mat-card-texto{
+  font-weight: bold;
+}
+
+/* .tragos-lista-grid {
+  height: auto;
+} */
+
+.tragos-lista-card {
+  width: 70%;
+  background-color: #ECEFF1;
+}
