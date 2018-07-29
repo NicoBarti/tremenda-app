@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {PanelComponent} from './panel/panel.component'
 
 import {InfoComponent} from './info/info.component'
+import {MideComponent} from './mide/mide.component'
+import { SelectragosComponent } from './mide/selectragos/selectragos.component';
+
 
 const routes: Routes = [
 
@@ -11,7 +14,17 @@ const routes: Routes = [
   component: PanelComponent},
   {path: 'info',
   component: InfoComponent},
-  {path: '**', redirectTo: 'panel' }
+  {path: 'mide',
+  component: MideComponent,
+    // children: [
+    //   {path: 'selc',
+    //   component: SelectragosComponent}
+    // ]
+        },
+  {path: 'p2',
+  component: SelectragosComponent},
+
+  {path: '**', redirectTo: 'panel' },
  ];
 
 @NgModule({

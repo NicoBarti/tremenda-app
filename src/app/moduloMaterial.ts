@@ -1,20 +1,39 @@
 import { NgModule } from '@angular/core';
 
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatSelectModule, MatFormFieldModule} from '@angular/material'
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatStepperModule } from '@angular/material';
+import { MatTableModule} from '@angular/material/table';
+// import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon'
 
 
 @NgModule({
-  imports: [MatButtonModule, MatCheckboxModule,
-          MatSelectModule, MatFormFieldModule,
-        MatInputModule,
-      MatCardModule],
-  exports: [MatButtonModule, MatCheckboxModule,
-          MatSelectModule, MatFormFieldModule,
-        MatInputModule,
-      MatCardModule],
+  imports: [MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatStepperModule,
+  // MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatTableModule],
+  exports: [MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatStepperModule,
+  // MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatTableModule],
 })
 export class ModuloMaterial { }

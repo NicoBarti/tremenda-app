@@ -1,0 +1,29 @@
+.p-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.texto-p {
+  margin-top: -10px;
+}
+
+.p-radio-button {
+  margin: 5px;
+}
+
+.siguiente-button{
+  margin: 20px;
+}
+
+.stepper {
+  margin: -20px;
+  margin-left: 0px;
+}
+
+.mat-stepper{
+  padding: -10px;
+}
+
+.stepper{
+  margin-left: -10px;
+}
