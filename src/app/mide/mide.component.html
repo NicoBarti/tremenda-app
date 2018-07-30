@@ -19,7 +19,7 @@
       </mat-radio-group>
       <div class="siguiente-button">
         <!-- <button mat-button disabled type="button" *ngIf="item1.invalid"  >Siguiente</button> -->
-        <button mat-button color="primary" matStepperNext type="button" *ngIf="!item1.invalid"  >Siguiente</button>
+        <button mat-button color="primary" matStepperNext type="button" [disabled]="item1.invalid"  >Siguiente</button>
 
       </div>
     <!-- </form> -->
@@ -32,14 +32,10 @@
       <ng-template matStepLabel></ng-template>
       <mat-radio-group class="p-radio-group" formControlName="item2">
         <h4 class="texto-p">¿Cuántos TRAGOS con alcohol tomaste en un día típico en que consumiste alcohol en el último año?</h4>
-        <!-- <mat-radio-button class="p-radio-button" *ngFor="let p of p2" [value]="p.puntaje">
-          {{p.texto}}
-        </mat-radio-button> -->
-        <app-selectragos></app-selectragos>
+          <app-selectragos></app-selectragos>
       </mat-radio-group>
       <div class="siguiente-button">
-        <!-- <button mat-button disabled type="button" *ngIf="item2.invalid"  >Siguiente</button> -->
-        <button mat-button color="primary" matStepperNext type="button" *ngIf="item2.touched"  >Siguiente</button>
+        <button mat-button color="primary" matStepperNext type="button" [disabled]="!item2.touched"  >Siguiente</button>
 
       </div>
     <!-- </form> -->

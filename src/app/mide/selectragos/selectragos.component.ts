@@ -16,9 +16,6 @@ export class SelectragosComponent implements OnInit {
     {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 3, cant: 0},
     {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 4, cant: 0},
     {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 5, cant: 0}
-
-
-
   ]
 
   constructor() { }
@@ -35,5 +32,8 @@ resta(indx: number): void {
   else {this.datos[indx].cant--}
 
 }
+
+get_tragos(): object[]{
+return this.datos}
 
 }
