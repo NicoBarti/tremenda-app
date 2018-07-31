@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { AfterViewInit, ViewChild } from '@angular/core';
-import { SelectragosComponent } from './selectragos/selectragos.component'
+
+import { Trago } from './trago'
+import { ContadortragosService} from './contadortragos.service'
+
 
 @Component({
   selector: 'app-mide',
@@ -10,12 +12,15 @@ import { SelectragosComponent } from './selectragos/selectragos.component'
   styleUrls: ['./mide.component.css']
 })
 
-export class MideComponent implements AfterViewInit, OnInit {
+export class MideComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   isLinear = true;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  lista_tragos: Trago[] = [];
+
+  constructor(private _formBuilder: FormBuilder,
+              private contadortragosService: ContadortragosService) {}
 
     p1 = [
       {puntaje: 0,  texto: 'Nunca'},
@@ -47,9 +52,6 @@ export class MideComponent implements AfterViewInit, OnInit {
 
   model: number;
 
-  @ViewChild(SelectragosComponent)
- private selectragosComponent: SelectragosComponent;
-
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       'item1': ['', Validators.required],
@@ -57,17 +59,23 @@ export class MideComponent implements AfterViewInit, OnInit {
       'item3': ['', Validators.required]
 
     });
-  };
 
-  ngAfterViewInit(){};
+    this.get_lista_tragos()
+
+  };
 
   get item1() { return this.firstFormGroup.get('item1')};
   get item2() { return this.firstFormGroup.get('item2')};
   get item3() { return this.firstFormGroup.get('item3')};
 
+  get_lista_tragos(){
+    this.contadortragosService.get_lista_tragos().
+      subscribe(lista_tragos => this.lista_tragos = lista_tragos)
+  }
+
   imprime() {
-    console.log(this.firstFormGroup.value);
-    console.log(this.selectragosComponent.get_tragos()) 
+    // this.get_lista_tragos()
+    console.log(this.lista_tragos);
   };
 
 }

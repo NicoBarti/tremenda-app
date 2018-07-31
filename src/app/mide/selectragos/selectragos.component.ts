@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContadortragosService} from '../contadortragos.service'
 
 @Component({
   selector: 'app-selectragos',
@@ -9,31 +10,25 @@ export class SelectragosComponent implements OnInit {
 
   columnsToDisplay = ['cantidad','tragoImagen', 'tragoNombre','suma', 'resta']
 
-  datos = [
-    {imagen: "../../assets/tragos/vino_1.png", nombre: "Copa de vino", indx: 0, cant: 0},
-    {imagen: "../../assets/tragos/corto_1.png", nombre: "Corto de licor", indx: 1, cant: 0},
-    {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 2, cant: 0},
-    {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 3, cant: 0},
-    {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 4, cant: 0},
-    {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata de cerveza", indx: 5, cant: 0}
-  ]
+  datos = []
 
-  constructor() { }
+  constructor( private contadortragosService: ContadortragosService) { }
 
   ngOnInit() {
+    this.get_lista_tragos()
   }
 
-suma(indx: number): void {
-this.datos[indx].cant++
-}
+  get_lista_tragos(){
+    this.contadortragosService.get_lista_tragos().
+      subscribe(datos => this.datos = datos)
+  }
 
-resta(indx: number): void {
-  if (this.datos[indx].cant == 0 ){return}
-  else {this.datos[indx].cant--}
+  suma(indx: number): void {
+    this.contadortragosService.suma(indx)
+  }
 
-}
-
-get_tragos(): object[]{
-return this.datos}
+  resta(indx: number): void {
+    this.contadortragosService.resta(indx)
+  }
 
 }
