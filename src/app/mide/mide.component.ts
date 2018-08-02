@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormControl, AbstractControl,ValidatorFn } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Trago } from './trago'
@@ -18,7 +18,7 @@ export class MideComponent implements OnInit, OnDestroy {
   lista_tragos: Trago[] = [];
   subscription: Subscription;
 
-  constructor(private _formBuilder: FormBuilder,
+  constructor(
               private contadortragosService: ContadortragosService) {
                 this.subscription = contadortragosService.tragos_totales$.subscribe(
                   datos =>  this.firstFormGroup.patchValue({item2: datos}))
@@ -41,17 +41,16 @@ export class MideComponent implements OnInit, OnDestroy {
     ];
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      'item1': ['', Validators.required],
-      'item2': ['', Validators.required],
-      'item3': ['', Validators.required]
+    this.firstFormGroup = new FormGroup ({
+      'item1': new FormControl('', [Validators.required, this.congruenciaRespuestasValidator()]),
+      'item2': new FormControl('', Validators.required),
+      'item3': new FormControl('', Validators.required)
     });
 
     this.get_lista_tragos();
   };
 
   ngOnDestroy() {
-    // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
 
@@ -67,5 +66,13 @@ export class MideComponent implements OnInit, OnDestroy {
   imprime() {
     console.log(this.firstFormGroup.value)
   };
+
+  congruenciaRespuestasValidator(): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any} | null => {
+      if(control.value === 0){this.imprime()}
+      const forbidden = false;
+      return forbidden ? {'error': {value: control.value}} : null;
+    };
+  }
 
 }
