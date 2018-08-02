@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Trago } from './trago'
 import { ContadortragosService} from './contadortragos.service'
-// import { last } from 'rxjs/operators'
-
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-mide',
@@ -13,15 +12,15 @@ import { ContadortragosService} from './contadortragos.service'
   styleUrls: ['./mide.component.css']
 })
 
-export class MideComponent implements OnInit {
+export class MideComponent implements OnInit, OnDestroy {
 
   firstFormGroup: FormGroup;
-
   lista_tragos: Trago[] = [];
+  subscription: Subscription;
 
   constructor(private _formBuilder: FormBuilder,
               private contadortragosService: ContadortragosService) {
-                contadortragosService.tragos_totales$.subscribe(
+                this.subscription = contadortragosService.tragos_totales$.subscribe(
                   datos =>  this.firstFormGroup.patchValue({item2: datos}))
               }
 
@@ -50,6 +49,11 @@ export class MideComponent implements OnInit {
 
     this.get_lista_tragos();
   };
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
 
   get item1() { return this.firstFormGroup.get('item1')};
   get item2() { return this.firstFormGroup.get('item2')};
