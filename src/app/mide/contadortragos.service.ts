@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 import { Trago } from './trago'
 import { LISTA_TRAGOS } from './lista_tragos'
@@ -10,6 +10,11 @@ import { LISTA_TRAGOS } from './lista_tragos'
 export class ContadortragosService {
 
   lista_tragos = LISTA_TRAGOS
+  calculoTragos: number
+
+  private tragos_totales = new Subject<number>();
+  // this.tragos_totales.last()
+  tragos_totales$ = this.tragos_totales.asObservable()
 
   constructor() { }
 
@@ -17,14 +22,30 @@ export class ContadortragosService {
     return of(this.lista_tragos)
   }
 
+  get_tragosTotales(): number{
+    // if(!this.calculado){return of(undefined)}
+    return this.calculoTragos
+  }
+
   suma(indx: number): void {
   this.lista_tragos[indx].cant++
+  this.calculaTragos()
   }
 
   resta(indx: number): void {
     if (this.lista_tragos[indx].cant == 0 ){return}
-    else {this.lista_tragos[indx].cant--}
+    else {this.lista_tragos[indx].cant--;
+      this.calculaTragos()
+    }
   }
 
+  calculaTragos(): void {
+    let i: any;
+    this.calculoTragos = 0
+    for(i in this.lista_tragos){
+    this.calculoTragos = this.calculoTragos + (this.lista_tragos[i].cant * this.lista_tragos[i].eq);
+      }
+      this.tragos_totales.next(this.calculoTragos)
+  }
 
 }

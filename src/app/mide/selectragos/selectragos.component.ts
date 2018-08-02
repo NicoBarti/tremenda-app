@@ -29,6 +29,7 @@ export class SelectragosComponent implements OnInit {
 
   resta(indx: number): void {
     this.contadortragosService.resta(indx)
+
   }
 
 }

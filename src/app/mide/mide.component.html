@@ -1,67 +1,38 @@
 
 <mat-card>
   <mat-card-title>Mide tu consumo</mat-card-title>
-  <!-- <mat-card-subtitle>Contesta estas tres preguntas</mat-card-subtitle> -->
 
-        <form [formGroup]="firstFormGroup">
+<form [formGroup]="firstFormGroup">
 
+<mat-horizontal-stepper class="stepper" [linear]=true >
 
-<mat-horizontal-stepper class="stepper" #stepper>
-
-  <mat-step class="mat-stepper" >
-    <!-- <form [formGroup]="firstFormGroup"> -->
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item1">
       <ng-template matStepLabel></ng-template>
       <mat-radio-group class="p-radio-group" formControlName="item1">
         <h4 class="texto-p">¿Con qué frecuencia has consumido alguna bebida que contenía alcohol en el último año?</h4>
-        <mat-radio-button class="p-radio-button" *ngFor="let p of p1" [value]="p.puntaje">
-          {{p.texto}}
-        </mat-radio-button>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p1" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
-      <div class="siguiente-button">
-        <!-- <button mat-button disabled type="button" *ngIf="item1.invalid"  >Siguiente</button> -->
-        <button mat-button color="primary" matStepperNext type="button" [disabled]="item1.invalid"  >Siguiente</button>
-
-      </div>
-    <!-- </form> -->
+      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="item1.invalid"  >Siguiente</button></div>
   </mat-step>
 
-
-
-  <mat-step class="mat-stepper" >
-    <!-- <form [formGroup]="firstFormGroup"> -->
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item2">
       <ng-template matStepLabel></ng-template>
       <mat-radio-group class="p-radio-group" formControlName="item2">
         <h4 class="texto-p">¿Cuántos TRAGOS con alcohol tomaste en un día típico en que consumiste alcohol en el último año?</h4>
           <app-selectragos></app-selectragos>
       </mat-radio-group>
-      <div class="siguiente-button">
-        <button mat-button color="primary" matStepperNext type="button" [disabled]="!item2.touched"  >Siguiente</button>
-
-      </div>
-    <!-- </form> -->
+      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="item2.invalid"  >Siguiente</button></div>
   </mat-step>
 
-  <mat-step class="mat-stepper" >
-    <!-- <form [formGroup]="firstFormGroup"> -->
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item3">
       <ng-template matStepLabel></ng-template>
       <mat-radio-group class="p-radio-group" formControlName="item3">
         <h4 class="texto-p">¿Con qué frecuencia en el último año ha tomado 5 o más tragos en una ocasión?</h4>
-        <mat-radio-button class="p-radio-button" *ngFor="let p of p3" [value]="p.puntaje">
-          {{p.texto}}
-        </mat-radio-button>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p3" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
-      <div class="siguiente-button" (click)="imprime()">
-        <button mat-button disabled type="button" *ngIf="item3.invalid"  >Siguiente</button>
-        <button mat-button color="primary" matStepperNext type="button" *ngIf="!item3.invalid"  >Siguiente</button>
-
-      </div>
-    <!-- </form> -->
+      <div class="siguiente-button" (click)="imprime()"><button mat-button color="primary" matStepperNext type="button" [disabled]="item3.invalid"  >Terminar</button></div>
   </mat-step>
 
 </mat-horizontal-stepper>
-
-
-            </form>
-
-
+</form>
 </mat-card>

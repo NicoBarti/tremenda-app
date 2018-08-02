@@ -3,4 +3,5 @@ export class Trago {
   nombre: string;
   indx: number;
   cant: number;
+  eq: number
 }
