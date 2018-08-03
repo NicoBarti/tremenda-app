@@ -1,10 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { FormGroup, Validators, FormControl, AbstractControl,ValidatorFn } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Trago } from './trago'
 import { ContadortragosService} from './contadortragos.service'
+import { DialogoNoAlcoholComponent} from './dialogo-no-alcohol/dialogo-no-alcohol.component'
+
 import { Subscription }   from 'rxjs';
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 
 @Component({
   selector: 'app-mide',
@@ -18,7 +23,7 @@ export class MideComponent implements OnInit, OnDestroy {
   lista_tragos: Trago[] = [];
   subscription: Subscription;
 
-  constructor(
+  constructor( public dialog: MatDialog,
               private contadortragosService: ContadortragosService) {
                 this.subscription = contadortragosService.tragos_totales$.subscribe(
                   datos =>  this.firstFormGroup.patchValue({item2: datos}))
@@ -67,9 +72,26 @@ export class MideComponent implements OnInit, OnDestroy {
     console.log(this.firstFormGroup.value)
   };
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogoNoAlcoholComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){this.ceroTragos()}
+    });
+  };
+
+  ceroTragos(){
+    console.log('aplicando cero tragos');
+    this.firstFormGroup.patchValue({item2: 0});
+    this.firstFormGroup.patchValue({item3: 0});
+  };
+
+
   congruenciaRespuestasValidator(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
-      if(control.value === 0){this.imprime()}
+      if(control.value === 0){this.openDialog()}
       const forbidden = false;
       return forbidden ? {'error': {value: control.value}} : null;
     };
