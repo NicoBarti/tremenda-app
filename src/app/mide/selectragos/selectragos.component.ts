@@ -20,7 +20,6 @@ export class SelectragosComponent implements OnDestroy {
       subscribe(datos => this.datos = datos)}
 
   ngOnDestroy(){
-    // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
 

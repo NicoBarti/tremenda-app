@@ -22,9 +22,9 @@ export class ContadortragosService {
     return of(this.lista_tragos)
   }
 
-  get_tragosTotales(): number{
-    // if(!this.calculado){return of(undefined)}
-    return this.calculoTragos
+  ceroTragos(): void {
+    let i: any;
+    for(i in this.lista_tragos){this.lista_tragos[i].cant = 0}
   }
 
   suma(indx: number): void {
