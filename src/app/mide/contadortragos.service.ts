@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-
+import { MideComponent} from './mide.component'
 import { Trago } from './trago'
 import { LISTA_TRAGOS } from './lista_tragos'
 
-@Injectable({
-  providedIn: 'root'
-})
 export class ContadortragosService {
 
   lista_tragos = LISTA_TRAGOS
   calculoTragos: number
 
   private tragos_totales = new Subject<number>();
-  // this.tragos_totales.last()
   tragos_totales$ = this.tragos_totales.asObservable()
 
   constructor() { }

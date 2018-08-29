@@ -5,6 +5,8 @@ import {PanelComponent} from './panel/panel.component'
 
 import {InfoComponent} from './info/info.component'
 import {MideComponent} from './mide/mide.component'
+import {MetasComponent} from './metas/metas.component'
+
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 
 
@@ -18,6 +20,8 @@ const routes: Routes = [
   component: MideComponent,        },
   {path: 'p2',
   component: SelectragosComponent},
+  {path: 'metas',
+  component: MetasComponent},
 
   {path: '**', redirectTo: 'panel' },
  ];

@@ -14,6 +14,7 @@ import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-mide',
+  providers: [ ContadortragosService],
   templateUrl: './mide.component.html',
   styleUrls: ['./mide.component.css']
 })
@@ -67,8 +68,6 @@ export class MideComponent implements OnInit, OnDestroy {
       'item2': new FormControl('', Validators.required),
       'item3': new FormControl('', Validators.required)
     }, { validators: this.congruenciaTragosValidator });
-
-    // this.get_lista_tragos();
   };
 
   ngOnDestroy() {
@@ -78,10 +77,6 @@ export class MideComponent implements OnInit, OnDestroy {
   get item1() { return this.firstFormGroup.get('item1')};
   get item2() { return this.firstFormGroup.get('item2')};
   get item3() { return this.firstFormGroup.get('item3')};
-
-  // get_lista_tragos(){
-  //   this.contadortragosService.get_lista_tragos().
-  //     subscribe(lista_tragos => this.lista_tragos = lista_tragos)}
 
   enviar() {
     console.log(this.firstFormGroup.value);

@@ -18,6 +18,7 @@ import { ListatragosComponent } from './listatragos/listatragos.component';
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
+import { MetasComponent } from './metas/metas.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-
     ListatragosComponent,
     MideComponent,
     SelectragosComponent,
-    DialogoNoAlcoholComponent
+    DialogoNoAlcoholComponent,
+    MetasComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent
