@@ -1,11 +1,11 @@
 .contenedor{
     overflow: scroll;
-    height: 13em;
-
+    height: 15em;
+    padding: 5px;
 }
 
 .imagen{
-  height: 40px;
+  height: 35px;
 }
 
 .contador{

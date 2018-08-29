@@ -15,12 +15,7 @@ const routes: Routes = [
   {path: 'info',
   component: InfoComponent},
   {path: 'mide',
-  component: MideComponent,
-    // children: [
-    //   {path: 'selc',
-    //   component: SelectragosComponent}
-    // ]
-        },
+  component: MideComponent,        },
   {path: 'p2',
   component: SelectragosComponent},
 

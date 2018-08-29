@@ -17,6 +17,7 @@ import { InfoComponent } from './info/info.component';
 import { ListatragosComponent } from './listatragos/listatragos.component';
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
+import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 
 
 @NgModule({
@@ -27,7 +28,11 @@ import { SelectragosComponent } from './mide/selectragos/selectragos.component';
     InfoComponent,
     ListatragosComponent,
     MideComponent,
-    SelectragosComponent
+    SelectragosComponent,
+    DialogoNoAlcoholComponent
+  ],
+  entryComponents: [
+    DialogoNoAlcoholComponent
   ],
   imports: [
     BrowserModule,
