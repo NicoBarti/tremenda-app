@@ -30,7 +30,7 @@
         <h4 class="texto-p">¿Con qué frecuencia en el último año ha tomado 5 o más tragos en una ocasión?</h4>
         <mat-radio-button class="p-radio-button" *ngFor="let p of p3" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
-      <div class="siguiente-button"><button (click)="imprime()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
   </mat-step>
 
 </mat-horizontal-stepper>

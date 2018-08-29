@@ -12,7 +12,6 @@ import { Subscription }   from 'rxjs';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {MatSnackBar} from '@angular/material';
 
-
 @Component({
   selector: 'app-mide',
   templateUrl: './mide.component.html',
@@ -24,6 +23,20 @@ export class MideComponent implements OnInit, OnDestroy {
   firstFormGroup: FormGroup;
   lista_tragos: Trago[] = [];
   subscription: Subscription;
+
+
+  congruenciaTragosValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+    // console.log('corriendo congruenciaTragosValidator')
+  const item2 = control.get('item2');
+  const item3 = control.get('item3');
+  var forbidden = false;
+    if(item2.value >= 5 && item3.value < 1 && item2.status == "VALID" && item3.status == "VALID" ){
+      forbidden = true;
+      this.mensaje();
+
+  return forbidden ? { 'incongruencia': true } : null;
+  };
+  }
 
   constructor( public dialog: MatDialog,
                public snackBar: MatSnackBar,
@@ -55,7 +68,7 @@ export class MideComponent implements OnInit, OnDestroy {
       'item3': new FormControl('', Validators.required)
     }, { validators: this.congruenciaTragosValidator });
 
-    this.get_lista_tragos();
+    // this.get_lista_tragos();
   };
 
   ngOnDestroy() {
@@ -66,45 +79,39 @@ export class MideComponent implements OnInit, OnDestroy {
   get item2() { return this.firstFormGroup.get('item2')};
   get item3() { return this.firstFormGroup.get('item3')};
 
-  get_lista_tragos(){
+  // get_lista_tragos(){
+  //   this.contadortragosService.get_lista_tragos().
+  //     subscribe(lista_tragos => this.lista_tragos = lista_tragos)}
+
+  enviar() {
+    console.log(this.firstFormGroup.value);
     this.contadortragosService.get_lista_tragos().
-      subscribe(lista_tragos => this.lista_tragos = lista_tragos)}
+        subscribe(lista_tragos => {this.lista_tragos = lista_tragos;
+        console.log(this.lista_tragos)})
+  }
 
-  imprime() {
-    console.log(this.firstFormGroup.value)};
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogoNoAlcoholComponent, {
-      width: '250px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){this.ceroTragos()}
-    });
-  };
-
-  ceroTragos(){
-    this.firstFormGroup.patchValue({item2: 0});
-    this.firstFormGroup.patchValue({item3: 0});
-    this.contadortragosService.ceroTragos();
-  };
+  mensaje(){
+  this.snackBar.open('Usted consume 5 o más tragos en una ocasion típica','revise respuestas',{duration: 3000});
+  }
 
   interceptaP1Validator(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
-      if(control.value === 0){this.openDialog()}
+      if(control.value === 0){
+            const dialogRef = this.dialog.open(DialogoNoAlcoholComponent, {
+              width: '250px',
+            });
+            dialogRef.afterClosed().subscribe(result => {
+              if(result){
+                this.firstFormGroup.patchValue({item2: 0});
+                this.firstFormGroup.patchValue({item3: 0});
+                this.contadortragosService.ceroTragos();
+                this.enviar();
+              }
+                else{control.reset()}
+            });
+      }
       const forbidden = false;
       return forbidden ? {'error': {value: control.value}} : null;
     };
   }
-
-  const congruenciaTragosValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
-  const item2 = control.get('item2');
-  const item3 = control.get('item3');
-  const forbidden = false;
-    if(item2.value >= 5 && item3.value < 1 && item2.status == "VALID" && item3.status == "VALID" ){
-      forbidden = true;
-      this.snackBarRef = snackBar.open('Usted consume 5 o más tragos en una ocasion típica','revise respuestas',{duration: 3000});
-
-  return forbidden ? { 'incongruencia': true } : null;
-  };
-
 }

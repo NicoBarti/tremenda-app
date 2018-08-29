@@ -9,11 +9,11 @@ import  {MatDialogRef} from '@angular/material';
 })
 export class DialogoNoAlcoholComponent {
 
-respuesta: <boolean> = false
+respuesta: boolean = false
 
   constructor(public dialogRef: MatDialogRef<DialogoNoAlcoholComponent>){}
-
     onNoClick(): void {
+
         this.dialogRef.close(this.respuesta);
       }
 }
