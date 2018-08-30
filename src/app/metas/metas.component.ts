@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PerfilConsumoService} from '../servicios/perfil-consumo.service'
 
 @Component({
   selector: 'app-metas',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MetasComponent implements OnInit {
 
-  constructor( ) { }
+  constructor( public perfilConsumoService: PerfilConsumoService) { }
 
   ngOnInit() {
+  console.log(this.perfilConsumoService.get_perfil_consumo())
   }
+
+clic() {
+  console.log(this.perfilConsumoService.get_perfil_consumo())
+
+}
+
 
 }

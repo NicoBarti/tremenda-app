@@ -19,19 +19,23 @@ import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 import { MetasComponent } from './metas/metas.component';
+import { VistaComponent } from './vista/vista.component';
 
+import { PerfilConsumoService } from './servicios/perfil-consumo.service'
+
+// import { MideModule } from './mide/mide.module'
+// import { MetasModule} from './metas/metas.module'
+import {VistaModule} from './vista.module'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavegacionComponent,
-    PanelComponent,
+    // PanelComponent,
     InfoComponent,
     ListatragosComponent,
-    MideComponent,
-    SelectragosComponent,
     DialogoNoAlcoholComponent,
-    MetasComponent
+    // VistaComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent
@@ -41,9 +45,13 @@ import { MetasComponent } from './metas/metas.component';
     BrowserAnimationsModule,
     LayoutModule,
     ModuloMaterial,
-    OHRoutingModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    VistaModule,
+    // MideModule,
+    // MetasModule,
+    OHRoutingModule,
+],
   providers: [],
   bootstrap: [AppComponent]
 })

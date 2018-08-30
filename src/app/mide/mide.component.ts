@@ -5,6 +5,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Trago } from './trago'
 import { ContadortragosService} from './contadortragos.service'
+import { PerfilConsumoService} from '../servicios/perfil-consumo.service'
+
+
 import { DialogoNoAlcoholComponent} from './dialogo-no-alcohol/dialogo-no-alcohol.component'
 
 import { Subscription }   from 'rxjs';
@@ -14,7 +17,7 @@ import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-mide',
-  providers: [ ContadortragosService],
+  // providers: [ ContadortragosService],
   templateUrl: './mide.component.html',
   styleUrls: ['./mide.component.css']
 })
@@ -41,7 +44,8 @@ export class MideComponent implements OnInit, OnDestroy {
 
   constructor( public dialog: MatDialog,
                public snackBar: MatSnackBar,
-              private contadortragosService: ContadortragosService) {
+              private contadortragosService: ContadortragosService,
+              private perfilConsumoService: PerfilConsumoService) {
                 this.subscription = contadortragosService.tragos_totales$.subscribe(
                   datos =>  this.firstFormGroup.patchValue({item2: datos}))
               }
@@ -82,7 +86,11 @@ export class MideComponent implements OnInit, OnDestroy {
     console.log(this.firstFormGroup.value);
     this.contadortragosService.get_lista_tragos().
         subscribe(lista_tragos => {this.lista_tragos = lista_tragos;
-        console.log(this.lista_tragos)})
+        console.log(this.lista_tragos);
+      console.log('llamando a peril-PerfilConsumoService');
+      this.perfilConsumoService.set_perfil_consumo(this.firstFormGroup.value, this.lista_tragos);
+      console.log('desde mide'+this.perfilConsumoService.get_perfil_consumo())
+    })
   }
 
   mensaje(){
