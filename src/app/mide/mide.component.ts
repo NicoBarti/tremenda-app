@@ -4,20 +4,19 @@ import { FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, Valid
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Trago } from './trago'
-import { ContadortragosService} from './contadortragos.service'
-import { PerfilConsumoService} from '../servicios/perfil-consumo.service'
+import { ContadortragosService } from './contadortragos.service'
+import { PerfilConsumoService } from '../servicios/perfil-consumo.service'
 
-
-import { DialogoNoAlcoholComponent} from './dialogo-no-alcohol/dialogo-no-alcohol.component'
+import { DialogoNoAlcoholComponent } from './dialogo-no-alcohol/dialogo-no-alcohol.component'
 
 import { Subscription }   from 'rxjs';
 
-import {MatDialog, MatDialogRef} from '@angular/material';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatDialogRef } from '@angular/material';
+import {MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-mide',
-  // providers: [ ContadortragosService],
+  providers: [ContadortragosService ],
   templateUrl: './mide.component.html',
   styleUrls: ['./mide.component.css']
 })
@@ -67,6 +66,7 @@ export class MideComponent implements OnInit, OnDestroy {
     ];
 
   ngOnInit() {
+    this.contadortragosService.ceroTragos();
     this.firstFormGroup = new FormGroup ({
       'item1': new FormControl('', [Validators.required, this.interceptaP1Validator()]),
       'item2': new FormControl('', Validators.required),
@@ -83,13 +83,9 @@ export class MideComponent implements OnInit, OnDestroy {
   get item3() { return this.firstFormGroup.get('item3')};
 
   enviar() {
-    console.log(this.firstFormGroup.value);
     this.contadortragosService.get_lista_tragos().
         subscribe(lista_tragos => {this.lista_tragos = lista_tragos;
-        console.log(this.lista_tragos);
-      console.log('llamando a peril-PerfilConsumoService');
       this.perfilConsumoService.set_perfil_consumo(this.firstFormGroup.value, this.lista_tragos);
-      console.log('desde mide'+this.perfilConsumoService.get_perfil_consumo())
     })
   }
 

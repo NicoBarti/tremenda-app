@@ -7,6 +7,10 @@ import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent} from './mide/selectragos/selectragos.component'
 import { PanelComponent } from './panel/panel.component'
 
+import { ConsejosComponent } from './consejos/consejos.component'
+import { BajoComponent } from './consejos/bajo/bajo.component'
+import { MedioComponent } from './consejos/medio/medio.component'
+import { AltoComponent } from './consejos/alto/alto.component'
 
 const vistaRoutes: Routes = [
   {
@@ -20,6 +24,18 @@ const vistaRoutes: Routes = [
       {
         path: 'metas',
         component: MetasComponent
+      },
+      {
+        path: 'consejos',
+        component: ConsejosComponent,
+        children: [
+          {path: 'bajo',
+          component: BajoComponent},
+          {path: 'medio',
+          component: MedioComponent},
+          {path: 'alto',
+          component: AltoComponent}
+        ]
       },
       {
         path: '',

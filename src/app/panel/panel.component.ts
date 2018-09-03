@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class PanelComponent {
   cards = [
     { title: 'Mide tu consumo', cols: 1, rows: 1, route: 'mide', img: "/../../assets/imagenes/gauge-type1-20-500px.png" },
-    { title: 'Consejos para ti', cols: 1, rows: 1, route: 'p2', img: "/../../assets/imagenes/bombilla.png" },
+    { title: 'Consejos para ti', cols: 1, rows: 1, route: 'consejos', img: "/../../assets/imagenes/bombilla.png" },
     { title: 'Metas personales', cols: 1, rows: 1, route: 'metas', img: "/../../assets/imagenes/meta.png"},
     { title: 'Información', cols: 1, rows: 1, route: 'info', img: "/../../assets/imagenes/info.png" },
   ];

@@ -17,15 +17,21 @@ import { InfoComponent } from './info/info.component';
 import { ListatragosComponent } from './listatragos/listatragos.component';
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
-import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 import { MetasComponent } from './metas/metas.component';
-import { VistaComponent } from './vista/vista.component';
+import { VistaComponent } from './vista.component';
 
 import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 
 // import { MideModule } from './mide/mide.module'
 // import { MetasModule} from './metas/metas.module'
-import {VistaModule} from './vista.module'
+import {VistaModule} from './vista.module';
+import { ConsejosComponent } from './consejos/consejos.component';
+import { BajoComponent } from './consejos/bajo/bajo.component';
+import { MedioComponent } from './consejos/medio/medio.component';
+import { AltoComponent } from './consejos/alto/alto.component';
+
+import { DialogoMidaPrimeroComponent } from './consejos/dialogo-mida-primero/dialogo-mida-primero.component'
+import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +41,16 @@ import {VistaModule} from './vista.module'
     InfoComponent,
     ListatragosComponent,
     DialogoNoAlcoholComponent,
+    DialogoMidaPrimeroComponent,
+    // BajoComponent,
+    // MedioComponent,
+    // AltoComponent,
+    // ConsejosComponent,
     // VistaComponent
   ],
   entryComponents: [
-    DialogoNoAlcoholComponent
+    DialogoNoAlcoholComponent,
+    DialogoMidaPrimeroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { MideComponent} from './mide.component'
+// import { MideComponent} from './mide.component'
+// import { SelectragosComponent } from './slectragos/selectragos.component'
 import { Trago } from './trago'
 import { LISTA_TRAGOS } from './lista_tragos'
+
 
 export class ContadortragosService {
 
