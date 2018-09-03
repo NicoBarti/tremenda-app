@@ -30,9 +30,7 @@ export class ConsejosComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result => {
       this.router.navigate(['/vista/mide'])
-      }
-    })
-
+      })
   }
 
-}
+  }
