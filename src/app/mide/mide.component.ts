@@ -65,12 +65,71 @@ export class MideComponent implements OnInit, OnDestroy {
       {puntaje: 4, texto: 'A diario o casi a diario'}
     ];
 
+    p4 = [
+      {puntaje: 0, texto: 'Nunca'},
+      {puntaje: 1, texto: 'Menos de una vez al mes'},
+      {puntaje: 2, texto: 'Mensualmente'},
+      {puntaje: 3, texto: 'Semanalmente'},
+      {puntaje: 4, texto: 'A diario o casi a diario'}
+    ];
+
+    p5 = [
+      {puntaje: 0, texto: 'Nunca'},
+      {puntaje: 1, texto: 'Menos de una vez al mes'},
+      {puntaje: 2, texto: 'Mensualmente'},
+      {puntaje: 3, texto: 'Semanalmente'},
+      {puntaje: 4, texto: 'A diario o casi a diario'}
+    ];
+
+    p6 = [
+      {puntaje: 0, texto: 'Nunca'},
+      {puntaje: 1, texto: 'Menos de una vez al mes'},
+      {puntaje: 2, texto: 'Mensualmente'},
+      {puntaje: 3, texto: 'Semanalmente'},
+      {puntaje: 4, texto: 'A diario o casi a diario'}
+    ];
+
+    p7 = [
+      {puntaje: 0, texto: 'Nunca'},
+      {puntaje: 1, texto: 'Menos de una vez al mes'},
+      {puntaje: 2, texto: 'Mensualmente'},
+      {puntaje: 3, texto: 'Semanalmente'},
+      {puntaje: 4, texto: 'A diario o casi a diario'}
+    ];
+
+    p8 = [
+      {puntaje: 0, texto: 'Nunca'},
+      {puntaje: 1, texto: 'Menos de una vez al mes'},
+      {puntaje: 2, texto: 'Mensualmente'},
+      {puntaje: 3, texto: 'Semanalmente'},
+      {puntaje: 4, texto: 'A diario o casi a diario'}
+    ];
+
+    p9 = [
+      {puntaje: 0, texto: 'No'},
+      {puntaje: 2, texto: 'Sí, pero no el curso del último año'},
+      {puntaje: 4, texto: 'Sí, el último año'}
+    ];
+
+    p10 = [
+      {puntaje: 0, texto: 'No'},
+      {puntaje: 2, texto: 'Sí, pero no el curso del último año'},
+      {puntaje: 4, texto: 'Sí, el último año'}
+    ];
+
   ngOnInit() {
     this.contadortragosService.ceroTragos();
     this.firstFormGroup = new FormGroup ({
       'item1': new FormControl('', [Validators.required, this.interceptaP1Validator()]),
       'item2': new FormControl('', Validators.required),
-      'item3': new FormControl('', Validators.required)
+      'item3': new FormControl('', Validators.required),
+      'item4': new FormControl('', Validators.required),
+      'item5': new FormControl('', Validators.required),
+      'item6': new FormControl('', Validators.required),
+      'item7': new FormControl('', Validators.required),
+      'item8': new FormControl('', Validators.required),
+      'item9': new FormControl('', Validators.required),
+      'item10': new FormControl('', Validators.required)
     }, { validators: this.congruenciaTragosValidator });
   };
 

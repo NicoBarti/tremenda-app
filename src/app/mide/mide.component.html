@@ -1,6 +1,6 @@
 
 <mat-card>
-  <mat-card-title>Mide tu consumo</mat-card-title>
+  <!-- <mat-card-title>Mide tu consumo</mat-card-title> -->
 
 <form [formGroup]="firstFormGroup">
 
@@ -29,6 +29,69 @@
       <mat-radio-group class="p-radio-group" formControlName="item3">
         <h4 class="texto-p">¿Con qué frecuencia en el último año ha tomado 5 o más tragos en una ocasión?</h4>
         <mat-radio-button class="p-radio-button" *ngFor="let p of p3" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item4">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item4">
+        <h4 class="texto-p">En el curso del último año, ¿Con qué frecuencia ha sido incapaz de parar de beber una vez que había empezado?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p4" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item5">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item5">
+        <h4 class="texto-p">En el curso del último año, ¿Con qué frecuencia no pudo hacer lo que se esperaba de usted porque había bebido?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p5" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item6">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item6">
+        <h4 class="texto-p">En el curso del último año, ¿Con qué frecuencia ha necesitado beber en ayunas para recuperarse después de haber bebido mucho el día anterior?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p6" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item7">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item7">
+        <h4 class="texto-p">En el curso del último año, ¿Con qué frecuencia ha tenido remordimientos o sentimientos de culpa después de haber bebido?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p7" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item8">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item8">
+        <h4 class="texto-p">En el curso del último año, ¿Con qué frecuencia no ha podido recordar lo que sucedió la noche anterior porque había estado bebiendo?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p8" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item9">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item9">
+        <h4 class="texto-p">¿Usted o alguna otra persona ha resultado herido porque usted había bebido?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p9" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+      </mat-radio-group>
+      <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
+  </mat-step>
+
+  <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item10">
+      <ng-template matStepLabel></ng-template>
+      <mat-radio-group class="p-radio-group" formControlName="item10">
+        <h4 class="texto-p">¿Algún familiar, amigo, médico o profesional de la salud ha mostrado preocupación por su consumo de bebidas alcohólicas o le han sugerido que deje de beber?</h4>
+        <mat-radio-button class="p-radio-button" *ngFor="let p of p10" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
       <div class="siguiente-button"><button (click)="enviar()" mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Terminar</button></div>
   </mat-step>
