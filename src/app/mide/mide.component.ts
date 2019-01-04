@@ -131,6 +131,7 @@ export class MideComponent implements OnInit, OnDestroy {
       'item9': new FormControl('', Validators.required),
       'item10': new FormControl('', Validators.required)
     }, { validators: this.congruenciaTragosValidator });
+
   };
 
   ngOnDestroy() {
@@ -140,6 +141,14 @@ export class MideComponent implements OnInit, OnDestroy {
   get item1() { return this.firstFormGroup.get('item1')};
   get item2() { return this.firstFormGroup.get('item2')};
   get item3() { return this.firstFormGroup.get('item3')};
+  get item4() { return this.firstFormGroup.get('item4')};
+  get item5() { return this.firstFormGroup.get('item5')};
+  get item6() { return this.firstFormGroup.get('item6')};
+  get item7() { return this.firstFormGroup.get('item7')};
+  get item8() { return this.firstFormGroup.get('item8')};
+  get item9() { return this.firstFormGroup.get('item9')};
+  get item10() { return this.firstFormGroup.get('item10')};
+
 
   enviar() {
     this.contadortragosService.get_lista_tragos().
