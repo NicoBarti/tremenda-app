@@ -21,8 +21,8 @@ import {MideRoutingModule} from './mide-routing.module'
     MideRoutingModule
   ],
   declarations: [
-    MideComponent,
-    SelectragosComponent
+    // MideComponent,
+    // SelectragosComponent
 
   ],
   providers: [ ContadortragosService ]

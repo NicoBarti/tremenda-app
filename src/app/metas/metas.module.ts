@@ -3,7 +3,7 @@ import { CommonModule }   from '@angular/common';
 
 import { ModuloMaterial} from '../moduloMaterial'
 
-import { MetasComponent } from './metas.component';
+// import { MetasComponent } from './metas.component';
 
 import { MetasRoutingModule } from './metas-routing.module'
 
@@ -14,7 +14,7 @@ import { MetasRoutingModule } from './metas-routing.module'
     MetasRoutingModule
   ],
   declarations: [
-    MetasComponent,
+    // MetasComponent,
 
   ],
   providers: [  ]
