@@ -25,13 +25,18 @@ import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 // import { MideModule } from './mide/mide.module'
 // import { MetasModule} from './metas/metas.module'
 import {VistaModule} from './vista.module';
-import { ConsejosComponent } from './consejos/consejos.component';
-import { BajoComponent } from './consejos/bajo/bajo.component';
-import { MedioComponent } from './consejos/medio/medio.component';
-import { AltoComponent } from './consejos/alto/alto.component';
+// import { ConsejosComponent } from './consejos/consejos.component';
+// import { BajoComponent } from './consejos/bajo/bajo.component';
+// import { MedioComponent } from './consejos/medio/medio.component';
+// import { AltoComponent } from './consejos/alto/alto.component';
 
 import { DialogoMidaPrimeroComponent } from './consejos/dialogo-mida-primero/dialogo-mida-primero.component'
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
+
+import { DatosComponent } from './datos/datos.component'
+
+import { UsuarioComponent } from './usuario/usuario.component'
+
 
 @NgModule({
   declarations: [
@@ -47,6 +52,8 @@ import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-
     // AltoComponent,
     // ConsejosComponent,
     // VistaComponent
+    DatosComponent,
+    UsuarioComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,

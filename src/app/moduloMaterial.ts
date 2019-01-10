@@ -9,6 +9,8 @@ import {MatIconModule} from '@angular/material/icon'
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -27,7 +29,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   MatRadioModule,
   MatTableModule,
   MatDialogModule,
-  MatSnackBarModule],
+  MatSnackBarModule,
+  MatFormFieldModule,
+  MatSelectModule],
   exports: [MatToolbarModule,
   MatButtonModule,
   MatSidenavModule,
@@ -42,6 +46,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   MatRadioModule,
   MatTableModule,
   MatDialogModule,
-  MatSnackBarModule],
+  MatSnackBarModule,
+  MatFormFieldModule,
+  MatSelectModule],
 })
 export class ModuloMaterial { }

@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class PanelComponent {
   cards = [
-    { title: 'Comenzar', cols: 1, rows: 1, route: 'mide', img: "/../../assets/imagenes/gauge-type1-20-500px.png" }
+    { title: 'Comenzar', cols: 1, rows: 1, route: 'usuario', img: "/../../assets/imagenes/gauge-type1-20-500px.png" },
+    { title: 'RescateDatos', cols: 1, rows: 1, route: 'datos', img: "/../../assets/imagenes/bombilla.png" }
+
   ];
 }

@@ -1,0 +1,30 @@
+
+<mat-card class="carta">
+  <mat-card-header>
+    <mat-card-title>Antes de comenzar</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form [formGroup]="opciones">
+      <mat-form-field class="contenedor" >
+        <input matInput type="number" placeholder="Edad" class="inputEdad" formControlName="edad">
+      </mat-form-field>
+      <h5 class="alerta" *ngIf="edad.invalid && !edad.pristine">Debes ser mayor de 15 años para responder esta encuesta, gracias.</h5>
+
+      <mat-form-field class="contenedor">
+        <mat-select placeholder="Sexo" formControlName="sexo">
+          <mat-option value="femenino">Femenino</mat-option>
+          <mat-option value="masculino">Masculino</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      <button mat-button color="primary" type="submit" [disabled]="!opciones.valid" (click)="enviar()" routerLink="/vista/mide">
+              Enviar</button>
+
+    </form>
+
+    <br>
+
+
+  </mat-card-content>
+</mat-card>
