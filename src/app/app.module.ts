@@ -32,6 +32,8 @@ import {VistaModule} from './vista.module';
 
 import { DialogoMidaPrimeroComponent } from './consejos/dialogo-mida-primero/dialogo-mida-primero.component'
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
+import { DialogoGraciasComponent } from './mide/dialogo-gracias/dialogo-gracias.component';
+
 
 import { DatosComponent } from './datos/datos.component'
 
@@ -47,6 +49,7 @@ import { UsuarioComponent } from './usuario/usuario.component'
     ListatragosComponent,
     DialogoNoAlcoholComponent,
     DialogoMidaPrimeroComponent,
+    DialogoGraciasComponent,
     // BajoComponent,
     // MedioComponent,
     // AltoComponent,
@@ -57,7 +60,8 @@ import { UsuarioComponent } from './usuario/usuario.component'
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,
-    DialogoMidaPrimeroComponent
+    DialogoMidaPrimeroComponent,
+    DialogoGraciasComponent
   ],
   imports: [
     BrowserModule,

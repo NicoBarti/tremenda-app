@@ -9,6 +9,8 @@ import { PerfilConsumoService } from '../servicios/perfil-consumo.service'
 
 import { DialogoNoAlcoholComponent } from './dialogo-no-alcohol/dialogo-no-alcohol.component'
 
+import { DialogoGraciasComponent } from './dialogo-gracias/dialogo-gracias.component'
+
 import { Subscription }   from 'rxjs';
 
 import {MatDialog, MatDialogRef } from '@angular/material';
@@ -26,7 +28,6 @@ export class MideComponent implements OnInit, OnDestroy {
   firstFormGroup: FormGroup;
   lista_tragos: Trago[] = [];
   subscription: Subscription;
-
 
   congruenciaTragosValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
     // console.log('corriendo congruenciaTragosValidator')
@@ -157,9 +158,11 @@ export class MideComponent implements OnInit, OnDestroy {
     })
   }
 
+
   mensaje(){
   this.snackBar.open('Usted consume 5 o más tragos en una ocasion típica','revise respuestas',{duration: 3000});
   }
+
 
   interceptaP1Validator(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
@@ -180,5 +183,12 @@ export class MideComponent implements OnInit, OnDestroy {
       const forbidden = false;
       return forbidden ? {'error': {value: control.value}} : null;
     };
+  }
+
+
+  gracias() {
+    const dialogRef = this.dialog.open(DialogoGraciasComponent, {
+      width: '250px',
+    });
   }
 }

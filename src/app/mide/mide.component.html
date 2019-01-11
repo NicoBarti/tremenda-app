@@ -12,7 +12,7 @@
         <h4 class="texto-p">¿Con qué frecuencia ha consumido alguna bebida que contenía alcohol en el último año?</h4>
         <mat-radio-button class="p-radio-button" *ngFor="let p of p1" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
-      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="item1.invalid"  >Siguiente</button></div>
+      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="item1.invalid">Siguiente</button></div>
   </mat-step>
 
   <mat-step class="mat-stepper" [stepControl]="firstFormGroup.controls.item2">
@@ -93,7 +93,7 @@
         <h4 class="texto-p">¿Algún familiar, amigo, médico o profesional de la salud ha mostrado preocupación por su consumo de bebidas alcohólicas o le han sugerido que deje de beber?</h4>
         <mat-radio-button class="p-radio-button" *ngFor="let p of p10" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
       </mat-radio-group>
-      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid"  >Finalizar</button></div>
+      <div class="siguiente-button"><button mat-button color="primary" matStepperNext type="button" [disabled]="firstFormGroup.invalid" (click)="gracias()" >Finalizar</button></div>
   </mat-step>
 
 </mat-horizontal-stepper>
