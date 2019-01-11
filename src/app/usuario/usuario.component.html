@@ -7,22 +7,23 @@
 
     <form [formGroup]="opciones">
       <mat-form-field>
-        <mat-label style="font-size: 2em;">Edad</mat-label>
-        <input style="font-size: 2em;"
+        <mat-label style="font-size: 1em;">Edad</mat-label>
+        <input style="font-size: 1em;"
              class="mat-h1" matInput type="number"  formControlName="edad">
       </mat-form-field>
       <h2 class="alerta" *ngIf="edad.invalid && !edad.pristine">Debes ser mayor de 15 años para responder esta encuesta, gracias.</h2>
-
+<br>
       <mat-form-field>
-          <mat-label style="font-size: 2em;">Sexo</mat-label>
+          <mat-label style="font-size: 1em;">Sexo</mat-label>
         <mat-select formControlName="sexo">
-          <mat-option style="font-size: 2em;" value="femenino">Femenino</mat-option>
-          <mat-option style="font-size: 2em;" value="masculino">Masculino</mat-option>
+          <mat-option style="font-size: 1em;" value="femenino">Femenino</mat-option>
+          <mat-option style="font-size: 1em;" value="masculino">Masculino</mat-option>
 
         </mat-select>
       </mat-form-field>
+<br>
       <button mat-button color="primary" type="submit" [disabled]="!opciones.valid" (click)="enviar()" routerLink="/vista/mide">
-              <h1>Enviar</h1></button>
+              <h2>Enviar</h2></button>
 
     </form>
 

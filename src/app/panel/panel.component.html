@@ -1,7 +1,7 @@
 <div class="grid-container">
   <mat-grid-list cols="1" rowHeight="7em" >
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card" routerLink="{{card.route}}">
+      <mat-card (click)="openFullscreen()" class="dashboard-card" routerLink="{{card.route}}">
         <mat-card-header>
           <mat-card-title> {{card.title}} </mat-card-title>
           <img mat-card-avatar src={{card.img}}>
