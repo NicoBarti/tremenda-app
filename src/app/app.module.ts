@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
@@ -65,6 +67,7 @@ import { UsuarioComponent } from './usuario/usuario.component'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
     ModuloMaterial,
@@ -74,6 +77,7 @@ import { UsuarioComponent } from './usuario/usuario.component'
     // MideModule,
     // MetasModule,
     OHRoutingModule,
+
 ],
   providers: [],
   bootstrap: [AppComponent]

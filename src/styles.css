@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* @import '~@angular/material/theming'; */
+
 body { margin: 0; }
+
+
+
+
+/* $custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-4: mat-typography-level(19px, 24px, 500)
+); */
