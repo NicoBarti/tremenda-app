@@ -4,13 +4,12 @@
 
 /* @import '~@angular/material/theming'; */
 
-body { margin: 0; }
-
-
-
 
 /* $custom-typography: mat-typography-config(
   $font-family: 'Roboto, monospace',
   $headline: mat-typography-level(32px, 48px, 700),
   $body-4: mat-typography-level(19px, 24px, 500)
 ); */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
