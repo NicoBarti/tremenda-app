@@ -1,4 +1,5 @@
 export class Usuario {
   sexo: string;
-  edad: number;
+  fnac: string;
+  id: string;
 }

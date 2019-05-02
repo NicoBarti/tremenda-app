@@ -1,7 +1,7 @@
 
 <mat-card class="mat-typography">
   <mat-card-header>
-    <mat-card-title>  <h1>Antes de comenzar</h1></mat-card-title>
+    <mat-card-title>  <h1>Datos protocolo</h1></mat-card-title>
   </mat-card-header>
   <mat-card-content>
 
@@ -9,19 +9,23 @@
       <mat-form-field>
         <mat-label style="font-size: 1em;">Edad</mat-label>
         <input style="font-size: 1em;"
-             class="mat-h1" matInput type="number"  formControlName="edad">
+             class="mat-h1" matInput type="date"  formControlName="fnac">
       </mat-form-field>
-      <h2 class="alerta" *ngIf="edad.invalid && !edad.pristine">Debes ser mayor de 15 años para responder esta encuesta, gracias.</h2>
+      <!-- <h2 class="alerta" *ngIf="edad.invalid && !edad.pristine">Debes ser mayor de 15 años para responder esta encuesta, gracias.</h2> -->
 <br>
       <mat-form-field>
           <mat-label style="font-size: 1em;">Sexo</mat-label>
         <mat-select formControlName="sexo">
           <mat-option style="font-size: 1em;" value="femenino">Femenino</mat-option>
           <mat-option style="font-size: 1em;" value="masculino">Masculino</mat-option>
-
         </mat-select>
       </mat-form-field>
 <br>
+      <mat-form-field>
+        <mat-label style="font-size: 1em;">Id</mat-label>
+        <input style="font-size: 1em;"
+             class="mat-h1" matInput type="string"  formControlName="id">
+      </mat-form-field>
       <button mat-button color="primary" type="submit" [disabled]="!opciones.valid" (click)="enviar()" routerLink="/vista/mide">
               <h2>Enviar</h2></button>
 

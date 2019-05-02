@@ -6,8 +6,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import {Usuario} from './usuario'
 
-
-
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -24,15 +22,19 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
     this.opciones = new FormGroup({
       sexo: new FormControl('', Validators.required),
-      edad: new FormControl('', [Validators.min(15), Validators.required])
+      fnac: new FormControl('', Validators.required),
+      id: new FormControl('', Validators.required)
     });
 
   }
 
-  get edad() { return this.opciones.get('edad'); }
+  // get edad() { return this.opciones.get('edad'); }
+  // get f_nac() { return this.opciones.get('f_nac'); }
+
 
   enviar() {
     Object.assign(this.usuario, this.opciones.value)
+    console.log(this.opciones.value)
 
   }
 }
