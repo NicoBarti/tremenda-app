@@ -1,0 +1,24 @@
+img {
+  max-width: 100%;
+  height: 85%;
+}
+
+button {
+  text-align: center;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.gridalto {
+  height: 90vh;
+}
+
+.texto {
+  font-size: 14px;
+}
+
+.saludo {
+  height: 50%
+}

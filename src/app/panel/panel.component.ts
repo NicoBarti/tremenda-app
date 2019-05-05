@@ -12,8 +12,8 @@ export class PanelComponent implements OnInit {
 
 
   cards = [
-    { title: 'Comenzar', cols: 1, rows: 1, route: 'usuario', img: "/../../assets/imagenes/gauge-type1-20-500px.png" },
-    { title: 'RescateDatos', cols: 1, rows: 1, route: 'datos', img: "/../../assets/imagenes/bombilla.png" }
+    { title: 'Nuevo participante', cols: 1, rows: 1, route: 'usuario', img: "/../../assets/imagenes/gauge-type1-20-500px.png" },
+    { title: 'Rescate Datos', cols: 1, rows: 1, route: 'datos', img: "/../../assets/imagenes/bombilla.png" }
 
   ];
 

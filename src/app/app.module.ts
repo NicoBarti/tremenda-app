@@ -21,6 +21,7 @@ import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 import { MetasComponent } from './metas/metas.component';
 import { VistaComponent } from './vista.component';
+import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 
 import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 
@@ -58,7 +59,8 @@ import { UsuarioComponent } from './usuario/usuario.component'
     // ConsejosComponent,
     // VistaComponent
     DatosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    BienvenidaComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,
