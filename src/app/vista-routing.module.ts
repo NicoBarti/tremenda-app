@@ -6,7 +6,9 @@ import { MetasComponent } from './metas/metas.component';
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent} from './mide/selectragos/selectragos.component'
 import { PanelComponent } from './panel/panel.component'
+
 import { BienvenidaComponent} from './bienvenida/bienvenida.component'
+import { ExplicacionComponent} from './bienvenida/explicacion/explicacion.component'
 
 import { DatosComponent } from './datos/datos.component'
 
@@ -57,6 +59,10 @@ const vistaRoutes: Routes = [
       {
         path: 'bienvenida',
         component: BienvenidaComponent
+      },
+      {
+        path: '1',
+        component: ExplicacionComponent
       }
     ]
   }
