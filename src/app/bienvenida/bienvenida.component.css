@@ -23,21 +23,67 @@ button {
   /* height: 50% */
 }
 
-.carousel-item {
-  /* Force to always be block */
-  display: block !important;
-  z-index: 1;
-  position: absolute;
-  transform: translateX(100%);
-  opacity: 0;
-  transition:all  0.2s;
-  visibility: hidden;
+.carousel-fade {
+    .carousel-inner {
+        .carousel-item {
+            /* transition-property: opacity; */
+        }
+
+        /* .carousel-item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        } */
+
+        /* .active,
+        .carousel-fade,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        } */
+
+        /* .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        } */
+    }
+
+    /* .carousel-control {
+        z-index: 2;
+    } */
 }
 
-.carousel-item.active {
-  position: relative;
-  transform: translateX(0);
-  visibility: visible ;
-  opacity: 1;
-  color: blue;
-}
+/* .carousel-fade {
+    .carousel-inner {
+        .carousel-item {
+            transition-property: opacity;
+        }
+
+        .carousel-item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+} */
