@@ -4,6 +4,9 @@ import { CommonModule }   from '@angular/common';
 import { ModuloMaterial} from './moduloMaterial'
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 import { VistaComponent } from './vista.component'
 import { MetasComponent } from './metas/metas.component';
 import { MideComponent } from './mide/mide.component';
@@ -23,7 +26,8 @@ import {VistaRoutingModule} from './vista-routing.module'
     ModuloMaterial,
     FormsModule,
     ReactiveFormsModule,
-    VistaRoutingModule
+    VistaRoutingModule,
+    NgbModule
   ],
   declarations: [
     MideComponent,
