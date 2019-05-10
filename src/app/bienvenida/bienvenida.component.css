@@ -5,6 +5,7 @@ img {
 
 button {
   text-align: center;
+
 }
 
 .titulo {
@@ -12,78 +13,18 @@ button {
 }
 
 .gridalto {
-  height: 90vh;
+  height: 100vh;
 }
 
-.texto {
-  /* font-size: 14px; */
+.saludo{
+  height: 100%;
+  padding-top: 5em;
 }
 
-.saludo {
-  /* height: 50% */
+.contImagen{
+  padding-top: 5em;
 }
 
-.carousel-fade {
-    .carousel-inner {
-        .carousel-item {
-            /* transition-property: opacity; */
-        }
-
-        /* .carousel-item,
-        .active.left,
-        .active.right {
-            opacity: 0;
-        } */
-
-        /* .active,
-        .carousel-fade,
-        .next.left,
-        .prev.right {
-            opacity: 1;
-        } */
-
-        /* .next,
-        .prev,
-        .active.left,
-        .active.right {
-            left: 0;
-            transform: translate3d(0, 0, 0);
-        } */
-    }
-
-    /* .carousel-control {
-        z-index: 2;
-    } */
+.accion{
+  text-align: center;
 }
-
-/* .carousel-fade {
-    .carousel-inner {
-        .carousel-item {
-            transition-property: opacity;
-        }
-
-        .carousel-item,
-        .active.left,
-        .active.right {
-            opacity: 0;
-        }
-
-        .active,
-        .next.left,
-        .prev.right {
-            opacity: 1;
-        }
-
-        .next,
-        .prev,
-        .active.left,
-        .active.right {
-            left: 0;
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    .carousel-control {
-        z-index: 2;
-    }
-} */

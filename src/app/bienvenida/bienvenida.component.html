@@ -1,54 +1,34 @@
 <mat-card color="primary">
     <mat-grid-list cols="1" rowHeight="fit" class="gridalto">
 
-    <mat-grid-tile rowspan="1">
+    <mat-grid-tile rowspan="1" class="contImagen">
       <img src="../../assets/imagenes/MIDETUCONSUMO.png">
     </mat-grid-tile>
 
-    <mat-grid-tile rowspan="2">
+    <mat-grid-tile rowspan="3">
       <mat-card class="saludo">
-        <mat-card-title color="primary" class="titulo">Hola</mat-card-title>
-      <mat-card-content class="texto">
-        <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
-        <p>Esto te tomará menos de 5 minutos.</p>
-        <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
-        <p>Todas tus respuestas son confidenciales</p>
+
+        <h3 color="primary" class="titulo">Hola</h3>
+      <mat-card-content>
+        <br>
+
+          <h5 @myAnimationTrigger1 *ngIf="mostrar1"
+            (@myAnimationTrigger1.done)="onAnimationEvent1($event)">
+            <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
+            <p>Esto te tomará menos de 5 minutos.</p>
+            </h5>
+          <h5 @myAnimationTrigger2 *ngIf="mostrar2"
+            (@myAnimationTrigger2.done)="onAnimationEvent2($event)">
+            <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
+            <p>Todas tus respuestas serán confidenciales.</p></h5>
+
       </mat-card-content>
+
+      <mat-card-actions class="accion">
+        <br>
+        <button mat-raised-button color="accent" routerLink="/vista/mide">CONTINUAR</button>
+        </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
-
-  <mat-grid-tile rowspan="1">
-  <button mat-raised-button color="accent" routerLink="/vista/mide">CONTINUAR</button>
-  </mat-grid-tile>
-
   </mat-grid-list>
 </mat-card>
-
-<div class="container">
-  <ngb-carousel class="carousel-fade">
-    <ng-template ngbSlide>
-      <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
-      <p>Esto te tomará menos de 5 minutos.</p>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
-      <p>Todas tus respuestas son confidenciales</p>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
-      <p>Esto te tomará menos de 5 minutos.</p>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
-      <p>Todas tus respuestas son confidenciales</p>
-    </ng-template>
-    <!-- <ng-template ngbSlide>
-      <p>mira</p>
-
-    </ng-template> -->
-  </ngb-carousel>
-
-</div>
