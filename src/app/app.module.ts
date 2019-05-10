@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -84,7 +84,7 @@ import { UsuarioComponent } from './usuario/usuario.component'
     // MideModule,
     // MetasModule,
     OHRoutingModule,
-    NgbModule.forRoot()
+    // NgbModule.forRoot()
 
 ],
   providers: [],

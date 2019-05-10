@@ -45,7 +45,7 @@ const vistaRoutes: Routes = [
       //   ]
       // },
       {
-        path: '',
+        path: 'panel',
         component: PanelComponent
       },
       {
@@ -57,15 +57,23 @@ const vistaRoutes: Routes = [
         component: UsuarioComponent
       },
       {
-        path: 'bienvenida',
+        path: '',
         component: BienvenidaComponent
       },
       {
         path: '1',
         component: ExplicacionComponent
-      }
-    ]
-  }
+      },
+      {
+        path: '**',
+        component: BienvenidaComponent
+      },
+    ]},
+    {
+      path: '**',
+      component: BienvenidaComponent
+    }
+  
 ]
 
 

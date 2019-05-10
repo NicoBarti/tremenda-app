@@ -5,7 +5,7 @@ import { ModuloMaterial} from './moduloMaterial'
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { VistaComponent } from './vista.component'
@@ -28,7 +28,7 @@ import {VistaRoutingModule} from './vista-routing.module'
     FormsModule,
     ReactiveFormsModule,
     VistaRoutingModule,
-    NgbModule,
+    // NgbModule,
     BrowserAnimationsModule
   ],
   declarations: [

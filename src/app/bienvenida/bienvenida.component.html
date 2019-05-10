@@ -1,34 +1,35 @@
 <mat-card color="primary">
     <mat-grid-list cols="1" rowHeight="fit" class="gridalto">
 
-    <mat-grid-tile rowspan="1" class="contImagen">
+    <mat-grid-tile rowspan="1" >
       <img src="../../assets/imagenes/MIDETUCONSUMO.png">
     </mat-grid-tile>
 
     <mat-grid-tile rowspan="3">
       <mat-card class="saludo">
 
-        <h3 color="primary" class="titulo">Hola</h3>
+        <h3 color="primary" class="titulo mat-display-1">Hola</h3>
       <mat-card-content>
-        <br>
 
           <h5 @myAnimationTrigger1 *ngIf="mostrar1"
-            (@myAnimationTrigger1.done)="onAnimationEvent1($event)">
+            (@myAnimationTrigger1.done)="onAnimationEvent1($event)"
+            class="mat-h3">
             <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
             <p>Esto te tomará menos de 5 minutos.</p>
             </h5>
           <h5 @myAnimationTrigger2 *ngIf="mostrar2"
-            (@myAnimationTrigger2.done)="onAnimationEvent2($event)">
+            (@myAnimationTrigger2.done)="onAnimationEvent2($event)"
+            class="mat-h3">
             <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
             <p>Todas tus respuestas serán confidenciales.</p></h5>
 
       </mat-card-content>
-
-      <mat-card-actions class="accion">
-        <br>
-        <button mat-raised-button color="accent" routerLink="/vista/mide">CONTINUAR</button>
-        </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
+    
+    <mat-grid-tile rowspan="1">
+        <button mat-raised-button color="accent" routerLink="/vista/mide">CONTINUAR</button>
+    </mat-grid-tile>
+
   </mat-grid-list>
 </mat-card>

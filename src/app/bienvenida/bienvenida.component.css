@@ -17,12 +17,8 @@ button {
 }
 
 .saludo{
-  height: 100%;
-  padding-top: 5em;
-}
-
-.contImagen{
-  padding-top: 5em;
+  width: 85%;
+  height: 90%
 }
 
 .accion{

@@ -15,10 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       transition(':enter', [
         // style({ opacity: 0 }),
           style({ transform: 'translateX(-100%)' }),
-        animate('800ms ease-in-out'),
+        animate('800ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-in-out', style({ transform: 'translateX(100%)' }))
+        animate('800ms 2.5s ease-out', style({ transform: 'translateX(100%)' }))
       ])
     ]),
     trigger('myAnimationTrigger2',[
@@ -26,10 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       transition(':enter', [
         // style({ opacity: 0 }),
         style({ transform: 'translateX(-100%)' }),
-        animate('800ms ease-in-out'),
+        animate('800ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-in-out', style({ transform: 'translateX(100%)'}))
+        animate('800ms 2.5s ease-out', style({ transform: 'translateX(100%)'}))
       ])
     ])
   ]
