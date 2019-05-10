@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
