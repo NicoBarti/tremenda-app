@@ -11,25 +11,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   // providers: [NgbCarouselConfig]
   animations: [
     trigger('myAnimationTrigger1',[
-       state('in', style({ transform: 'translateX(0)' })),
+       state('in', style({ opacity: 1 })),
       transition(':enter', [
         // style({ opacity: 0 }),
-          style({ transform: 'translateX(-100%)' }),
+          style({ opacity: 0 }),
         animate('800ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-out', style({ transform: 'translateX(100%)' }))
+        animate('800ms 2.5s ease-out', style({ opacity: 0 }))
       ])
     ]),
     trigger('myAnimationTrigger2',[
-      state('in', style({ transform: 'translateX(0)' })),
+      state('in', style({ opacity: 1 })),
       transition(':enter', [
         // style({ opacity: 0 }),
-        style({ transform: 'translateX(-100%)' }),
+        style({ opacity: 0 }),
         animate('800ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-out', style({ transform: 'translateX(100%)'}))
+        animate('800ms 2.5s ease-out', style({ opacity: 0}))
       ])
     ])
   ]
@@ -41,7 +41,6 @@ export class BienvenidaComponent {
  mostrar2: boolean = false;
 
   constructor(){};
-
 
   onAnimationEvent1 ( event: AnimationEvent ) {
 
