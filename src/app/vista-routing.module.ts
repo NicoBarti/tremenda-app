@@ -12,68 +12,46 @@ import { ExplicacionComponent} from './bienvenida/explicacion/explicacion.compon
 
 import { DatosComponent } from './datos/datos.component'
 
-import { UsuarioComponent } from './usuario/usuario.component'
+import { UsuarioComponent } from './auth/usuario/usuario.component'
 
-// import { ConsejosComponent } from './consejos/consejos.component'
-// import { BajoComponent } from './consejos/bajo/bajo.component'
-// import { MedioComponent } from './consejos/medio/medio.component'
-// import { AltoComponent } from './consejos/alto/alto.component'
+import { AuthGuard }                from './auth/auth.guard';
+
 
 const vistaRoutes: Routes = [
   {
     path: 'vista',
     component: VistaComponent,
+    canActivate: [AuthGuard],
     children: [
-      {
-        path: 'mide',
-        component: MideComponent
-      },
-      // {
-      //   path: 'metas',
-      //   component: MetasComponent
-      // },
-      // {
-      //   path: 'consejos',
-      //   component: ConsejosComponent,
-      //   children: [
-      //     {path: 'bajo',
-      //     component: BajoComponent},
-      //     {path: 'medio',
-      //     component: MedioComponent},
-      //     {path: 'alto',
-      //     component: AltoComponent}
-      //   ]
-      // },
-      {
-        path: 'panel',
-        component: PanelComponent
-      },
-      {
-        path: 'datos',
-        component: DatosComponent
-      },
-      {
-        path: 'usuario',
-        component: UsuarioComponent
-      },
-      {
-        path: '',
-        component: BienvenidaComponent
-      },
-      {
-        path: '1',
-        component: ExplicacionComponent
-      },
-      {
-        path: '**',
-        component: BienvenidaComponent
-      },
+            {
+              path: 'mide',
+              component: MideComponent
+            },
+            {
+              path: 'panel',
+              component: PanelComponent
+            },
+            {
+              path: 'datos',
+              component: DatosComponent
+            },
+            {
+              path: '',
+              component: BienvenidaComponent
+            },
+            {
+              path: '1',
+              component: ExplicacionComponent
+            },
+            {
+              path: '**',
+              component: BienvenidaComponent
+            }
     ]},
     {
-      path: '**',
-      component: BienvenidaComponent
+      path: 'usuario',
+      component: UsuarioComponent
     }
-  
 ]
 
 

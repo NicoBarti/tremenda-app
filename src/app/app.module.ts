@@ -44,7 +44,7 @@ import { DialogoGraciasComponent } from './mide/dialogo-gracias/dialogo-gracias.
 
 import { DatosComponent } from './datos/datos.component'
 
-import { UsuarioComponent } from './usuario/usuario.component'
+import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 
 @NgModule({
