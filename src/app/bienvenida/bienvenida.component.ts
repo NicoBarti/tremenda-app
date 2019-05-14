@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,12 +35,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ]
 })
 
-export class BienvenidaComponent {
+export class BienvenidaComponent implements OnInit{
 
- mostrar1: boolean = true;
- mostrar2: boolean = false;
+  mostrar1: boolean
+  mostrar2: boolean
 
   constructor(){};
+
+  ngOnInit() {
+    this.mostrar1 = true;
+    this.mostrar2 = false;
+  }
 
   onAnimationEvent1 ( event: AnimationEvent ) {
 
