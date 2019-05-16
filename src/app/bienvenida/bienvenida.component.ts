@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,36 +35,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ]
 })
 
-export class BienvenidaComponent implements OnInit{
+export class BienvenidaComponent {
 
-  mostrar1: boolean
-  mostrar2: boolean
+  mostrar1: boolean = true;
+  mostrar2: boolean = false;
+  ciclo: string = '2.b'
 
   constructor(){};
 
-  ngOnInit() {
-    this.mostrar1 = true;
-    this.mostrar2 = false;
+
+  onAnimationEvent ( event: AnimationEvent ) {
+
+//entrada desde trigger1
+ if(event.triggerName == "myAnimationTrigger1"){
+   if(event.fromState === "void" && this.ciclo == '2.b'){
+           this.ciclo = '1.a'
+           this.mostrar1 = !this.mostrar1}
+
+             else if(event.toState === "void" && this.ciclo == '1.a'){
+                    this.ciclo = '1.b'
+                    this.mostrar2 = !this.mostrar2}
+   }
+//entrada desde trigger2
+ else if(event.triggerName == "myAnimationTrigger2"){
+   if(event.fromState === "void" && this.ciclo == '1.b'){
+           this.ciclo = '2.a'
+           this.mostrar2 = !this.mostrar2}
+
+           else if(event.toState === "void" && this.ciclo == '2.a'){
+                  this.ciclo = '2.b'
+                  this.mostrar1 = !this.mostrar1}
   }
-
-  onAnimationEvent1 ( event: AnimationEvent ) {
-
-    if(event.fromState === "void"){
-      this.mostrar1 = !this.mostrar1
-    }
-    else if(event.toState === "void"){
-      this.mostrar2 = !this.mostrar2
-    }
-
   }
-
-  onAnimationEvent2 ( event: AnimationEvent ) {
-    if(event.fromState === "void"){
-      this.mostrar2 = !this.mostrar2
-    }
-    else if(event.toState === "void"){
-      this.mostrar1 = !this.mostrar1
-    }
-  }
-
 }

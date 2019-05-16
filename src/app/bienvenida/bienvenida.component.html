@@ -12,13 +12,13 @@
       <mat-card-content>
 
           <h5 @myAnimationTrigger1 *ngIf="mostrar1"
-            (@myAnimationTrigger1.done)="onAnimationEvent1($event)"
+            (@myAnimationTrigger1.done)="onAnimationEvent($event)"
             class="mat-h3">
             <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
             <p>Esto te tomará menos de 5 minutos.</p>
             </h5>
           <h5 @myAnimationTrigger2 *ngIf="mostrar2"
-            (@myAnimationTrigger2.done)="onAnimationEvent2($event)"
+            (@myAnimationTrigger2.done)="onAnimationEvent($event)"
             class="mat-h3">
             <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
             <p>Todas tus respuestas serán confidenciales.</p></h5>
@@ -26,7 +26,7 @@
       </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-    
+
     <mat-grid-tile rowspan="1">
         <button mat-raised-button color="accent" routerLink="/vista/mide">CONTINUAR</button>
     </mat-grid-tile>
