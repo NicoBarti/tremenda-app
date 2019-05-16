@@ -13,7 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     trigger('myAnimationTrigger1',[
        state('in', style({ opacity: 1 })),
       transition(':enter', [
-        // style({ opacity: 0 }),
           style({ opacity: 0 }),
         animate('800ms ease-in'),
       ]),
