@@ -3,3 +3,11 @@
 .alerta{
   color: red;
 }
+
+.contenedor{
+  margin-top: 3em;
+  margin-left: 3em;
+  height: 90%;
+  width: 60%;
+  text-align: center;
+}

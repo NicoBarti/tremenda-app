@@ -12,7 +12,6 @@ import { ModuloMaterial} from './moduloMaterial'
 
 
 import { OHRoutingModule } from './app-routing.module';
-import { PanelComponent } from './panel/panel.component';
 import { ListatragosComponent } from './listatragos/listatragos.component';
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
@@ -26,12 +25,10 @@ import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 import { DialogoGraciasComponent } from './mide/dialogo-gracias/dialogo-gracias.component';
 
-
-import { DatosComponent } from './datos/datos.component'
-
 import { UsuarioComponent } from './auth/usuario/usuario.component'
 
-import {MideModule} from './mide/mide.module'
+import {MideModule} from './mide/mide.module';
+import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component'
 
 @NgModule({
   declarations: [
@@ -39,10 +36,10 @@ import {MideModule} from './mide/mide.module'
     ListatragosComponent,
     DialogoNoAlcoholComponent,
     DialogoGraciasComponent,
-    DatosComponent,
     UsuarioComponent,
     BienvenidaComponent,
-    ExplicacionComponent
+    ExplicacionComponent,
+    HojaPreguntasComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,
