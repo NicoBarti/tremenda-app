@@ -11,6 +11,9 @@ import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import { AuthGuard }                from './auth/auth.guard';
 
+import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component'
+
+
 const routes: Routes = [
   { path: '',   redirectTo: '/vista', pathMatch: 'full' },
   {
@@ -19,7 +22,7 @@ const routes: Routes = [
     children: [
             {
               path: 'mide',
-              component: MideComponent
+              component: HojaPreguntasComponent
             },
             {
               path: '',

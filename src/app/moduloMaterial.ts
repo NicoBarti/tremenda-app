@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatStepperModule } from '@angular/material';
 import { MatTableModule} from '@angular/material/table';
-// import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon'
@@ -12,7 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 
-// import {MatCardModule} from '@angular/material/card';
+// import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import {MatSelectModule} from '@angular/material/select';
   MatCardModule,
   MatMenuModule,
   MatStepperModule,
-  // MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
   MatTableModule,
@@ -33,7 +31,9 @@ import {MatSelectModule} from '@angular/material/select';
   MatSnackBarModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatCardModule],
+  MatCardModule,
+  // MatIconModule
+],
   exports: [MatToolbarModule,
   MatButtonModule,
   MatSidenavModule,
@@ -43,13 +43,14 @@ import {MatSelectModule} from '@angular/material/select';
   MatCardModule,
   MatMenuModule,
   MatStepperModule,
-  // MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
   MatTableModule,
   MatDialogModule,
   MatSnackBarModule,
   MatFormFieldModule,
-  MatSelectModule],
+  MatSelectModule,
+  // MatIconModule
+],
 })
 export class ModuloMaterial { }
