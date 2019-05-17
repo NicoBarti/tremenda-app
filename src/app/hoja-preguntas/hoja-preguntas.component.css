@@ -17,3 +17,8 @@
 .flecha{
   font-size: 3em;
 }
+
+.contenedor_pregunta{
+  width: 85%;
+  height: 90%;
+}
