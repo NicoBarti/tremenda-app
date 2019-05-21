@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup ,FormControl, Validators } from '@angular/forms';
-
+import {CuestionarioService} from '../cuestionario/cuestionario.service'
+import {SecuenciadorService} from '../secuenciador.service'
+import {Preguntas} from '../cuestionario/preguntas'
 
 @Component({
   selector: 'app-respuestas',
@@ -9,15 +11,10 @@ import { FormGroup ,FormControl, Validators } from '@angular/forms';
 })
 export class RespuestasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cuestionarioService: CuestionarioService,
+              private secuenciadorService: SecuenciadorService) { }
 
-  p1 = [
-    {puntaje: 0,  texto: 'Nunca'},
-    {puntaje: 1,  texto: '1 o menos veces al mes'},
-    {puntaje: 2,  texto: 'De 2 a 4 veces al mes'},
-    {puntaje: 3,  texto: 'De 2 a 3 veces a la semana'},
-    {puntaje: 4,  texto: '4 o más veces a la semana'}
-  ];
+respuestas:any[]
 
   respuestaForm: FormGroup;
 
@@ -25,6 +22,10 @@ export class RespuestasComponent implements OnInit {
     this.respuestaForm  = new FormGroup({
       'item': new FormControl('', Validators.required)
     })
+
+    this.respuestas = this.cuestionarioService.get_auditAlternativas(this.secuenciadorService.get_secuencia())
+
+
   }
 
   get item() { return this.respuestaForm.get('item')};

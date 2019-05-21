@@ -22,7 +22,7 @@ retrocede(actual: number):string{
   return 'ok'
 }
 
-estado():number{
+get_secuencia():number{
   return this.avance
 }
 

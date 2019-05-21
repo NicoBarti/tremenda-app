@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CuestionarioService} from '../cuestionario/cuestionario.service'
+import {SecuenciadorService} from '../secuenciador.service'
+import {Preguntas} from '../cuestionario/preguntas'
 
 @Component({
   selector: 'app-pregunta',
@@ -7,15 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreguntaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cuestionarioService: CuestionarioService,
+              private secuenciadorService: SecuenciadorService ) { }
 
-  pregunta:any[] = [
-     {texto:'¿Con qué frecuencia ha consumido alguna bebida que contenía alcohol durante los últimos 12 meses?', id: 1},
-     {texto:'Qué suele tomar cuando consume alcohol durante el último año?', id:1},
-     {texto:'¿Con qué frecuencia ha tomado 5 o más tragos en una ocasión durante el último año?', id:1},
-  ];
+  pregunta:string
 
   ngOnInit() {
+    this.pregunta = this.cuestionarioService.get_auditPregunta(this.secuenciadorService.get_secuencia())
   }
 
 }
