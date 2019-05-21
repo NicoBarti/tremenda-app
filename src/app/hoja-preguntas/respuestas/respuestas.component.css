@@ -1,0 +1,10 @@
+.p-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.siguiente-button-cont{
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
