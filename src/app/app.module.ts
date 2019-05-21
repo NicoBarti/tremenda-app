@@ -28,7 +28,10 @@ import { DialogoGraciasComponent } from './mide/dialogo-gracias/dialogo-gracias.
 import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import {MideModule} from './mide/mide.module';
-import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component'
+import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
+import { PreguntaComponent } from './hoja-preguntas/pregunta/pregunta.component';
+import { EncabezadoComponent } from './hoja-preguntas/encabezado/encabezado.component';
+import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.componen
     UsuarioComponent,
     BienvenidaComponent,
     ExplicacionComponent,
-    HojaPreguntasComponent
+    HojaPreguntasComponent,
+    PreguntaComponent,
+    EncabezadoComponent,
+    RespuestasComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,

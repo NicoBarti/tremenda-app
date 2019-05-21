@@ -1,0 +1,5 @@
+<form [formGroup]="respuestaForm">
+<mat-radio-group class="p-radio-group" formControlName="item">
+  <mat-radio-button class="mat-h1" *ngFor="let p of p1" [value]="p.puntaje">{{p.texto}}</mat-radio-button>
+</mat-radio-group>
+</form>
