@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent} from './mide/selectragos/selectragos.component'
 
@@ -20,7 +21,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
             {
-              path: 'mide',
+              path: 'mide/:n',
               component: HojaPreguntasComponent
             },
             {

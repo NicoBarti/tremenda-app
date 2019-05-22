@@ -38,11 +38,12 @@ export class CuestionarioService {
  ]
 
 
-get_auditPregunta(secuencia:number):string{
+get_auditPregunta(secuencia:any):string{
   return this.auditItems[secuencia].texto
 }
 
 get_auditAlternativas(secuencia:number):any[]{
+  console.log(secuencia)
   let alternativas:any[] = []
   alternativas[0] = {a: this.auditItems[secuencia].a1, p: this.auditItems[secuencia].p1}
   alternativas[1] = {a: this.auditItems[secuencia].a2, p: this.auditItems[secuencia].p2}

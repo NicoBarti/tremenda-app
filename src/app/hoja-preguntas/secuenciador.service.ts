@@ -7,8 +7,12 @@ export class SecuenciadorService {
 
   constructor() { }
 
- avance:number = 0
+ avance:number
  max:number = 10
+
+set_secuencia(n: any):void{
+  this.avance = n
+}
 
 avanza(actual: number):string {
   if(this.avance == this.max){return 'maximo'}
