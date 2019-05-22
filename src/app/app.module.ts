@@ -17,7 +17,6 @@ import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
-import { ExplicacionComponent } from './bienvenida/explicacion/explicacion.component'
 
 import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 
@@ -41,7 +40,6 @@ import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.comp
     DialogoGraciasComponent,
     UsuarioComponent,
     BienvenidaComponent,
-    ExplicacionComponent,
     HojaPreguntasComponent,
     PreguntaComponent,
     EncabezadoComponent,

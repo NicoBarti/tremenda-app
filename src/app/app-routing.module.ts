@@ -5,7 +5,6 @@ import { MideComponent } from './mide/mide.component';
 import { SelectragosComponent} from './mide/selectragos/selectragos.component'
 
 import { BienvenidaComponent} from './bienvenida/bienvenida.component'
-import { ExplicacionComponent} from './bienvenida/explicacion/explicacion.component'
 
 import { UsuarioComponent } from './auth/usuario/usuario.component'
 
@@ -27,10 +26,6 @@ const routes: Routes = [
             {
               path: '',
               component: BienvenidaComponent
-            },
-            {
-              path: '1',
-              component: ExplicacionComponent
             },
             {
               path: '**',
