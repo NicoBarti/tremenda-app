@@ -25,7 +25,6 @@ respuestas:any[]
 
     this.respuestas = this.cuestionarioService.get_auditAlternativas(this.secuenciadorService.get_secuencia())
 
-
   }
 
   get item() { return this.respuestaForm.get('item')};
