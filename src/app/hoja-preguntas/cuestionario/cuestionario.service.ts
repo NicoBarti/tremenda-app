@@ -118,26 +118,26 @@ export class CuestionarioService {
     a1: 'Nunca',
     a2: 'Sí, pero no el curso del último año',
     a3: 'Sí, durante el último año',
-    a4: undefined,
-    a5: undefined,
+    a4: null,
+    a5: null,
     p1: 0,
     p2: 2,
     p3: 4,
-    p4: undefined,
-    p5: undefined
+    p4: null,
+    p5: null
     },
     {id: 10,
     texto: 'Alguna vez en la vida ¿Algún familiar, amigo, médico o profesional de la salud ha mostrado preocupación por su consumo de bebidas alcohólicas o le han sugerido que deje de beber?',
     a1: 'Nunca',
     a2: 'Sí, pero no el curso del último año',
     a3: 'Sí, durante el último año',
-    a4: undefined,
-    a5: undefined,
+    a4: null,
+    a5: null,
     p1: 0,
     p2: 2,
     p3: 4,
-    p4: undefined,
-    p5: undefined
+    p4: null,
+    p5: null
     }
  ]
 
@@ -146,20 +146,8 @@ get_auditPregunta(secuencia:any):string{
   return this.auditItems[secuencia].texto
 }
 
-get_auditAlternativas(secuencia:number):any[]{
-  let alternativas:any[] = []
-if(this.auditItems[secuencia].a5 === undefined){
-  alternativas[0] = {a: this.auditItems[secuencia].a1, p: this.auditItems[secuencia].p1}
-  alternativas[1] = {a: this.auditItems[secuencia].a2, p: this.auditItems[secuencia].p2}
-  alternativas[2] = {a: this.auditItems[secuencia].a3, p: this.auditItems[secuencia].p3}
-  return alternativas
-  }
-  alternativas[0] = {a: this.auditItems[secuencia].a1, p: this.auditItems[secuencia].p1}
-  alternativas[1] = {a: this.auditItems[secuencia].a2, p: this.auditItems[secuencia].p2}
-  alternativas[2] = {a: this.auditItems[secuencia].a3, p: this.auditItems[secuencia].p3}
-  alternativas[3] = {a: this.auditItems[secuencia].a4, p: this.auditItems[secuencia].p4}
-  alternativas[4] = {a: this.auditItems[secuencia].a5, p: this.auditItems[secuencia].p5}
-  return alternativas
+get_auditAlternativas(secuencia:number):Preguntas{
+  return this.auditItems[secuencia]
 }
 
 }

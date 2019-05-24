@@ -7,6 +7,7 @@ import { Router }      from '@angular/router';
 import { AuthService } from '../auth.service';
 
 import {Usuario} from './usuario'
+import {AlmecenResultadosService} from '../../datos/almecen-resultados.service'
 
 @Component({
   selector: 'app-usuario',
@@ -16,26 +17,22 @@ import {Usuario} from './usuario'
 
 export class UsuarioComponent implements OnInit {
 
-  usuario: Usuario[] = [];
+  // usuario: Usuario[];
   opciones: FormGroup;
 
-  constructor(public authService: AuthService, public router: Router) {}
+  constructor(public authService: AuthService, public router: Router,
+  private almecenResultadosService:AlmecenResultadosService) {}
 
   ngOnInit() {
     this.opciones = new FormGroup({
       sexo: new FormControl('', Validators.required),
       fnac: new FormControl('', Validators.required),
-      id: new FormControl('', Validators.required)
+      userId: new FormControl('', Validators.required)
     });
-
   }
 
-  // get edad() { return this.opciones.get('edad'); }
-  // get f_nac() { return this.opciones.get('f_nac'); }
-
   enviar():void {
-    Object.assign(this.usuario, this.opciones.value)
-    console.log(this.opciones.value)
+    this.almecenResultadosService.guardaUsuario(this.opciones.value)
     this.login()
   }
 
