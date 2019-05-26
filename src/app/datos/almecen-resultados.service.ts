@@ -17,11 +17,9 @@ guardaUsuario(info:Usuario):void{
 }
 
 //Guarda alternativa seleccionada más el id de cada pregunta para un usuario definido arriba
-guardaItem(itemId:string, alt:string,):void{
-  this.audit.push({itemId, alt})
-  let d = new Date()
-  console.log(d.getTime())
-  // console.log(Date.getTime())
+guardaItem(itemId:number, alt:number, tiempo:number):void{
+  this.audit.push({itemId, alt, tiempo})
+  console.log(this.audit)
 }
 
 }

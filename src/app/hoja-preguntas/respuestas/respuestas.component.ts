@@ -3,8 +3,6 @@ import { FormGroup ,FormControl, Validators } from '@angular/forms';
 import {CuestionarioService} from '../cuestionario/cuestionario.service'
 import {SecuenciadorService} from '../secuenciador.service'
 import {Preguntas} from '../cuestionario/preguntas'
-import {AlmecenResultadosService} from '../../datos/almecen-resultados.service'
-// import {Preguntas} from '../cuestionario/preguntas'
 
 @Component({
   selector: 'app-respuestas',
@@ -15,23 +13,23 @@ export class RespuestasComponent implements OnInit {
 
   constructor(private cuestionarioService: CuestionarioService,
               private secuenciadorService: SecuenciadorService,
-              private almecenResultadosService: AlmecenResultadosService) { }
+              ) { }
 
   pregunta:Preguntas
   respuestaForm: FormGroup;
   respuestas:any[] = []
+  tiempoInicio:number
 
 
   ngOnInit() {
-    this.respuestaForm  = new FormGroup({
-      'item': new FormControl('', Validators.required)
-    })
+    this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
 
     this.pregunta = this.cuestionarioService.get_auditAlternativas(this.secuenciadorService.get_secuencia())
 
     this.construyeRespuestas()
 
-    this.almecenResultadosService.guardaItem('hhd','ddd')
+    let d = new Date()
+    this.tiempoInicio = d.getTime()
   }
 
   get item() { return this.respuestaForm.get('item')};
@@ -45,7 +43,11 @@ construyeRespuestas() {
     this.respuestas.push({a: this.pregunta.a4, p: this.pregunta.p4})
     this.respuestas.push({a: this.pregunta.a5, p: this.pregunta.p5})
     }
-
 }
 
+enviar(){
+  let d = new Date()
+  let duracion = d.getTime() - this.tiempoInicio
+  this.secuenciadorService.graba_respuesta(this.pregunta.id, this.item.value, duracion)
+}
 }

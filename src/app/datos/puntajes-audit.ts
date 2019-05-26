@@ -1,4 +1,5 @@
 export class PuntajesAudit {
-  itemId: string;
-  alt: string;
-} 
+  itemId: number;
+  alt: number;
+  tiempo: number;
+}

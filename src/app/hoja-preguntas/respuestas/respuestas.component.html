@@ -2,5 +2,5 @@
 <mat-radio-group class="p-radio-group" formControlName="item">
   <mat-radio-button class="mat-h1" *ngFor="let r of respuestas" [value]="r.p">{{r.a}}</mat-radio-button>
 </mat-radio-group>
-<div class="siguiente-button-cont"><button  mat-raised-button color="accent" type="button" [disabled]="item.invalid">Siguiente</button></div>
+<div class="siguiente-button-cont"><button  mat-raised-button color="accent" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button></div>
 </form>
