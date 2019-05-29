@@ -4,6 +4,9 @@ import {SecuenciadorService} from '../secuenciador.service'
 
 import {Preguntas} from '../cuestionario/preguntas'
 
+import {ActivatedRoute, ParamMap} from '@angular/router'
+import { switchMap } from 'rxjs/operators';
+import {Observable} from 'rxjs'
 
 @Component({
   selector: 'app-pregunta',
@@ -13,15 +16,24 @@ import {Preguntas} from '../cuestionario/preguntas'
 export class PreguntaComponent implements OnInit {
 
   constructor(private cuestionarioService: CuestionarioService,
-              private secuenciadorService: SecuenciadorService
+              private secuenciadorService: SecuenciadorService,
+              private route: ActivatedRoute
 
                ) { }
 
-  pregunta: string
+  pregunta: Observable<Preguntas>
 
   ngOnInit() {
-    this.pregunta = this.cuestionarioService.get_auditPregunta(this.secuenciadorService.get_secuencia())
+
+    this.pregunta = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+         this.cuestionarioService.get_auditPregunta(+params.get('n'))
+      )
+    )
+
 
   }
-
+print(){
+  console.log(this.pregunta)
+}
 }

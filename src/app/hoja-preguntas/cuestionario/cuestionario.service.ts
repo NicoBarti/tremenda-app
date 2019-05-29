@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Preguntas } from './preguntas'
 
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -141,12 +145,17 @@ export class CuestionarioService {
     }
  ]
 
-
-get_auditPregunta(secuencia:any):string{
-  return this.auditItems[secuencia].texto
+get_audit():Observable<Preguntas[]>{
+  return of(this.auditItems)
 }
 
-get_auditAlternativas(secuencia:number):Preguntas{
+get_auditPregunta(secuencia:number) {
+  return this.get_audit().pipe(
+    map((pregunta: Preguntas[]) => pregunta.find(item => item.id === secuencia))
+  )
+}
+
+get_auditAlternativas(secuencia:number) {
   return this.auditItems[secuencia]
 }
 
