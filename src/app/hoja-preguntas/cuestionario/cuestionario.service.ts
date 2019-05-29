@@ -155,21 +155,4 @@ get_auditPregunta(secuencia:number) {
   )
 }
 
-get_auditAlternativas(secuencia:number) {
-  // let respuestas = []
-  // let arr = this.get_audit().pipe(
-  //   map((pregunta: Preguntas[]) => pregunta.find(item => item.id === secuencia))
-  // )
-  // respuestas.push({a: arr.a1, p: arr.p1})
-  // respuestas.push({a: arr.a2, p: arr.p2})
-  // respuestas.push({a: arr.a3, p: arr.p3})
-  // if(arr.a4){
-  //   respuestas.push({a: arr.a4, p: arr.p4})
-  //   respuestas.push({a: arr.a5, p: arr.p5})
-  //   }
-}
-
-
-
-
 }

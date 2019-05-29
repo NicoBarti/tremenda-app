@@ -4,7 +4,7 @@ import {CuestionarioService} from '../cuestionario/cuestionario.service'
 import {SecuenciadorService} from '../secuenciador.service'
 import {Preguntas} from '../cuestionario/preguntas'
 
-import {ActivatedRoute, ParamMap} from '@angular/router'
+import {Router, ActivatedRoute, ParamMap} from '@angular/router'
 import { switchMap } from 'rxjs/operators';
 import {Observable} from 'rxjs'
 
@@ -18,24 +18,24 @@ export class RespuestasComponent implements OnInit {
 
   constructor(private cuestionarioService: CuestionarioService,
               private secuenciadorService: SecuenciadorService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private router: Router
               ) { }
 
-  // pregunta:Preguntas
   respuestaForm: FormGroup;
   respuestas:Observable<Preguntas>
   tiempoInicio:number
-
+  n:number
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
 
     this.respuestas = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-         this.cuestionarioService.get_auditPregunta(+params.get('n'))
-      )
-    )
-
+      switchMap((params: ParamMap) => {
+        this.n = +params.get('n')
+        return this.cuestionarioService.get_auditPregunta(+params.get('n'))
+      }
+      ))
 
     let d = new Date()
     this.tiempoInicio = d.getTime()
@@ -44,10 +44,20 @@ export class RespuestasComponent implements OnInit {
   get item() { return this.respuestaForm.get('item')};
 
 
-
 enviar(){
   let d = new Date()
   let duracion = d.getTime() - this.tiempoInicio
-  // this.secuenciadorService.graba_respuesta(this.pregunta.id, this.item.value, duracion)
+  this.respuestaForm.reset()
+  this.limpiarespuesta()
+  this.navega()
+
 }
+
+navega(){
+  if(this.n > 9){return}
+  let n = this.n + 1
+  this.router.navigate(['vista/mide', n])
+}
+
+limpiarespuesta(){}
 }
