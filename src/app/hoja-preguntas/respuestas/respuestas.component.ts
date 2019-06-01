@@ -8,6 +8,8 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router'
 import { switchMap } from 'rxjs/operators';
 import {Observable} from 'rxjs'
 
+import {AlmecenResultadosService} from '../../datos/almecen-resultados.service'
+
 
 @Component({
   selector: 'app-respuestas',
@@ -19,7 +21,8 @@ export class RespuestasComponent implements OnInit {
   constructor(private cuestionarioService: CuestionarioService,
               private secuenciadorService: SecuenciadorService,
               private route: ActivatedRoute,
-              private router: Router
+              private router: Router,
+              private almacen: AlmecenResultadosService
               ) { }
 
   respuestaForm: FormGroup;
@@ -33,6 +36,8 @@ export class RespuestasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
+        this.almacen.get_alternativa(this.n)
+        // this.respuestaForm.patchValue({item: +params.get('n')})
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))
@@ -47,9 +52,9 @@ export class RespuestasComponent implements OnInit {
 enviar(){
   let d = new Date()
   let duracion = d.getTime() - this.tiempoInicio
-  this.respuestaForm.reset()
-  this.limpiarespuesta()
   this.navega()
+  this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, duracion)
+  this.respuestaForm.reset()
 
 }
 
@@ -59,5 +64,6 @@ navega(){
   this.router.navigate(['vista/mide', n])
 }
 
-limpiarespuesta(){}
+
+
 }
