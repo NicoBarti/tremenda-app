@@ -17,7 +17,6 @@ guardaUsuario(info:Usuario):void{
   this.usuario = info
 }
 
-//Guarda alternativa seleccionada más el id de cada pregunta para un usuario definido arriba
 guardaItem(itemId:number, alt:number, tiempo:number):void{
   let secuencia_almacen = this.secuencia_almacen
   this.audit.push({itemId, alt, tiempo, secuencia_almacen})
@@ -33,7 +32,6 @@ if (!itemActual || !itemActual.length){return}
 for (var i = 0; i < this.audit.length +1; i++) {
   var x = itemActual.filter(item=> item.secuencia_almacen == secuencia_almacen)
   if(x.length == 1){
-    // console.log(x[0].alt)
     return x[0].alt}
 secuencia_almacen--
 }

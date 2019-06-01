@@ -19,7 +19,6 @@ import {AlmecenResultadosService} from '../../datos/almecen-resultados.service'
 export class RespuestasComponent implements OnInit {
 
   constructor(private cuestionarioService: CuestionarioService,
-              private secuenciadorService: SecuenciadorService,
               private route: ActivatedRoute,
               private router: Router,
               private almacen: AlmecenResultadosService
@@ -29,6 +28,7 @@ export class RespuestasComponent implements OnInit {
   respuestas:Observable<Preguntas>
   tiempoInicio:number
   n:number
+  d = new Date()
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -37,29 +37,26 @@ export class RespuestasComponent implements OnInit {
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
+        this.tiempoInicio = this.d.getTime()
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))
-
-    let d = new Date()
-    this.tiempoInicio = d.getTime()
   }
 
   get item() { return this.respuestaForm.get('item')};
 
 
 enviar(){
-  let d = new Date()
-  let duracion = d.getTime() - this.tiempoInicio
   this.navega()
-  this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, duracion)
+  this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, this.d.getTime() - this.tiempoInicio)
   this.respuestaForm.reset()
 }
 
 navega(){
-  if(this.n > 9){return}
-  let n = this.n + 1
-  this.router.navigate(['vista/mide', n])
+  if(this.n > 9){
+    console.log('terminado')
+    return}
+  this.router.navigate(['vista/mide', this.n + 1])
 }
 
 
