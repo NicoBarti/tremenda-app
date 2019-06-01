@@ -28,7 +28,6 @@ import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import {MideModule} from './mide/mide.module';
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
-import { PreguntaComponent } from './hoja-preguntas/pregunta/pregunta.component';
 import { EncabezadoComponent } from './hoja-preguntas/encabezado/encabezado.component';
 import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.component'
 
@@ -41,7 +40,6 @@ import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.comp
     UsuarioComponent,
     BienvenidaComponent,
     HojaPreguntasComponent,
-    PreguntaComponent,
     EncabezadoComponent,
     RespuestasComponent
   ],
