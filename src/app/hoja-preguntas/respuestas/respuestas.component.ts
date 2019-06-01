@@ -36,8 +36,7 @@ export class RespuestasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
-        this.almacen.get_alternativa(this.n)
-        // this.respuestaForm.patchValue({item: +params.get('n')})
+        this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))
@@ -55,7 +54,6 @@ enviar(){
   this.navega()
   this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, duracion)
   this.respuestaForm.reset()
-
 }
 
 navega(){

@@ -32,7 +32,9 @@ if (!itemActual || !itemActual.length){return}
 
 for (var i = 0; i < this.audit.length +1; i++) {
   var x = itemActual.filter(item=> item.secuencia_almacen == secuencia_almacen)
-  if(x.length == 1){return x}
+  if(x.length == 1){
+    // console.log(x[0].alt)
+    return x[0].alt}
 secuencia_almacen--
 }
 
