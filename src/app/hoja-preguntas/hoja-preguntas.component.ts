@@ -9,6 +9,7 @@ import {AlmecenResultadosService} from '../datos/almecen-resultados.service'
 import { DialogoGraciasComponent } from '../dialogos/dialogo-gracias/dialogo-gracias.component'
 import {MatDialog, MatDialogRef } from '@angular/material';
 import {MatSnackBar } from '@angular/material';
+import {AuthService} from '../auth/auth.service'
 
 @Component({
   selector: 'app-hoja-preguntas',
@@ -23,6 +24,7 @@ export class HojaPreguntasComponent implements OnInit {
     private cuestionarioService: CuestionarioService,
     private almacen: AlmecenResultadosService,
     public dialog: MatDialog,
+    private auth: AuthService
   ) { }
 
   respuestaForm: FormGroup;
@@ -53,7 +55,11 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 9){this.gracias(); return}
+    if(this.n > 9){
+      this.gracias();
+      this.auth.logout();
+      this.router.navigate(['usuario'])
+      return}
     this.router.navigate(['vista/mide', this.n + 1])
   }
 

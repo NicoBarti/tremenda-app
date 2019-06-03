@@ -17,8 +17,13 @@ export class AuthService {
     );
   }
 
+  // logout(): void {
+  //   this.isLoggedIn = false;
+  // }
+
   logout(): void {
     this.isLoggedIn = false;
+    console.log('login falso')
   }
 
 }
