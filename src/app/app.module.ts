@@ -22,14 +22,13 @@ import { PerfilConsumoService } from './servicios/perfil-consumo.service'
 
 
 import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
-import { DialogoGraciasComponent } from './mide/dialogo-gracias/dialogo-gracias.component';
+import { DialogoGraciasComponent } from './dialogos/dialogo-gracias/dialogo-gracias.component';
 
 import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import {MideModule} from './mide/mide.module';
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
 import { EncabezadoComponent } from './hoja-preguntas/encabezado/encabezado.component';
-import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.component'
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { RespuestasComponent } from './hoja-preguntas/respuestas/respuestas.comp
     UsuarioComponent,
     BienvenidaComponent,
     HojaPreguntasComponent,
-    EncabezadoComponent,
-    RespuestasComponent
+    EncabezadoComponent
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,

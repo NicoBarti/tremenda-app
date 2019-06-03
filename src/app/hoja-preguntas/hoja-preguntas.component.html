@@ -1,16 +1,21 @@
+  <form [formGroup]="respuestaForm" *ngIf="respuestas| async as r">
 <mat-card color="primary">
     <mat-grid-list cols="1" rowHeight="fit" class="gridalto">
 
 <!-- Flechas -->
     <mat-grid-tile rowspan="1">
       <div class="flechaIzq">
-        <mat-icon class="flecha" color="primary">arrow_back</mat-icon>
+        <button type="button" [disabled]="item.invalid" (click)="retrocede()">
+          <mat-icon class="flecha">arrow_back</mat-icon>
+          </button>
       </div>
       <div class="">
-        <p class="mat-h3">Pregunta 1 de 10</p>
+        <p class="mat-h2">Pregunta {{n}} de 10</p>
       </div>
       <div class="flechaDer">
-        <mat-icon class="flecha" color="primary">arrow_forward</mat-icon>
+        <button type="button" [disabled]="item.invalid" (click)="enviar()">
+          <mat-icon class="flecha">arrow_forward</mat-icon>
+        </button>
       </div>
     </mat-grid-tile>
 
@@ -18,16 +23,30 @@
     <mat-grid-tile rowspan="9">
       <mat-card color="primary" class="contenedor_pregunta">
         <mat-card-content>
-            <app-respuestas>/</app-respuestas>
+          <!-- <form [formGroup]="respuestaForm" *ngIf="respuestas| async as r"> -->
+            <mat-label class="mat-h1">{{r.texto}}</mat-label>
+          <br>
+            <br>
+          <mat-radio-group class="p-radio-group" formControlName="item" >
+            <mat-radio-button class="mat-h1" [value]="r.p1">{{r.a1}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" [value]="r.p2">{{r.a2}}</mat-radio-button>
+            <mat-radio-button class="mat-h1"  [value]="r.p3">{{r.a3}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" *ngIf="r.a4" [value]="r.p4">{{r.a4}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" *ngIf="r.a5" [value]="r.p5">{{r.a5}}</mat-radio-button>
+          </mat-radio-group>
+          <div class="siguiente-button-cont"><button  mat-raised-button color="accent" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button></div>
+          <!-- </form> -->
+
           </mat-card-content>
         </mat-card>
     </mat-grid-tile>
 
     <mat-grid-tile rowspan="1">
       <div class="">
-<p>aqui va el contador</p>
+<!-- <p>aqui va el contador</p> -->
       </div>
     </mat-grid-tile>
 
   </mat-grid-list>
 </mat-card>
+  </form>

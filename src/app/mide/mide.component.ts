@@ -9,7 +9,7 @@ import { PerfilConsumoService } from '../servicios/perfil-consumo.service'
 
 import { DialogoNoAlcoholComponent } from './dialogo-no-alcohol/dialogo-no-alcohol.component'
 
-import { DialogoGraciasComponent } from './dialogo-gracias/dialogo-gracias.component'
+import { DialogoGraciasComponent } from '../dialogos/dialogo-gracias/dialogo-gracias.component'
 
 import { Subscription }   from 'rxjs';
 
