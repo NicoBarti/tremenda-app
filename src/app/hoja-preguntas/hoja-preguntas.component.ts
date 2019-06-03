@@ -53,16 +53,12 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 9){
-      this.gracias()
-      return}
+    if(this.n > 9){this.gracias(); return}
     this.router.navigate(['vista/mide', this.n + 1])
   }
 
    retrocede(){
-     if(this.n == 1){
-       console.log('inicio')
-       return}
+     if(this.n == 1){ return}
      this.router.navigate(['vista/mide', this.n - 1])
    }
 
