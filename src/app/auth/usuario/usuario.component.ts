@@ -42,10 +42,11 @@ export class UsuarioComponent implements OnInit {
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
-        let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/vista';
+        // let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/vista';
 
         // Redirect the user
-        this.router.navigateByUrl(redirect);
+        this.router.navigate(['vista'])
+
       }
     });
   }
