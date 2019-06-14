@@ -28,7 +28,7 @@ import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import {MideModule} from './mide/mide.module';
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
-import { EncabezadoComponent } from './hoja-preguntas/encabezado/encabezado.component';
+import { P2Component } from './hoja-preguntas/p2/p2.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { EncabezadoComponent } from './hoja-preguntas/encabezado/encabezado.comp
     UsuarioComponent,
     BienvenidaComponent,
     HojaPreguntasComponent,
-    EncabezadoComponent
+    P2Component
   ],
   entryComponents: [
     DialogoNoAlcoholComponent,
