@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { Trago } from './trago'
-import { LISTA_TRAGOS } from './lista_tragos'
+import { Trago } from './cuestionario/trago'
+import { LISTA_TRAGOS } from './cuestionario/lista_tragos'
 
 
 export class ContadortragosService {

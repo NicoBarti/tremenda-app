@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { Trago } from './trago'
-import { LISTA_TRAGOS } from './lista_tragos'
+import { Trago } from '../cuestionario/trago'
+import { LISTA_TRAGOS } from '../cuestionario/lista_tragos'
 
-
-export class ContadortragosService {
-
+@Injectable({
+  providedIn: 'root'
+})
+export class ContadorTragosService {
+  
   lista_tragos = LISTA_TRAGOS
   calculoTragos: number
 
@@ -43,5 +45,4 @@ export class ContadortragosService {
       }
       this.tragos_totales.next(this.calculoTragos)
   }
-
 }

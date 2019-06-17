@@ -31,6 +31,7 @@ export class HojaPreguntasComponent implements OnInit {
   respuestas:Observable<Preguntas>
   tiempoInicio:number
   n:number
+  p2:boolean
   d = new Date()
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
+        if(this.n == 2){this.p2 = true}else{this.p2 = false}
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         this.tiempoInicio = this.d.getTime()
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
