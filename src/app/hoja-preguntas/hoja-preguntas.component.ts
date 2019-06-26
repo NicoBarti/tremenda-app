@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators'
-import { Observable } from 'rxjs';
+import { Observable, Subscription} from 'rxjs';
 import { FormGroup ,FormControl, Validators } from '@angular/forms';
 import {CuestionarioService} from './cuestionario/cuestionario.service'
 import {Preguntas} from './cuestionario/preguntas'
@@ -10,6 +10,7 @@ import { DialogoGraciasComponent } from '../dialogos/dialogo-gracias/dialogo-gra
 import {MatDialog, MatDialogRef } from '@angular/material';
 import {MatSnackBar } from '@angular/material';
 import {AuthService} from '../auth/auth.service'
+import {ContadorTragosService} from './p2/contador-tragos.service'
 
 @Component({
   selector: 'app-hoja-preguntas',
@@ -24,7 +25,8 @@ export class HojaPreguntasComponent implements OnInit {
     private cuestionarioService: CuestionarioService,
     private almacen: AlmecenResultadosService,
     public dialog: MatDialog,
-    private auth: AuthService
+    private auth: AuthService,
+    private tragosService: ContadorTragosService
   ) { }
 
   respuestaForm: FormGroup;
@@ -33,6 +35,7 @@ export class HojaPreguntasComponent implements OnInit {
   n:number
   p2:boolean
   d = new Date()
+  cuentaTragos: Subscription
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -40,12 +43,16 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
-        if(this.n == 2){this.p2 = true}else{this.p2 = false}
+        if(this.n == 2){this.configuraP2()}else{this.p2 = false}
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         this.tiempoInicio = this.d.getTime()
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))
+   }
+
+   ngOnDestroy() {
+     this.cuentaTragos.unsubscribe();
    }
 
   get item() { return this.respuestaForm.get('item')};
@@ -75,5 +82,11 @@ export class HojaPreguntasComponent implements OnInit {
        width: '250px',
      });
    }
+
+configuraP2(){
+  this.p2 = true;
+  this.cuentaTragos = this.tragosService.tragos_totales$.subscribe(
+    datos => this.respuestaForm.patchValue({item: datos}))
+}
 
 }
