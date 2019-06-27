@@ -1,6 +1,6 @@
 .contenedor{
     overflow: scroll;
-    height: 30em;
+    height: 35em;
     padding: 5px;
 }
 
@@ -14,5 +14,5 @@
 
 .espacio{
   display: inline-block;
-  width: 5px;
+  width: 8px;
 }
