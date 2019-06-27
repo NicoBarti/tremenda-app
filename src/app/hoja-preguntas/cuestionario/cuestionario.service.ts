@@ -27,7 +27,7 @@ export class CuestionarioService {
     p5: 4,
     },
     {id: 2,
-    texto: '¿Cuántos tragos de alcohol suele tomar un día normal?',
+    texto: 'Indique la cantidad de bebidas con alcohol que suele consumir en un día normal de consumo durante los últimos 12 meses',
     a1: '1 o 2',
     a2: '3 o 4',
     a3: '5 o 6',

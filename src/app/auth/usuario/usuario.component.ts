@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router }      from '@angular/router';
 import { AuthService } from '../auth.service';
+import { DOCUMENT } from '@angular/common';
 
 import {Usuario} from './usuario'
 import {AlmecenResultadosService} from '../../datos/almecen-resultados.service'
@@ -20,8 +21,11 @@ export class UsuarioComponent implements OnInit {
   // usuario: Usuario[];
   opciones: FormGroup;
 
-  constructor(public authService: AuthService, public router: Router,
-  private almecenResultadosService:AlmecenResultadosService) {}
+  constructor(public authService: AuthService,
+              public router: Router,
+              private almecenResultadosService:AlmecenResultadosService,
+              @Inject(DOCUMENT) private document: any) {}
+              elem;
 
   ngOnInit() {
     this.opciones = new FormGroup({
@@ -29,10 +33,12 @@ export class UsuarioComponent implements OnInit {
       fnac: new FormControl('', Validators.required),
       userId: new FormControl('', Validators.required)
     });
+    this.elem = document.documentElement;
   }
 
   enviar():void {
     this.almecenResultadosService.guardaUsuario(this.opciones.value)
+    this.openFullscreen()
     this.login()
   }
 
@@ -49,6 +55,23 @@ export class UsuarioComponent implements OnInit {
 
       }
     });
+  }
+
+  openFullscreen(){
+    // if (this.elem.requestFullscreen) {
+    //   this.elem.requestFullscreen();
+    // } else if (this.elem.mozRequestFullScreen) {
+    //   /* Firefox */
+    //   this.elem.mozRequestFullScreen();
+    // } else
+    if (this.elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.elem.webkitRequestFullscreen();
+    }
+    // else if (this.elem.msRequestFullscreen) {
+    //   /* IE/Edge */
+    //   this.elem.msRequestFullscreen();
+    // }
   }
 
 }
