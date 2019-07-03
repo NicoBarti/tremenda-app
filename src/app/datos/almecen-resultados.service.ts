@@ -14,30 +14,39 @@ export class AlmecenResultadosService {
 
 usuario: Usuario
 audit: PuntajesAudit[] = []
-secuencia_almacen: number = 0
+item: PuntajesAudit
+secuencia: number = 0
 
 guardaUsuario(info:Usuario):void{
   this.usuario = info
   this.server.envia_usuario(this.usuario)
 }
 
-guardaItem(itemId:number, alt:number, tiempo:number):void{
-  let secuencia_almacen = this.secuencia_almacen
-  this.audit.push({itemId, alt, tiempo, secuencia_almacen})
-  this.secuencia_almacen++
+guardaItem(itemid:number, alt:number, tiempo:number):void{
+  let secuencia = this.secuencia
+  this.audit.push({itemid, alt, tiempo, secuencia})
+  this.item = {
+    itemid: itemid,
+    alt: alt,
+    tiempo: tiempo,
+    secuencia: secuencia
+  }
+  this.server.envia_item(this.item)
+  console.log(this.item)
+  this.secuencia++
   return
 }
 
 get_alternativa(n){
-let secuencia_almacen = this.secuencia_almacen
-let itemActual = this.audit.filter(respuesta=> respuesta.itemId === n)
+let secuencia = this.secuencia
+let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n)
 if (!itemActual || !itemActual.length){return}
 
 for (var i = 0; i < this.audit.length +1; i++) {
-  var x = itemActual.filter(item=> item.secuencia_almacen == secuencia_almacen)
+  var x = itemActual.filter(item=> item.secuencia == secuencia)
   if(x.length == 1){
     return x[0].alt}
-secuencia_almacen--
+secuencia--
 }
 
 }

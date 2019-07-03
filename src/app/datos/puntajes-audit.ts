@@ -1,6 +1,6 @@
 export class PuntajesAudit {
-  itemId: number;
+  itemid: number;
   alt: number;
   tiempo: number;
-  secuencia_almacen: number;
+  secuencia: number;
 }
