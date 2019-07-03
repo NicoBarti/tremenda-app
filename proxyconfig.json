@@ -1,7 +1,7 @@
 {
 "/api": {
-    "target": "https://whispering-journey-32807.herokuapp.com",
-    "secure": true,
+    "target": "http://localhost:3000",
+    "secure": false,
     "pathRewrite": {
     "^/api": ""
   }

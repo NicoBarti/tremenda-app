@@ -14,7 +14,7 @@ export class ServerService {
 
 envia_usuario(usuario: Usuario) {
   let body = JSON.stringify({user: usuario});
-  this.http.post('/api/users', body, {
+  this.http.post('https://whispering-journey-32807.herokuapp.com/users', body, {
     headers: new HttpHeaders().set('Content-Type', 'application/json')
   })
   .subscribe(res => {console.log(res)})
