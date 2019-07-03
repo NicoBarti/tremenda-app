@@ -58,8 +58,9 @@ export class HojaPreguntasComponent implements OnInit {
   get item() { return this.respuestaForm.get('item')};
 
   enviar(){
+    const t = new Date()
     this.navega()
-    this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, this.d.getTime() - this.tiempoInicio)
+    this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, t.getTime() - this.tiempoInicio)
     this.respuestaForm.reset()
   }
 
