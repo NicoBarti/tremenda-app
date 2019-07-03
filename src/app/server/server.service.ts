@@ -12,9 +12,9 @@ import { Usuario } from '../auth/usuario/usuario'
 export class ServerService {
   constructor(private http: HttpClient) { }
 
-base_url = "/api"
+// base_url = "/api"
 currentUserId: number
-// base_url = "https://whispering-journey-32807.herokuapp.com"
+base_url = "https://whispering-journey-32807.herokuapp.com"
 
 envia_usuario(usuario: Usuario) {
   let body = JSON.stringify({user: usuario});
