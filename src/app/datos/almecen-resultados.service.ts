@@ -32,7 +32,6 @@ guardaItem(itemid:number, alt:number, tiempo:number):void{
     secuencia: secuencia
   }
   this.server.envia_item(this.item)
-  console.log(this.item)
   this.secuencia++
   return
 }
