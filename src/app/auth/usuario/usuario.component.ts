@@ -31,7 +31,7 @@ export class UsuarioComponent implements OnInit {
     this.opciones = new FormGroup({
       sexo: new FormControl('', Validators.required),
       fnac: new FormControl('', Validators.required),
-      userId: new FormControl('', Validators.required)
+      userid: new FormControl('', Validators.required)
     });
     this.elem = document.documentElement;
   }

@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { PuntajesAudit } from './puntajes-audit'
 import { Usuario } from '../auth/usuario/usuario'
+import { ServerService } from '../server/server.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlmecenResultadosService {
 
-  constructor() { }
+  constructor(
+    private server: ServerService
+  ) { }
 
 usuario: Usuario
 audit: PuntajesAudit[] = []
@@ -15,6 +18,7 @@ secuencia_almacen: number = 0
 
 guardaUsuario(info:Usuario):void{
   this.usuario = info
+  this.server.envia_usuario(this.usuario)
 }
 
 guardaItem(itemId:number, alt:number, tiempo:number):void{
