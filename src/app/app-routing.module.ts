@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
-import { MideComponent } from './mide/mide.component';
-import { SelectragosComponent} from './mide/selectragos/selectragos.component'
-
 import { BienvenidaComponent} from './bienvenida/bienvenida.component'
 
 import { UsuarioComponent } from './auth/usuario/usuario.component'

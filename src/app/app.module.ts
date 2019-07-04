@@ -10,31 +10,20 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatStepperModule } from '@angular/material';
 import { ModuloMaterial} from './moduloMaterial'
 
-
 import { OHRoutingModule } from './app-routing.module';
-import { ListatragosComponent } from './listatragos/listatragos.component';
-import { MideComponent } from './mide/mide.component';
-import { SelectragosComponent } from './mide/selectragos/selectragos.component';
 
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 
-import { PerfilConsumoService } from './servicios/perfil-consumo.service'
-
-
-import { DialogoNoAlcoholComponent } from './mide/dialogo-no-alcohol/dialogo-no-alcohol.component';
 import { DialogoGraciasComponent } from './dialogos/dialogo-gracias/dialogo-gracias.component';
 
 import { UsuarioComponent } from './auth/usuario/usuario.component'
 
-import {MideModule} from './mide/mide.module';
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
 import { P2Component } from './hoja-preguntas/p2/p2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListatragosComponent,
-    DialogoNoAlcoholComponent,
     DialogoGraciasComponent,
     UsuarioComponent,
     BienvenidaComponent,
@@ -42,7 +31,6 @@ import { P2Component } from './hoja-preguntas/p2/p2.component';
     P2Component
   ],
   entryComponents: [
-    DialogoNoAlcoholComponent,
     DialogoGraciasComponent
   ],
   imports: [
@@ -51,7 +39,6 @@ import { P2Component } from './hoja-preguntas/p2/p2.component';
     BrowserAnimationsModule,
     LayoutModule,
     ModuloMaterial,
-    MideModule,
     FormsModule,
     ReactiveFormsModule,
     OHRoutingModule

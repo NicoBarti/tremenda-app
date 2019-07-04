@@ -34,7 +34,6 @@ export class HojaPreguntasComponent implements OnInit {
   tiempoInicio:number
   n:number
   p2:boolean
-  d = new Date()
   cuentaTragos: Subscription
 
   ngOnInit() {
@@ -45,7 +44,8 @@ export class HojaPreguntasComponent implements OnInit {
         this.n = +params.get('n')
         if(this.n == 2){this.configuraP2()}else{this.p2 = false}
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
-        this.tiempoInicio = this.d.getTime()
+        const d = new Date()
+        this.tiempoInicio = d.getTime()
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))

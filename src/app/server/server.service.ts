@@ -12,15 +12,21 @@ import { Usuario } from '../auth/usuario/usuario'
 export class ServerService {
   constructor(private http: HttpClient) { }
 
-// base_url = "/api"
+// usar esta linea en development
+base_url = "/api"
+
+// usar esta linea para producción
+// base_url = "https://whispering-journey-32807.herokuapp.com"
+
 currentUserId: number
-base_url = "https://whispering-journey-32807.herokuapp.com"
 
 envia_usuario(usuario: Usuario) {
   let body = JSON.stringify({user: usuario});
   this.http.post(this.base_url + '/users', body, {
     headers: new HttpHeaders().set('Content-Type', 'application/json')})
-  .subscribe(res => {this.currentUserId = res['id']})
+  .subscribe(res => {this.currentUserId = res['id'],
+                      console.log(res)
+                    })
 }
 
 envia_item(item) {
