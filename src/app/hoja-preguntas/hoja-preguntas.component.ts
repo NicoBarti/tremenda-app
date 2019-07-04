@@ -35,6 +35,7 @@ export class HojaPreguntasComponent implements OnInit {
   n:number
   p2:boolean
   cuentaTragos: Subscription
+  itemid:number
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -42,10 +43,11 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
-        if(this.n == 2){this.configuraP2()}else{this.p2 = false}
+        if(this.n == 3){this.configuraP2()}else{this.p2 = false}
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         const d = new Date()
         this.tiempoInicio = d.getTime()
+        this.itemid = this.cuestionarioService.get_itemid(+params.get('n'))
         return this.cuestionarioService.get_auditPregunta(+params.get('n'))
       }
       ))
@@ -60,12 +62,12 @@ export class HojaPreguntasComponent implements OnInit {
   enviar(){
     const t = new Date()
     this.navega()
-    this.almacen.guardaItem(this.n, this.respuestaForm.get('item').value, t.getTime() - this.tiempoInicio)
+    this.almacen.guardaItem(this.itemid, this.respuestaForm.get('item').value, t.getTime() - this.tiempoInicio)
     this.respuestaForm.reset()
   }
 
   navega(){
-    if(this.n > 9){
+    if(this.n > 10){
       this.gracias();
       this.auth.logout();
       this.router.navigate(['usuario'])

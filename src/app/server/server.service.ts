@@ -33,7 +33,11 @@ envia_item(item) {
   let body = JSON.stringify({item: item});
   this.http.post(this.base_url + '/users/' + this.currentUserId + '/items', body, {
     headers: new HttpHeaders().set('Content-Type', 'application/json')})
-  .subscribe(res => {return})
+  .subscribe(res => {
+    console.log(res)
+    res => {return}
+  })
+
 }
 
 }

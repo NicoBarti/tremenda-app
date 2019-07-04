@@ -11,4 +11,5 @@ export class Preguntas {
   p3: number;
   p4: number;
   p5: number;
+  orden: number;
 }
