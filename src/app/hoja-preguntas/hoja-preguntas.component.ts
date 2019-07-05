@@ -54,7 +54,7 @@ export class HojaPreguntasComponent implements OnInit {
    }
 
    ngOnDestroy() {
-     this.cuentaTragos.unsubscribe();
+     // this.cuentaTragos.unsubscribe();
    }
 
   get item() { return this.respuestaForm.get('item')};
@@ -67,12 +67,10 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 10){
-      this.gracias();
-      this.auth.logout();
-      this.router.navigate(['usuario'])
-      return}
-    this.router.navigate(['vista/mide', this.n + 1])
+    if(this.n > 10){this.finalizar()}
+    else {
+      this.router.navigate(['vista/mide', this.n + 1])
+    }
   }
 
    retrocede(){
@@ -80,10 +78,17 @@ export class HojaPreguntasComponent implements OnInit {
      this.router.navigate(['vista/mide', this.n - 1])
    }
 
-   gracias() {
+   finalizar() {
      const dialogRef = this.dialog.open(DialogoGraciasComponent, {
        width: '250px',
      });
+
+     dialogRef.afterClosed().subscribe(finaliza =>{
+        if(finaliza){
+          this.auth.logout();
+          this.router.navigate(['usuario'])
+        }
+          return})
    }
 
 configuraP2(){

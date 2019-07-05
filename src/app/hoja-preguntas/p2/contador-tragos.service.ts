@@ -7,7 +7,7 @@ import { LISTA_TRAGOS } from '../cuestionario/lista_tragos'
   providedIn: 'root'
 })
 export class ContadorTragosService {
-  
+
   lista_tragos = LISTA_TRAGOS
   calculoTragos: number
 
@@ -16,8 +16,12 @@ export class ContadorTragosService {
 
   constructor() { }
 
-  get_lista_tragos(): Observable<Trago[]> {
+  get_lista_tragos$(): Observable<Trago[]> {
     return of(this.lista_tragos)
+  }
+
+  get_lista_tragos():Trago[] {
+    return this.lista_tragos
   }
 
   ceroTragos(): void {
@@ -31,7 +35,7 @@ export class ContadorTragosService {
   }
 
   resta(indx: number): void {
-    if (this.lista_tragos[indx].cant == 0 ){return}
+    if (this.lista_tragos[indx].cant == 0 || this.lista_tragos[indx].cant == null){return}
     else {this.lista_tragos[indx].cant--;
       this.calculaTragos()
     }

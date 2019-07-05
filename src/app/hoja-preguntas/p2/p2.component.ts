@@ -14,7 +14,7 @@ export class P2Component implements OnDestroy {
   subscription: Subscription;
 
   constructor(private contadortragosService: ContadorTragosService) {
-    this.subscription = contadortragosService.get_lista_tragos().
+    this.subscription = contadortragosService.get_lista_tragos$().
       subscribe(datos => this.datos = datos) }
 
   ngOnDestroy(){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import  {MatDialogRef} from '@angular/material';
 
 
@@ -8,11 +8,12 @@ import  {MatDialogRef} from '@angular/material';
 })
 export class DialogoGraciasComponent {
 
-respuesta: boolean = false
+finaliza: boolean = true
 
-  constructor(public dialogRef: MatDialogRef<DialogoGraciasComponent>){}
+  constructor(public dialogRef: MatDialogRef<DialogoGraciasComponent>,
+){}
 
     onNoClick(): void {
-        this.dialogRef.close(this.respuesta);
+        this.dialogRef.close(!this.finaliza);
       }
 }

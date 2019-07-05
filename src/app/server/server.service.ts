@@ -5,18 +5,20 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
 import { Usuario } from '../auth/usuario/usuario'
+import { ContadorTragosService } from '../hoja-preguntas/p2/contador-tragos.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private tragosService: ContadorTragosService) { }
 
 // usar esta linea en development
-// base_url = "/api"
+base_url = "/api"
 
 // usar esta linea para producción
-base_url = "https://whispering-journey-32807.herokuapp.com"
+// base_url = "https://whispering-journey-32807.herokuapp.com"
 
 currentUserId: number
 
@@ -38,6 +40,10 @@ envia_item(item) {
     res => {return}
   })
 
+}
+
+envia_listatragos():void {
+ console.log(this.tragosService.get_lista_tragos())
 }
 
 }
