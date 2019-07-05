@@ -13,10 +13,10 @@ export class ServerService {
   constructor(private http: HttpClient) { }
 
 // usar esta linea en development
-base_url = "/api"
+// base_url = "/api"
 
 // usar esta linea para producción
-// base_url = "https://whispering-journey-32807.herokuapp.com"
+base_url = "https://whispering-journey-32807.herokuapp.com"
 
 currentUserId: number
 
