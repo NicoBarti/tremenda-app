@@ -1,11 +1,15 @@
 .contenedor{
     overflow: scroll;
     height: 35em;
-    padding: 5px;
+    padding: 0px;
+}
+
+.altodelgrid{
+    height: 35em;
 }
 
 .imagen{
-  height: 35px;
+  height: 50px;
 }
 
 .contador{
@@ -15,4 +19,13 @@
 .espacio{
   display: inline-block;
   width: 8px;
+}
+
+.vineta {
+  margin-top: 0px;
+}
+
+.separadores {
+  margin-top: 15px;
+  margin-bottom: 0px;
 }

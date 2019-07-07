@@ -49,4 +49,8 @@ export class ContadorTragosService {
       }
       this.tragos_totales.next(this.calculoTragos)
   }
+
+  resetea():void{
+    this.lista_tragos = LISTA_TRAGOS
+  }
 }

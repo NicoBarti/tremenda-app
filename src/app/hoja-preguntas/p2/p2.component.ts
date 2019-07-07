@@ -14,7 +14,7 @@ export class P2Component implements OnDestroy {
 
   datos: Trago[]
   subscription: Subscription;
-
+  ok: boolean = false
 
   constructor(private contadortragosService: ContadorTragosService) {
     this.subscription = contadortragosService.get_lista_tragos$().
@@ -32,4 +32,11 @@ export class P2Component implements OnDestroy {
   resta(indx: number): void {
         this.contadortragosService.resta(indx)
       }
+
+anima(vineta):void{
+  console.log(vineta)
+  this.ok = true
+
 }
+
+  }

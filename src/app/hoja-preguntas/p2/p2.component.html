@@ -1,20 +1,49 @@
-<mat-card class="contenedor">
+<!-- <mat-card class="contenedor"> -->
 
-  <mat-grid-list cols="4" rowHeight="100px" >
+  <mat-grid-list cols="4" rowHeight="fit" class="altodelgrid">
 
-      <mat-grid-tile
-          *ngFor="let dato of datos"
-          colspan="1"
-          rowspan="1">
-          <mat-card>
-            <img class ="imagen" src="{{dato.imagen}}">
-            <mat-card-footer>  {{dato.nombre}}</mat-card-footer>
-            </mat-card>
+    <mat-grid-tile colspan="4">
+                <p class="mat-h2 separadores">Vino</p>
+                <div *ngIf="ok"><h1 class="mat-h1">Hola!</h1></div>
+              </mat-grid-tile>
+        <mat-grid-tile
+            *ngFor="let dato of datos | slice:0:4"
+            colspan="1"
+            rowspan="3"
+            class="vineta">
+            <button type="button" (click)="anima(dato)">
+              <img class ="imagen" src="{{dato.imagen}}">
+              <p class="mat-h3">  {{dato.nombre}}</p>
+            </button>
+        </mat-grid-tile>
 
 
-        <!-- <img class ="imagen" src="{{dato.imagen}}" alt=""> -->
-      </mat-grid-tile>
+    <mat-grid-tile colspan="4">
+                    <p class="mat-h2 separadores">Cerveza</p>  </mat-grid-tile>
+        <mat-grid-tile
+                *ngFor="let dato of datos | slice:4:8"
+                colspan="1"
+                rowspan="3"
+                class="vineta">
+              <button type="button" (click)="anima(dato)">
+                <img class ="imagen" src="{{dato.imagen}}">
+                <p class="mat-h3">  {{dato.nombre}}</p>
+                </button>
+          </mat-grid-tile>
+
+    <mat-grid-tile colspan="4">
+                          <p class="mat-h2 separadores">Licor</p>  </mat-grid-tile>
+          <mat-grid-tile
+                      *ngFor="let dato of datos | slice:8:12"
+                      colspan="1"
+                      rowspan="3"
+                      class="vineta">
+                <button type="button" (click)="anima(dato)">
+                  <img class ="imagen" src="{{dato.imagen}}">
+                  <p class="mat-h3">  {{dato.nombre}}</p>
+                  </button>
+          </mat-grid-tile>
 
 </mat-grid-list>
 
-</mat-card>
+<!-- </mat-card> -->

@@ -3,13 +3,16 @@ import { PuntajesAudit } from './puntajes-audit'
 import { Usuario } from '../auth/usuario/usuario'
 import { ServerService } from '../server/server.service'
 
+import {ContadorTragosService} from '../hoja-preguntas/p2/contador-tragos.service'
+
 @Injectable({
   providedIn: 'root'
 })
 export class AlmecenResultadosService {
 
   constructor(
-    private server: ServerService
+    private server: ServerService,
+    private contadorTragosService: ContadorTragosService
   ) { }
 
 usuario: Usuario
@@ -55,6 +58,7 @@ reseteaAlmacen():void {
  this.audit = [];
  this.item = undefined;
  this.secuencia = 0;
-
+ this.contadorTragosService.resetea()
 }
+
 }
