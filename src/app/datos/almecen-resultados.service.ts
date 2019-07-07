@@ -17,6 +17,7 @@ audit: PuntajesAudit[] = []
 item: PuntajesAudit
 secuencia: number = 0
 
+
 guardaUsuario(info:Usuario):void{
   this.usuario = info
   this.server.envia_usuario(this.usuario)
@@ -41,12 +42,19 @@ let secuencia = this.secuencia
 let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n)
 if (!itemActual || !itemActual.length){return}
 
-for (var i = 0; i < this.audit.length +1; i++) {
-  var x = itemActual.filter(item=> item.secuencia == secuencia)
-  if(x.length == 1){
-    return x[0].alt}
-secuencia--
+  for (var i = 0; i < this.audit.length +1; i++) {
+    var x = itemActual.filter(item=> item.secuencia == secuencia)
+    if(x.length == 1){
+      return x[0].alt}
+  secuencia--
+  }
 }
+
+reseteaAlmacen():void {
+ this.usuario = undefined;
+ this.audit = [];
+ this.item = undefined;
+ this.secuencia = 0;
 
 }
 }

@@ -8,7 +8,7 @@ import {Preguntas} from './cuestionario/preguntas'
 import {AlmecenResultadosService} from '../datos/almecen-resultados.service'
 import { DialogoGraciasComponent } from '../dialogos/dialogo-gracias/dialogo-gracias.component'
 import {MatDialog, MatDialogRef } from '@angular/material';
-import {MatSnackBar } from '@angular/material';
+// import {MatSnackBar } from '@angular/material';
 import {AuthService} from '../auth/auth.service'
 import {ContadorTragosService} from './p2/contador-tragos.service'
 
@@ -43,7 +43,7 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
-        if(this.n == 3){this.configuraP2()}else{this.p2 = false}
+        if(this.n == 2){this.configuraP2()}else{this.p2 = false}
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         const d = new Date()
         this.tiempoInicio = d.getTime()
@@ -67,7 +67,7 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 10){this.finalizar()}
+    if(this.n > 9){this.finalizar()}
     else {
       this.router.navigate(['vista/mide', this.n + 1])
     }
@@ -86,7 +86,8 @@ export class HojaPreguntasComponent implements OnInit {
      dialogRef.afterClosed().subscribe(finaliza =>{
         if(finaliza){
           this.auth.logout();
-          this.router.navigate(['usuario'])
+          this.router.navigate(['usuario']);
+          this.almacen.reseteaAlmacen()
         }
           return})
    }

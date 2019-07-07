@@ -1,6 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ContadorTragosService} from './contador-tragos.service'
 import { Subscription }   from 'rxjs';
+import { Trago} from '../cuestionario/trago'
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @Component({
   selector: 'app-p2',
@@ -9,13 +12,14 @@ import { Subscription }   from 'rxjs';
 })
 export class P2Component implements OnDestroy {
 
-  columnsToDisplay = ['tragoImagen', 'tragoNombre','resta','cantidad','suma']
-  datos = []
+  datos: Trago[]
   subscription: Subscription;
+
 
   constructor(private contadortragosService: ContadorTragosService) {
     this.subscription = contadortragosService.get_lista_tragos$().
-      subscribe(datos => this.datos = datos) }
+      subscribe(datos => {this.datos = datos,
+      console.log(datos)}) }
 
   ngOnDestroy(){
         this.subscription.unsubscribe();
