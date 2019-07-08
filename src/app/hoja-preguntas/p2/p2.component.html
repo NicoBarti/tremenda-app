@@ -1,10 +1,10 @@
 <!-- <mat-card class="contenedor"> -->
+<div *ngIf="ok"><app-selectorp2></app-selectorp2></div>
 
   <mat-grid-list cols="4" rowHeight="fit" class="altodelgrid">
 
     <mat-grid-tile colspan="4">
                 <p class="mat-h2 separadores">Vino</p>
-                <div *ngIf="ok"><h1 class="mat-h1">Hola!</h1></div>
               </mat-grid-tile>
         <mat-grid-tile
             *ngFor="let dato of datos | slice:0:4"

@@ -20,6 +20,7 @@ import { UsuarioComponent } from './auth/usuario/usuario.component'
 
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
 import { P2Component } from './hoja-preguntas/p2/p2.component';
+import { Selectorp2Component } from './dialogos/selectorp2/selectorp2.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +29,12 @@ import { P2Component } from './hoja-preguntas/p2/p2.component';
     UsuarioComponent,
     BienvenidaComponent,
     HojaPreguntasComponent,
-    P2Component
+    P2Component,
+    Selectorp2Component
   ],
   entryComponents: [
-    DialogoGraciasComponent
+    DialogoGraciasComponent,
+    Selectorp2Component
   ],
   imports: [
     BrowserModule,

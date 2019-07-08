@@ -4,6 +4,11 @@ import { Subscription }   from 'rxjs';
 import { Trago} from '../cuestionario/trago'
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import {SelectorService} from '../../dialogos/selectorp2/selector.service'
+import { Selectorp2Component } from '../../dialogos/selectorp2/selectorp2.component'
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 
 @Component({
   selector: 'app-p2',
@@ -16,7 +21,9 @@ export class P2Component implements OnDestroy {
   subscription: Subscription;
   ok: boolean = false
 
-  constructor(private contadortragosService: ContadorTragosService) {
+  constructor(private contadortragosService: ContadorTragosService,
+              private selector: SelectorService,
+              public dialog: MatDialog,) {
     this.subscription = contadortragosService.get_lista_tragos$().
       subscribe(datos => {this.datos = datos,
       console.log(datos)}) }
@@ -34,8 +41,14 @@ export class P2Component implements OnDestroy {
       }
 
 anima(vineta):void{
-  console.log(vineta)
-  this.ok = true
+
+  const dialogRef = this.dialog.open(Selectorp2Component, {
+    width: '250px',
+    data: {imagen: vineta.imagen, cant: vineta.cant, nombre: vineta.nombre, indx: vineta.nombre}
+  });
+
+  this.selector.setdetalle(vineta)
+  // this.ok = true
 
 }
 
