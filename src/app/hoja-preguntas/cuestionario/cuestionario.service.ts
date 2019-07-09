@@ -64,7 +64,7 @@ export class CuestionarioService {
     },
     {id: 3.0,
       orden: 3,
-    texto: '¿Con qué frecuencia ha tomado 5 o más tragos en una ocasión durante el último año ?',
+    texto: '¿Con qué frecuencia ha tomado 5 o más tragos en una ocasión durante los últimos 12 meses?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',

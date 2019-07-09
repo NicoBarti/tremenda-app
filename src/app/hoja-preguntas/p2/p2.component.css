@@ -9,7 +9,8 @@
 }
 
 .boton-vineta{
-  background-color: none;
+  background-color: white !important;
+  border: none !important;
 }
 
 .imagen{
