@@ -5,7 +5,7 @@
 <!-- Flechas -->
     <mat-grid-tile rowspan="1">
       <div class="flechaIzq">
-        <button type="button" (click)="retrocede()">
+        <button type="button" (click)="retrocede()" class = "boton-flecha">
           <mat-icon class="flecha">arrow_back</mat-icon>
           </button>
       </div>
@@ -13,7 +13,7 @@
         <p class="mat-h2">Pregunta {{n}} de 10</p>
       </div>
       <div class="flechaDer">
-        <button type="button" [disabled]="item.invalid" (click)="enviar()">
+        <button type="button" [disabled]="item.invalid" (click)="enviar()" class = "boton-flecha">
           <mat-icon class="flecha">arrow_forward</mat-icon>
         </button>
       </div>
@@ -37,6 +37,7 @@
           </mat-radio-group>
 
           <app-p2 *ngIf="p2"></app-p2>
+          <app-detallep3 *ngIf="p3detalle"></app-detallep3>
           <div class="siguiente-button-cont"><button  mat-raised-button color="accent" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button></div>
           <!-- </form> -->
 

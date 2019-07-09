@@ -8,6 +8,9 @@
     height: 35em;
 }
 
+.boton-vineta{
+  background-color: none;
+}
 
 .imagen{
   height: 50px;

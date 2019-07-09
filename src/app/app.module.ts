@@ -21,6 +21,7 @@ import { UsuarioComponent } from './auth/usuario/usuario.component'
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component';
 import { P2Component } from './hoja-preguntas/p2/p2.component';
 import { Selectorp2Component } from './dialogos/selectorp2/selectorp2.component';
+import { Detallep3Component } from './hoja-preguntas/detallep3/detallep3.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { Selectorp2Component } from './dialogos/selectorp2/selectorp2.component'
     BienvenidaComponent,
     HojaPreguntasComponent,
     P2Component,
-    Selectorp2Component
+    Selectorp2Component,
+    Detallep3Component
   ],
   entryComponents: [
     DialogoGraciasComponent,
