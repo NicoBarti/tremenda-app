@@ -87,6 +87,7 @@ export class HojaPreguntasComponent implements OnInit {
 
      dialogRef.afterClosed().subscribe(finaliza =>{
         if(finaliza){
+
           this.auth.logout();
           this.router.navigate(['usuario']);
           this.almacen.reseteaAlmacen()
@@ -97,7 +98,8 @@ export class HojaPreguntasComponent implements OnInit {
 configuraP2(){
   this.p2 = true;
   this.cuentaTragos = this.tragosService.tragos_totales$.subscribe(
-    datos => this.respuestaForm.patchValue({item: datos}))
+    datos => {this.respuestaForm.patchValue({item: datos})})
+
 }
 
 }

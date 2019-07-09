@@ -11,6 +11,11 @@ export class ContadorTragosService {
   lista_tragos = LISTA_TRAGOS
   calculoTragos: number
 
+
+  //
+  // private lista_trago$ = new Subject<Trago[]>();
+  // lista_trago$ = this.lista_tragos.asObservable()
+
   private tragos_totales = new Subject<number>();
   tragos_totales$ = this.tragos_totales.asObservable()
 
@@ -43,7 +48,7 @@ export class ContadorTragosService {
 
   set_cero_index(indx: number):void {
     this.lista_tragos[indx].cant = 0;
-    this.calculaTragos()
+    this.calculaTragos();
   }
 
   calculaTragos(): void {
@@ -56,6 +61,10 @@ export class ContadorTragosService {
   }
 
   resetea():void{
-    this.lista_tragos = LISTA_TRAGOS
+    var i
+    for( i = 0; i < this.lista_tragos.length; i++){
+          this.lista_tragos[i].cant = null}
+
+    this.tragos_totales.next(null)
   }
 }

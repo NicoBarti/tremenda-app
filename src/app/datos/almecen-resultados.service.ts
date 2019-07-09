@@ -15,6 +15,7 @@ export class AlmecenResultadosService {
     private contadorTragosService: ContadorTragosService
   ) { }
 
+
 usuario: Usuario
 audit: PuntajesAudit[] = []
 item: PuntajesAudit
@@ -25,6 +26,7 @@ guardaUsuario(info:Usuario):void{
   this.usuario = info
   this.server.envia_usuario(this.usuario)
 }
+
 
 guardaItem(itemid:number, alt:number, tiempo:number):void{
   let secuencia = this.secuencia
@@ -54,6 +56,7 @@ if (!itemActual || !itemActual.length){return}
 }
 
 reseteaAlmacen():void {
+
  this.usuario = undefined;
  this.audit = [];
  this.item = undefined;
