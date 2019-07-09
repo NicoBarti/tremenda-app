@@ -12,8 +12,10 @@
             rowspan="3"
             class="vineta">
             <button type="button" (click)="anima(dato)">
-              <img class ="imagen" src="{{dato.imagen}}">
-              <p class="mat-h3">  {{dato.nombre}}</p>
+              <div><img class ="imagen" src="{{dato.imagen}}"></div>
+                <div class="contador-nombre">
+                  <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                </div>
             </button>
         </mat-grid-tile>
 
@@ -26,8 +28,10 @@
                 rowspan="3"
                 class="vineta">
               <button type="button" (click)="anima(dato)">
-                <img class ="imagen" src="{{dato.imagen}}">
-                <p class="mat-h3">  {{dato.nombre}}</p>
+                <div><img class ="imagen" src="{{dato.imagen}}"></div>
+                  <div class="contador-nombre">
+                    <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                  </div>
                 </button>
           </mat-grid-tile>
 
@@ -39,8 +43,10 @@
                       rowspan="3"
                       class="vineta">
                 <button type="button" (click)="anima(dato)">
-                  <img class ="imagen" src="{{dato.imagen}}">
-                  <p class="mat-h3">  {{dato.nombre}}</p>
+                  <div><img class ="imagen" src="{{dato.imagen}}"></div>
+                    <div class="contador-nombre">
+                      <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                    </div>
                   </button>
           </mat-grid-tile>
 

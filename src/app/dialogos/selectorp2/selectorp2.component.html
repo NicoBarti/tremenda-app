@@ -1,4 +1,39 @@
-<mat-card>
-      <img class ="imagen" src="{{detalle.imagen}}">
-      <mat-card-footer> <p class="mat-h2">  {{detalle.nombre}}</p></mat-card-footer>
+<mat-card class="contenedor">
+  <p class="mat-h2">  {{data.nombre}}</p>
+      <img class ="imagen" src="{{data.imagen}}">
+      <div class="cajamasmenos">
+        <span class="espacio"></span><button mat-mini-fab color="contrast" (click)="resta(data.indx)" ><mat-icon>remove_circle_outlined</mat-icon></button><span class="espacio"></span>
+        <h2 class="contador">{{cantidad}}</h2>
+        <span class="espacio"></span><button mat-mini-fab color="contrast"  (click)="suma(data.indx)"><mat-icon>add_circle_outlined</mat-icon></button> <span class="espacio"></span><span class="espacio"></span>
+    </div>
+
+    <div class="nombreyok">  <button type="button" (click)="ok()" class="footer botonOk" mat-stroked-button color="primary">Ok</button></div>
 </mat-card>
+
+
+<!-- <h2 mat-dialog-title>  {{data.nombre}}</h2>
+<mat-dialog-content>
+      <img class ="imagen" src="{{data.imagen}}">
+      <div class="cajamasmenos">
+        <span class="espacio"></span><button mat-mini-fab color="contrast" (click)="resta(data.indx)" ><mat-icon>remove_circle_outlined</mat-icon></button><span class="espacio"></span>
+        <h2 class="contador">{{cantidad}}</h2>
+        <span class="espacio"></span><button mat-mini-fab color="contrast"  (click)="suma(data.indx)"><mat-icon>add_circle_outlined</mat-icon></button> <span class="espacio"></span><span class="espacio"></span>
+    </div>
+<mat-dialog-content>
+<mat-dialog-actions>
+     <button type="button" (click)="ok()" class="footer botonOk" mat-stroked-button color="primary">Ok</button>
+</mat-dialog-actions> -->
+
+<!-- <ng-container matColumnDef="suma">
+  <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+  <td mat-cell *matCellDef="let trago" ><button mat-mini-fab color="contrast"  (click)="suma(trago.indx)"><mat-icon>add_circle_outlined</mat-icon></button> <span class="espacio"></span><span class="espacio"></span></td>
+</ng-container>
+
+<ng-container matColumnDef="resta">
+  <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+  <td mat-cell *matCellDef="let trago" ><button mat-mini-fab color="contrast" (click)="resta(trago.indx)"><mat-icon>remove_circle_outlined</mat-icon></button><span class="espacio"></span></td>
+</ng-container>
+
+<ng-container matColumnDef="cantidad">
+  <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+  <td mat-cell *matCellDef="let trago"><div class="contador"><h2>{{trago.cant}}</h2></div></td> -->

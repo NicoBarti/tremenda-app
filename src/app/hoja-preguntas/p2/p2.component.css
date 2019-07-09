@@ -8,12 +8,21 @@
     height: 35em;
 }
 
+
 .imagen{
   height: 50px;
 }
 
 .contador{
   margin-right: 5px;
+}
+
+.contador-nombre{
+  display: inline-flex;
+}
+
+.nombre-trago{
+ text-align: left;
 }
 
 .espacio{

@@ -43,12 +43,12 @@ export class P2Component implements OnDestroy {
 anima(vineta):void{
 
   const dialogRef = this.dialog.open(Selectorp2Component, {
-    width: '250px',
-    data: {imagen: vineta.imagen, cant: vineta.cant, nombre: vineta.nombre, indx: vineta.nombre}
+    width: '280px',
+    // height: '180px',
+    data: {imagen: vineta.imagen, cant: vineta.cant, nombre: vineta.nombre, indx: vineta.indx}
   });
 
   this.selector.setdetalle(vineta)
-  // this.ok = true
 
 }
 
