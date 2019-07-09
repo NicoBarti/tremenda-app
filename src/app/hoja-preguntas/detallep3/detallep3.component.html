@@ -1,0 +1,27 @@
+<mat-card class="contenedor">
+<table mat-table [dataSource]="datos">
+
+  <ng-container matColumnDef="tragoImagen">
+    <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+    <td mat-cell *matCellDef="let trago" ><img src="{{trago.imagen}}" class="imagen"><span class="espacio"></span></td>
+  </ng-container>
+
+  <ng-container matColumnDef="tragoNombre">
+    <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+    <td mat-cell *matCellDef="let trago" ><span class="espacio"></span><p class="mat-h2 enlinea">{{trago.nombre}}</p><span class="espacio"></span>
+    <p class="mat-h2 enlinea">=</p><span class="espacio"></span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="equivalencia">
+    <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
+    <td mat-cell *matCellDef="let trago" ><span class="espacio"></span><p class="mat-h2 enlinea">{{trago.eq}}</p><span class="espacio"></span>
+      <p class="mat-h2 enlinea">tragos</p><span class="espacio"></span>
+    </td>
+  </ng-container>
+
+
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>
+</mat-card>

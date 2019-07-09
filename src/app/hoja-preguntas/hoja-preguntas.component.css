@@ -20,6 +20,10 @@
   right: 45px;
 }
 
+.boton-flecha{
+  background-color: none;
+}
+
 .flecha{
   font-size: 3em;
   color: inherit;

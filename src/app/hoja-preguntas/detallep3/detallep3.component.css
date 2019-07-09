@@ -1,0 +1,13 @@
+.imagen{
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+.espacio{
+  display: inline-block;
+  width: 8px;
+}
+
+.enlinea{
+    display: inline-block;
+}
