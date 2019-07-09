@@ -11,8 +11,10 @@ import { ContadorTragosService } from '../hoja-preguntas/p2/contador-tragos.serv
   providedIn: 'root'
 })
 export class ServerService {
-  constructor(private http: HttpClient,
-              private tragosService: ContadorTragosService) { }
+  constructor(private http: HttpClient
+              // private tragosService: ContadorTragosService
+            )
+              { }
 
 // usar esta linea en development
 base_url = "/api"
@@ -39,16 +41,20 @@ envia_item(item) {
     console.log(res)
     res => {return}
   })
-
-}
-
-envia_listatragos():void {
- console.log(this.tragosService.get_lista_tragos())
-}
-
 }
 
 
+// envia_listatragos():void {
+//  console.log(this.tragosService.get_lista_tragos())
+// }
+
+enviaP2detalle(lista): boolean {
+console.log(lista)
+return true
+}
+
+
+}
   //
   // graba_audit(audit) {
   //   let body = JSON.stringify({audit: audit});

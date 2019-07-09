@@ -87,10 +87,10 @@ export class HojaPreguntasComponent implements OnInit {
 
      dialogRef.afterClosed().subscribe(finaliza =>{
         if(finaliza){
-
+          this.almacen.envia_listatragos();
           this.auth.logout();
           this.router.navigate(['usuario']);
-          this.almacen.reseteaAlmacen()
+
         }
           return})
    }
@@ -99,7 +99,6 @@ configuraP2(){
   this.p2 = true;
   this.cuentaTragos = this.tragosService.tragos_totales$.subscribe(
     datos => {this.respuestaForm.patchValue({item: datos})})
-
 }
 
 }

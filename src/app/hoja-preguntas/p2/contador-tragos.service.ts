@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { Trago } from '../cuestionario/trago'
 import { LISTA_TRAGOS } from '../cuestionario/lista_tragos'
+// import { AlmecenResultadosService} from '../../datos/almecen-resultados.service'
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +12,23 @@ export class ContadorTragosService {
   lista_tragos = LISTA_TRAGOS
   calculoTragos: number
 
-
-  //
-  // private lista_trago$ = new Subject<Trago[]>();
-  // lista_trago$ = this.lista_tragos.asObservable()
+  private cambios_lista = new Subject<number[]>();
+  cambios_lista_trago$ = this.cambios_lista.asObservable()
 
   private tragos_totales = new Subject<number>();
   tragos_totales$ = this.tragos_totales.asObservable()
 
-  constructor() { }
+  constructor(
+    // private almacen: AlmecenResultadosService
+  ) { }
 
   get_lista_tragos$(): Observable<Trago[]> {
     return of(this.lista_tragos)
   }
 
-  get_lista_tragos():Trago[] {
-    return this.lista_tragos
-  }
+  // get_lista_tragos():Trago[] {
+  //   return this.lista_tragos
+  // }
 
   ceroTragos(): void {
     let i: any;
@@ -37,6 +38,7 @@ export class ContadorTragosService {
   suma(indx: number): void {
   this.lista_tragos[indx].cant++
   this.calculaTragos()
+  this.cambios_lista.next([indx, this.lista_tragos[indx].cant])
   }
 
   resta(indx: number): void {

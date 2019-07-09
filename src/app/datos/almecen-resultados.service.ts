@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { PuntajesAudit } from './puntajes-audit'
 import { Usuario } from '../auth/usuario/usuario'
 import { ServerService } from '../server/server.service'
+import { Trago} from '../hoja-preguntas/cuestionario/trago'
+import { Subscription }   from 'rxjs';
+import { LISTA_TRAGOS } from '../hoja-preguntas/cuestionario/lista_tragos'
 
 import {ContadorTragosService} from '../hoja-preguntas/p2/contador-tragos.service'
 
@@ -13,18 +16,32 @@ export class AlmecenResultadosService {
   constructor(
     private server: ServerService,
     private contadorTragosService: ContadorTragosService
-  ) { }
+  ) {
+    this.subscription = this.contadorTragosService.cambios_lista_trago$.
+      subscribe(datos => {
+        console.log(this.lista[datos[0]].cant)
+        this.lista[datos[0]].cant = datos[1]
+        // this.lista_tragos[datos[0]]
+      // this.lista_tragos[datos[0]].cant = datos[1])
+      console.log(this.lista)
+    })
+  }
 
 
 usuario: Usuario
 audit: PuntajesAudit[] = []
 item: PuntajesAudit
 secuencia: number = 0
-
+lista: Trago[] = LISTA_TRAGOS
+subscription: Subscription
 
 guardaUsuario(info:Usuario):void{
   this.usuario = info
   this.server.envia_usuario(this.usuario)
+}
+
+ngOnDestroy(){
+  this.subscription.unsubscribe()
 }
 
 
@@ -42,6 +59,10 @@ guardaItem(itemid:number, alt:number, tiempo:number):void{
   return
 }
 
+// guardaLista_tragos(lista_tragos):void {
+//   this.lista_tragos = lista_tragos
+// }
+
 get_alternativa(n){
 let secuencia = this.secuencia
 let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n)
@@ -55,13 +76,17 @@ if (!itemActual || !itemActual.length){return}
   }
 }
 
+envia_listatragos():void{
+  this.server.enviaP2detalle(this.lista)
+}
+
 reseteaAlmacen():void {
 
- this.usuario = undefined;
- this.audit = [];
- this.item = undefined;
- this.secuencia = 0;
- this.contadorTragosService.resetea()
+  this.audit = [];
+  this.item = undefined;
+  this.secuencia = 0;
+  this.contadorTragosService.resetea()
+
 }
 
 }
