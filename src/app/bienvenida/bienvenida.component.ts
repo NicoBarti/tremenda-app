@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AlmecenResultadosService} from '../datos/almecen-resultados.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-bienvenida',
@@ -40,8 +43,10 @@ export class BienvenidaComponent {
   mostrar2: boolean = false;
   ciclo: string = '2.b'
 
-  constructor(){};
-
+  constructor(
+      private almacen: AlmecenResultadosService,
+        private router: Router,
+  ){};
 
   onAnimationEvent ( event: AnimationEvent ) {
 
@@ -65,5 +70,11 @@ export class BienvenidaComponent {
                   this.ciclo = '2.b'
                   this.mostrar1 = !this.mostrar1}
   }
+  }
+
+  navega(){
+    this.almacen.reseteaAlmacen();
+    this.router.navigate(['vista/mide' , 1]);
+
   }
 }

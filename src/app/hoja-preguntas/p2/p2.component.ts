@@ -25,8 +25,9 @@ export class P2Component implements OnDestroy {
               private selector: SelectorService,
               public dialog: MatDialog,) {
     this.subscription = contadortragosService.get_lista_tragos$().
-      subscribe(datos => {this.datos = datos,
-      console.log(datos)}) }
+      subscribe(datos => {this.datos = datos
+      // console.log(datos)
+    }) }
 
   ngOnDestroy(){
         this.subscription.unsubscribe();
