@@ -19,11 +19,11 @@ export class AlmecenResultadosService {
   ) {
     this.subscription = this.contadorTragosService.cambios_lista_trago$.
       subscribe(datos => {
-        console.log(this.lista[datos[0]].cant)
+        // console.log(this.lista[datos[0]].cant)
         this.lista[datos[0]].cant = datos[1]
         // this.lista_tragos[datos[0]]
       // this.lista_tragos[datos[0]].cant = datos[1])
-      console.log(this.lista)
+      // console.log(this.lista)
     })
   }
 

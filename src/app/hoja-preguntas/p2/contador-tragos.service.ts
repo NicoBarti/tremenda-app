@@ -30,6 +30,10 @@ export class ContadorTragosService {
   //   return this.lista_tragos
   // }
 
+  get_calculoTragos():number{
+    return this.calculoTragos
+  }
+
   ceroTragos(): void {
     let i: any;
     for(i in this.lista_tragos){this.lista_tragos[i].cant = 0}

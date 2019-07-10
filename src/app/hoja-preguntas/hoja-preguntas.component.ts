@@ -34,6 +34,7 @@ export class HojaPreguntasComponent implements OnInit {
   tiempoInicio:number
   n:number
   p2:boolean
+  p2_touched: boolean
   p3detalle: boolean
   cuentaTragos: Subscription
   itemid:number
@@ -44,9 +45,10 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
+        this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
+
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
             if(this.n == 3){this.p3detalle = true}else{this.p3detalle = false}
-        this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
         const d = new Date()
         this.tiempoInicio = d.getTime()
         this.itemid = this.cuestionarioService.get_itemid(+params.get('n'))
@@ -97,8 +99,15 @@ export class HojaPreguntasComponent implements OnInit {
 
 configuraP2(){
   this.p2 = true;
+  if(this.p2_touched){
+    this.respuestaForm.patchValue({item: this.tragosService.get_calculoTragos()});
+    }
   this.cuentaTragos = this.tragosService.tragos_totales$.subscribe(
-    datos => {this.respuestaForm.patchValue({item: datos})})
+    datos => {this.respuestaForm.patchValue({item: datos});
+    this.p2_touched = true
+  })
+
+
 }
 
 }
