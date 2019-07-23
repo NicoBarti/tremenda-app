@@ -56,6 +56,7 @@ guardaItem(itemid:number, alt:number, tiempo:number):void{
   }
   this.server.envia_item(this.item)
   this.secuencia++
+  // console.log(this.)
   return
 }
 
@@ -75,6 +76,20 @@ if (!itemActual || !itemActual.length){return}
   secuencia--
   }
 }
+// 
+// get_alternativa_anterior(n){
+// let secuencia = this.secuencia
+// let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n-1)
+// if (!itemActual || !itemActual.length){return}
+//
+//   for (var i = 0; i < this.audit.length +1; i++) {
+//     var x = itemActual.filter(item=> item.secuencia == secuencia)
+//     if(x.length == 1){
+//       return(x[0].alt)
+//     }
+//   secuencia--
+//   }
+// }
 
 envia_listatragos():void{
   this.server.enviaP2detalle(this.lista)

@@ -10,13 +10,22 @@ import {LISTA_TRAGOS} from '../cuestionario/lista_tragos'
 export class Detallep3Component implements OnInit {
 
 columnsToDisplay = ['tragoImagen', 'tragoNombre','equivalencia']
-datos: Trago[] = []
+private datos = []
 
   constructor() { }
 
   ngOnInit() {
-    this.datos.push(LISTA_TRAGOS[0], LISTA_TRAGOS[4], LISTA_TRAGOS[7], LISTA_TRAGOS[10])
+    this.armaLista()
+  }
 
+  armaLista():void{
+
+this.datos = [
+  {imagen: LISTA_TRAGOS[0].imagen, nombre: '5 copas de vino', eq: 5 },
+  {imagen: LISTA_TRAGOS[4].imagen, nombre: '5 latas cerveza 375cc', eq: 5 },
+  {imagen: LISTA_TRAGOS[7].imagen, nombre: '2 botellas de cerveza', eq: 6 },
+  {imagen: LISTA_TRAGOS[10].imagen, nombre: '3 combinados fuertes', eq: 5 }
+]
   }
 
 }

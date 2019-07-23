@@ -38,6 +38,7 @@ export class HojaPreguntasComponent implements OnInit {
   p3detalle: boolean
   cuentaTragos: Subscription
   itemid:number
+  texto_comp: string
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -45,6 +46,7 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
+        this.texto_comp = null
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
 
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
@@ -99,6 +101,11 @@ export class HojaPreguntasComponent implements OnInit {
 
 configuraP2(){
   this.p2 = true;
+  const texto = this.cuestionarioService.get_texto_pregunta(this.n-1, this.almacen.get_alternativa(this.n-1))
+if(texto){
+  this.texto_comp = 'Usted consume alcohol ' + texto.charAt(0).toLowerCase() + texto.slice(1) + '.'
+}
+
   if(this.p2_touched){
     this.respuestaForm.patchValue({item: this.tragosService.get_calculoTragos()});
     }
