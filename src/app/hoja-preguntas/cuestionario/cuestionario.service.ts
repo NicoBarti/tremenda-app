@@ -50,7 +50,7 @@ export class CuestionarioService {
     // },
     {id: 2.0,
       orden: 2,
-    texto: 'Indique la cantidad de bebidas con alcohol que suele consumir en un día normal de consumo durante los últimos 12 meses',
+    texto: '¿Qué cantidad de las siguientes bebidas alcoholicas suele consumir en esas ocasiones durante los últimos 12 meses? (oprima los dibujos correspondientes)',
     a1: '1 o 2',
     a2: '3 o 4',
     a3: '5 o 6',
@@ -64,11 +64,11 @@ export class CuestionarioService {
     },
     {id: 3.0,
       orden: 3,
-    texto: '¿Con qué frecuencia ha tomado 5 o más tragos en una ocasión durante el último año ?',
+    texto: '¿Con qué frecuencia ha bebido 5 o más tragos en una ocasión durante los últimos 12 meses?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -78,11 +78,11 @@ export class CuestionarioService {
     },
     {id: 4.0,
       orden: 4,
-    texto: 'En el curso del último año, ¿Con qué frecuencia ha sido incapaz de parar de beber una vez que había empezado?',
+    texto: 'En el curso de los últimos 12 meses, ¿Con qué frecuencia ha sido incapaz de parar de beber una vez que había empezado?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -92,11 +92,11 @@ export class CuestionarioService {
     },
     {id: 5.0,
       orden: 5,
-    texto: 'En el curso del último año, ¿Con qué frecuencia no pudo hacer lo que se esperaba de usted porque había bebido?',
+    texto: 'En el curso de los últimos 12 meses, ¿Con qué frecuencia no pudo hacer lo que se esperaba de usted porque había bebido?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -106,11 +106,11 @@ export class CuestionarioService {
     },
     {id: 6.0,
       orden: 6,
-    texto: 'En el curso del último año, ¿Con qué frecuencia ha necesitado beber en ayunas para recuperarse después de haber bebido mucho el día anterior?',
+    texto: 'En el curso de los últimos 12 meses, ¿Con qué frecuencia ha necesitado beber en ayunas para recuperarse después de haber bebido mucho el día anterior?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -120,11 +120,11 @@ export class CuestionarioService {
     },
     {id: 7.0,
       orden: 7,
-    texto: 'En el curso del último año, ¿Con qué frecuencia ha tenido remordimientos o sentimientos de culpa después de haber bebido?',
+    texto: 'En el curso de los últimos 12 meses, ¿Con qué frecuencia ha tenido remordimientos o sentimientos de culpa después de haber bebido?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -134,11 +134,11 @@ export class CuestionarioService {
     },
     {id: 8.0,
       orden: 8,
-    texto: 'En el curso del último año, ¿Con qué frecuencia no ha podido recordar lo que sucedió la noche anterior porque había estado bebiendo?',
+    texto: 'En el curso de los últimos 12 meses, ¿Con qué frecuencia no ha podido recordar lo que sucedió la noche anterior porque había estado bebiendo?',
     a1: 'Nunca',
     a2: 'Menos de una vez al mes',
     a3: 'Mensualmente',
-    a4: 'Semanelmente',
+    a4: 'Semanalmente',
     a5: 'A diario o casi a diario',
     p1: 0,
     p2: 1,
@@ -190,6 +190,14 @@ get_itemid(secuencia:number):number{
     const item = this.auditItems.find(item => item.orden === secuencia)
     if(item === undefined){return}
     return item.id
+}
+
+get_texto_pregunta(item, alt){
+  // const alternativa = 'a'+alt
+    const resp = this.auditItems.find(pregunta => pregunta.orden == item)
+    if(resp === undefined){return}
+    if(alt === undefined){return}
+    return resp['a'+(alt+1)]
 }
 
 }

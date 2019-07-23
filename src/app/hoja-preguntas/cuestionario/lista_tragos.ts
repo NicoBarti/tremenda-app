@@ -6,9 +6,9 @@ export const LISTA_TRAGOS: Trago[] = [
   {imagen: "../../assets/tragos/botella_vino.png", nombre: "Botella", indx: 2, cant: null, eq: 6},
   {imagen: "../../assets/tragos/caja_vino.png", nombre: "Caja", indx: 3, cant: null, eq: 8},
 
-  {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata", indx: 4, cant: null, eq: 1},
-  {imagen: "../../assets/tragos/shop_pequeno.png", nombre: "Shop chico", indx: 5, cant: null, eq: 1.5},
-  {imagen: "../../assets/tragos/shop_grande.png", nombre: "Shop grande", indx: 6, cant: null, eq: 3},
+  {imagen: "../../assets/tragos/cerveza_1.png", nombre: "Lata 375cc", indx: 4, cant: null, eq: 1},
+  {imagen: "../../assets/tragos/shop_pequeno.png", nombre: "Shop 500cc", indx: 5, cant: null, eq: 1.5},
+  {imagen: "../../assets/tragos/shop_grande.png", nombre: "Shop 1 litro", indx: 6, cant: null, eq: 3},
   {imagen: "../../assets/tragos/botella_cerveza.png", nombre: "Botella", indx: 7, cant: null, eq: 3},
 
   {imagen: "../../assets/tragos/corto_1.png", nombre: "Corto", indx: 8, cant: null, eq: 1},
