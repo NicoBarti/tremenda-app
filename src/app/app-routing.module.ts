@@ -9,6 +9,7 @@ import { AuthGuard }                from './auth/auth.guard';
 
 import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.component'
 
+import {ErroreligibilidadComponent} from './dialogos/erroreligibilidad/erroreligibilidad.component'
 
 const routes: Routes = [
   { path: '',   redirectTo: '/vista', pathMatch: 'full' },
@@ -32,6 +33,10 @@ const routes: Routes = [
     {
       path: 'usuario',
       component: UsuarioComponent
+    },
+    {
+      path: 'eligibilidad0',
+      component: ErroreligibilidadComponent
     },
     {
       path: '**',
