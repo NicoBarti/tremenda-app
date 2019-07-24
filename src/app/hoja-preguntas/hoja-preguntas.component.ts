@@ -11,6 +11,7 @@ import {MatDialog, MatDialogRef } from '@angular/material';
 // import {MatSnackBar } from '@angular/material';
 import {AuthService} from '../auth/auth.service'
 import {ContadorTragosService} from './p2/contador-tragos.service'
+import {ValidacionService} from './validacion.service'
 
 @Component({
   selector: 'app-hoja-preguntas',
@@ -26,7 +27,8 @@ export class HojaPreguntasComponent implements OnInit {
     private almacen: AlmecenResultadosService,
     public dialog: MatDialog,
     private auth: AuthService,
-    private tragosService: ContadorTragosService
+    private tragosService: ContadorTragosService,
+    private valida:ValidacionService
   ) { }
 
   respuestaForm: FormGroup;
@@ -66,10 +68,13 @@ export class HojaPreguntasComponent implements OnInit {
   get item() { return this.respuestaForm.get('item')};
 
   enviar(){
-    const t = new Date()
-    this.navega()
-    this.almacen.guardaItem(this.itemid, this.respuestaForm.get('item').value, t.getTime() - this.tiempoInicio)
-    this.respuestaForm.reset()
+    // Primero ejecuta validacion que deluelve true si es valido; si no es válido devuelde false y se detiene el flujo enviar
+    if(this.valida.es_valida(this.itemid, this.respuestaForm.get('item').value)){
+      const t = new Date()
+      this.navega()
+      this.almacen.guardaItem(this.itemid, this.respuestaForm.get('item').value, t.getTime() - this.tiempoInicio)
+      this.respuestaForm.reset()
+    }
   }
 
   navega(){

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SecuenciadorService } from './secuenciador.service';
+import { ValidacionService } from './validacion.service';
 
-describe('SecuenciadorService', () => {
+describe('ValidacionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SecuenciadorService = TestBed.get(SecuenciadorService);
+    const service: ValidacionService = TestBed.get(ValidacionService);
     expect(service).toBeTruthy();
   });
 });

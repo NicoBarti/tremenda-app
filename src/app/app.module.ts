@@ -22,6 +22,8 @@ import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.componen
 import { P2Component } from './hoja-preguntas/p2/p2.component';
 import { Selectorp2Component } from './dialogos/selectorp2/selectorp2.component';
 import { Detallep3Component } from './hoja-preguntas/detallep3/detallep3.component';
+import { Confirma0tragosComponent } from './dialogos/confirma0tragos/confirma0tragos.component';
+import { ErroreligibilidadComponent } from './dialogos/erroreligibilidad/erroreligibilidad.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,14 @@ import { Detallep3Component } from './hoja-preguntas/detallep3/detallep3.compone
     HojaPreguntasComponent,
     P2Component,
     Selectorp2Component,
-    Detallep3Component
+    Detallep3Component,
+    Confirma0tragosComponent,
+    ErroreligibilidadComponent
   ],
   entryComponents: [
     DialogoGraciasComponent,
-    Selectorp2Component
+    Selectorp2Component,
+    Confirma0tragosComponent
   ],
   imports: [
     BrowserModule,
