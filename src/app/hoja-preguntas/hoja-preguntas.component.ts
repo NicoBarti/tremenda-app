@@ -91,7 +91,7 @@ export class HojaPreguntasComponent implements OnInit {
 
    finalizar() {
      const dialogRef = this.dialog.open(DialogoGraciasComponent, {
-       width: '250px',
+       width: '250px'
      });
 
      dialogRef.afterClosed().subscribe(finaliza =>{

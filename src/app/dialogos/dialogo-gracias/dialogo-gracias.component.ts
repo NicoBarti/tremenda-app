@@ -1,10 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import  {MatDialogRef} from '@angular/material';
 
 
 @Component({
   selector: 'app-dialogo-gracias',
-  templateUrl: './dialogo-gracias.component.html'
+  templateUrl: './dialogo-gracias.component.html',
+  styleUrls: ['./dialogo-gracias.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DialogoGraciasComponent {
 
