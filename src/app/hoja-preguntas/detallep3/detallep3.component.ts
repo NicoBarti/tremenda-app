@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Trago } from '../cuestionario/trago'
+// import {Trago } from '../cuestionario/trago'
 import {LISTA_TRAGOS} from '../cuestionario/lista_tragos'
 
 @Component({
@@ -10,7 +10,7 @@ import {LISTA_TRAGOS} from '../cuestionario/lista_tragos'
 export class Detallep3Component implements OnInit {
 
 columnsToDisplay = ['tragoImagen', 'tragoNombre','equivalencia']
-private datos = []
+datos = []
 
   constructor() { }
 
