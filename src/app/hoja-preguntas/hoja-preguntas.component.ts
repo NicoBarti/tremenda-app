@@ -108,7 +108,7 @@ configuraP2(){
   this.p2 = true;
   const texto = this.cuestionarioService.get_texto_pregunta(this.n-1, this.almacen.get_alternativa(this.n-1))
 if(texto){
-  this.texto_comp = 'Usted consume alcohol ' + texto.charAt(0).toLowerCase() + texto.slice(1) + '.'
+  this.texto_comp = 'En los últimos 12 meses, usted ha consumo alcohol ' + texto.charAt(0).toLowerCase() + texto.slice(1) + '.'
 }
 
   if(this.p2_touched){
