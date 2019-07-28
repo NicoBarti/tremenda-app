@@ -17,10 +17,10 @@ import { Router } from '@angular/router';
        state('in', style({ opacity: 1 })),
       transition(':enter', [
           style({ opacity: 0 }),
-        animate('800ms ease-in'),
+        animate('400ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-out', style({ opacity: 0 }))
+        animate('400ms ease-out', style({ opacity: 0 }))
       ])
     ]),
     trigger('myAnimationTrigger2',[
@@ -28,10 +28,10 @@ import { Router } from '@angular/router';
       transition(':enter', [
         // style({ opacity: 0 }),
         style({ opacity: 0 }),
-        animate('800ms ease-in'),
+        animate('400ms 400ms ease-in'),
       ]),
       transition(':leave', [
-        animate('800ms 2.5s ease-out', style({ opacity: 0}))
+        animate('400ms ease-out', style({ opacity: 0}))
       ])
     ])
   ]
@@ -41,38 +41,19 @@ export class BienvenidaComponent {
 
   mostrar1: boolean = true;
   mostrar2: boolean = false;
-  ciclo: string = '2.b'
+  // ciclo: string = '2.b'
 
   constructor(
       private almacen: AlmecenResultadosService,
         private router: Router,
   ){};
 
-  onAnimationEvent ( event: AnimationEvent ) {
-
-//entrada desde trigger1
- if(event.triggerName == "myAnimationTrigger1"){
-   if(event.fromState === "void" && this.ciclo == '2.b'){
-           this.ciclo = '1.a'
-           this.mostrar1 = !this.mostrar1}
-
-             else if(event.toState === "void" && this.ciclo == '1.a'){
-                    this.ciclo = '1.b'
-                    this.mostrar2 = !this.mostrar2}
-   }
-//entrada desde trigger2
- else if(event.triggerName == "myAnimationTrigger2"){
-   if(event.fromState === "void" && this.ciclo == '1.b'){
-           this.ciclo = '2.a'
-           this.mostrar2 = !this.mostrar2}
-
-           else if(event.toState === "void" && this.ciclo == '2.a'){
-                  this.ciclo = '2.b'
-                  this.mostrar1 = !this.mostrar1}
-  }
-  }
-
   navega(){
+    if(this.mostrar2 == false){
+      this.mostrar1 = false
+      this.mostrar2 = true
+      return
+    }
     this.almacen.reseteaAlmacen();
     this.router.navigate(['vista/mide' , 1]);
 
