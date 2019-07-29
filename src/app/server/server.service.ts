@@ -11,7 +11,7 @@ import { ContadorTragosService } from '../hoja-preguntas/p2/contador-tragos.serv
   providedIn: 'root'
 })
 export class ServerService {
-  constructor(private http: HttpClient
+  constructor(private http: HttpClient 
               // private tragosService: ContadorTragosService
             )
               { }
