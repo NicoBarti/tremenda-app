@@ -38,7 +38,9 @@
 
           <app-p2 *ngIf="p2"></app-p2>
           <app-detallep3 *ngIf="p3detalle"></app-detallep3>
-          <div class="siguiente-button-cont"><button  mat-raised-button color="accent" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button></div>
+          <div class="siguiente-button-cont">
+            <button  mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button>
+          </div>
           <!-- </form> -->
 
           </mat-card-content>
