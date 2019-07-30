@@ -2,6 +2,10 @@
   height: 100vh;
 }
 
+.negritas{
+  font-weight: bold;
+}
+
 .contenedor_pregunta{
   width: 85%;
   height: 90%;
@@ -40,4 +44,10 @@
   margin-top: 2em;
   display: flex;
   justify-content: center;
+}
+
+.boton{
+  text-transform: uppercase;
+  line-height: 55px;
+  font-size: 1.5em;
 }
