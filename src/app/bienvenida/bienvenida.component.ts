@@ -60,7 +60,5 @@ export class BienvenidaComponent {
 
   siguienteParrafo(){
     if(this.mostrar1 == false){this.mostrar2 = true}
-
-    console.log('hey')
   }
 }

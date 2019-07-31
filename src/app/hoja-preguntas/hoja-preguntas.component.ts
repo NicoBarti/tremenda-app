@@ -3,6 +3,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators'
 import { Observable, Subscription} from 'rxjs';
 import { FormGroup ,FormControl, Validators } from '@angular/forms';
+import { trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {CuestionarioService} from './cuestionario/cuestionario.service'
 import {Preguntas} from './cuestionario/preguntas'
 import {AlmecenResultadosService} from '../datos/almecen-resultados.service'
@@ -16,8 +19,23 @@ import {ValidacionService} from './validacion.service'
 @Component({
   selector: 'app-hoja-preguntas',
   templateUrl: './hoja-preguntas.component.html',
-  styleUrls: ['./hoja-preguntas.component.css']
+  styleUrls: ['./hoja-preguntas.component.css'],
+  animations: [
+    trigger('cajaDePreguntaAnimacion', [
+      state('entra', style({ opacity: 1 })),
+      state('sale', style({ opacity: 0})),
+     transition('* => entra', [
+         style({ opacity: 0 }),
+       animate('250ms ease-in')
+    ]),
+    transition('* => sale', [
+      style({opacity: 1}),
+      animate('250ms ease-out')
+    ])
+    ])
+  ]
 })
+
 export class HojaPreguntasComponent implements OnInit {
 
   constructor(
@@ -41,6 +59,9 @@ export class HojaPreguntasComponent implements OnInit {
   cuentaTragos: Subscription
   itemid:number
   texto_comp: string
+  teAnimo: boolean
+  avanzar: boolean
+  retroceder: boolean
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -49,6 +70,9 @@ export class HojaPreguntasComponent implements OnInit {
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
         this.texto_comp = null
+        this.avanzar = false
+        this.retroceder = false
+        this.teAnimo = true
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
 
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
@@ -78,15 +102,33 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 9){this.finalizar()}
-    else {
-      this.router.navigate(['vista/mide', this.n + 1])
+    if(this.n > 9){this.finalizar(); return}
+    this.avanzar = true
+    this.teAnimo = false
+    // if(this.n > 9){this.finalizar()}
+    // else {
+    //   this.router.navigate(['vista/mide', this.n + 1])
+    // }
+  }
+
+  terminaAnimacionSale() {
+    if(this.avanzar == true) {
+      if(this.n > 9){this.finalizar()}
+      else {
+        this.router.navigate(['vista/mide', this.n + 1])
+      }
+    }
+    if(this.retroceder == true) {
+      this.router.navigate(['vista/mide', this.n - 1])
     }
   }
 
    retrocede(){
      if(this.n == 1){ return}
-     this.router.navigate(['vista/mide', this.n - 1])
+     this.retroceder = true
+     this.teAnimo = false
+     // if(this.n == 1){ return}
+     // this.router.navigate(['vista/mide', this.n - 1])
    }
 
    finalizar() {

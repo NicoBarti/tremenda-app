@@ -21,7 +21,9 @@
 
 <!-- Desarrollo Preguntas -->
     <mat-grid-tile rowspan="9" >
-      <mat-card color="primary" class="contenedor_pregunta">
+      <mat-card [@cajaDePreguntaAnimacion] = "teAnimo? 'entra' : 'sale'"
+      (@cajaDePreguntaAnimacion.done) = 'terminaAnimacionSale()'
+        color="primary" class="contenedor_pregunta">
         <mat-card-content>
           <!-- <form [formGroup]="respuestaForm" *ngIf="respuestas| async as r"> -->
             <mat-label class="mat-h1 negritas">{{texto_comp}} {{r.texto}}</mat-label>
