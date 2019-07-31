@@ -46,6 +46,12 @@
   justify-content: center;
 }
 
+.eq-button-cont{
+  margin-top: 6em;
+  display: flex;
+  justify-content: center;
+}
+
 .boton{
   text-transform: uppercase;
   line-height: 55px;

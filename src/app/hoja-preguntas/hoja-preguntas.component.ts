@@ -16,6 +16,8 @@ import {AuthService} from '../auth/auth.service'
 import {ContadorTragosService} from './p2/contador-tragos.service'
 import {ValidacionService} from './validacion.service'
 
+import {Detallep3Component} from '../dialogos/detallep3/detallep3.component'
+
 @Component({
   selector: 'app-hoja-preguntas',
   templateUrl: './hoja-preguntas.component.html',
@@ -62,6 +64,7 @@ export class HojaPreguntasComponent implements OnInit {
   teAnimo: boolean
   avanzar: boolean
   retroceder: boolean
+  primeraVuelta3: booleean = true
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -111,16 +114,21 @@ export class HojaPreguntasComponent implements OnInit {
     // }
   }
 
-  terminaAnimacionSale() {
+  terminaAnimacion() {
     if(this.avanzar == true) {
-      if(this.n > 9){this.finalizar()}
+      if(this.n > 9){
+        this.finalizar();
+        return}
       else {
-        this.router.navigate(['vista/mide', this.n + 1])
+        this.router.navigate(['vista/mide', this.n + 1]);
+        return
       }
     }
     if(this.retroceder == true) {
-      this.router.navigate(['vista/mide', this.n - 1])
+      this.router.navigate(['vista/mide', this.n - 1]);
+      return
     }
+    if(this.n == 3 && this.primeraVuelta3){this.abrep3detalle()}
   }
 
    retrocede(){
@@ -160,7 +168,18 @@ if(texto){
     datos => {this.respuestaForm.patchValue({item: datos});
     this.p2_touched = true
   })
+}
 
+abrep3detalle(){
+  const dialogRef = this.dialog.open(Detallep3Component, {
+    width: '450px;'
+  });
+
+  dialogRef.afterClosed().subscribe(hola=>{
+    this.primeraVuelta3 = false
+  }
+
+  )
 
 }
 

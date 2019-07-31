@@ -1,0 +1,43 @@
+.mat-dialog-container{
+padding: 16px !important;
+height: auto;
+}
+
+.imagen{
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+.espacio{
+  display: inline-block;
+  width: 8px;
+}
+
+.enlinea{
+    display: inline-block;
+}
+
+.negritas{
+  font-weight: bold;
+}
+
+.textoIntro{
+display: block;
+margin-bottom: 15px;
+}
+
+.titulo{
+  text-align: center;
+}
+
+.boton{
+  text-transform: uppercase;
+  line-height: 55px;
+  font-size: 1.5em;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.contenedorBoton{
+  text-align: center;
+}
