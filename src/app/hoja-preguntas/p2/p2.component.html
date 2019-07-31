@@ -1,51 +1,53 @@
 <!-- <mat-card class="contenedor"> -->
 <div *ngIf="ok"><app-selectorp2></app-selectorp2></div>
 
-  <mat-grid-list cols="4" rowHeight="fit" class="altodelgrid">
+  <mat-grid-list cols="3" rowHeight="fit" class="altodelgrid">
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                 <p class="mat-h2 separadores">Vino</p>
               </mat-grid-tile>
         <mat-grid-tile
-            *ngFor="let dato of datos | slice:0:4 "
+            *ngFor="let dato of datos | slice:0:3 "
             colspan="1"
             rowspan="3"
             class="vineta">
-            <button type="button" (click)="anima(dato)" class="boton-vineta">
+            <button type="button" (click)="anima(dato)" mat-raised-button class="boton">
               <div><img class ="imagen" src="{{dato.imagen}}"></div>
                 <div class="contador-nombre">
-                  <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                  <p class="mat-h2" class="contadorBoton">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h1 nombre-trago">{{dato.nombre}}</p>
                 </div>
             </button>
         </mat-grid-tile>
 
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                     <p class="mat-h2 separadores">Cerveza</p>  </mat-grid-tile>
         <mat-grid-tile
-                *ngFor="let dato of datos | slice:4:8"
+                *ngFor="let dato of datos | slice:3:6"
                 colspan="1"
                 rowspan="3"
                 class="vineta">
-              <button type="button" (click)="anima(dato)" class="boton-vineta">
+              <button type="button" (click)="anima(dato)" mat-raised-button class="boton">
                 <div><img class ="imagen" src="{{dato.imagen}}"></div>
                   <div class="contador-nombre">
-                    <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                    <p class="mat-h2" class="contadorBoton">{{dato.cant}}</p>
+                    <span class ="espacio"></span>
+                    <p class="mat-h1 nombre-trago">{{dato.nombre}}</p>
                   </div>
                 </button>
           </mat-grid-tile>
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                           <p class="mat-h2 separadores">Licor</p>  </mat-grid-tile>
           <mat-grid-tile
-                      *ngFor="let dato of datos | slice:8:12"
+                      *ngFor="let dato of datos | slice:6:9"
                       colspan="1"
                       rowspan="3"
                       class="vineta">
-                <button type="button" (click)="anima(dato)" class="boton-vineta">
+                <button type="button" (click)="anima(dato)" mat-raised-button class="boton">
                   <div><img class ="imagen" src="{{dato.imagen}}"></div>
                     <div class="contador-nombre">
-                      <p class="mat-h2 ">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h3 nombre-trago">{{dato.nombre}}</p>
+                      <p class="mat-h2" class="contadorBoton">{{dato.cant}}</p> <span class ="espacio"></span><p class="mat-h1 nombre-trago">{{dato.nombre}}</p>
                     </div>
                   </button>
           </mat-grid-tile>

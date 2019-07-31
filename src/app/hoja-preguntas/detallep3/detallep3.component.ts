@@ -22,9 +22,9 @@ datos = []
 
 this.datos = [
   {imagen: LISTA_TRAGOS[0].imagen, nombre: '5 copas de vino', eq: 5 },
-  {imagen: LISTA_TRAGOS[4].imagen, nombre: '5 latas cerveza 375cc', eq: 5 },
-  {imagen: LISTA_TRAGOS[7].imagen, nombre: '2 botellas de cerveza', eq: 6 },
-  {imagen: LISTA_TRAGOS[10].imagen, nombre: '3 combinados fuertes', eq: 5 }
+  {imagen: LISTA_TRAGOS[3].imagen, nombre: '5 latas cerveza 375cc', eq: 5 },
+  {imagen: LISTA_TRAGOS[5].imagen, nombre: '2 botellas de cerveza', eq: 6 },
+  {imagen: LISTA_TRAGOS[8].imagen, nombre: '3 combinados fuertes', eq: 5 }
 ]
   }
 

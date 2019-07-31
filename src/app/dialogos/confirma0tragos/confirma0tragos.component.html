@@ -1,8 +1,10 @@
 <h3 class="mat-display-1">Por favor confirmar:</h3>
-<h2 class="mat-headline">¿Usted no ha consumido ninguna bebida alcoholica durante los últimos 12 meses?</h2>
+<h2 class="mat-headline">Si no ha consumido nada de alcohol durante los últimos 12 meses, por favor salga del cuestionario.</h2>
+<h2 class="mat-headline">Para cambiar su respuesta presione "Volver".</h2>
+
 <br>
 <mat-dialog-actions>
   <!-- <button mat-button [mat-dialog-close]="respuesta">Volver</button> -->
-  <button mat-stroked-button color="primary" [mat-dialog-close]="!cerotragos">Volver</button>
-  <button mat-stroked-button color="primary"  [mat-dialog-close]="cerotragos">Correcto</button>
+  <button mat-stroked-button class="boton" color="primary" [mat-dialog-close]="!cerotragos">volver</button>
+  <button mat-stroked-button class="boton" color="primary"  [mat-dialog-close]="cerotragos">salir</button>
 </mat-dialog-actions>

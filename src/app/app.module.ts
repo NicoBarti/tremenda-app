@@ -25,6 +25,7 @@ import { Detallep3Component } from './hoja-preguntas/detallep3/detallep3.compone
 import { Confirma0tragosComponent } from './dialogos/confirma0tragos/confirma0tragos.component';
 import { ErroreligibilidadComponent } from './dialogos/erroreligibilidad/erroreligibilidad.component';
 import { ErrorValidacion3Component } from './dialogos/error-validacion3/error-validacion3.component';
+import { ErrorValidacion2Component } from './dialogos/error-validacion2/error-validacion2.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +39,15 @@ import { ErrorValidacion3Component } from './dialogos/error-validacion3/error-va
     Detallep3Component,
     Confirma0tragosComponent,
     ErroreligibilidadComponent,
-    ErrorValidacion3Component
+    ErrorValidacion3Component,
+    ErrorValidacion2Component
   ],
   entryComponents: [
     DialogoGraciasComponent,
     Selectorp2Component,
     Confirma0tragosComponent,
-    ErrorValidacion3Component
+    ErrorValidacion3Component,
+    ErrorValidacion2Component
   ],
   imports: [
     BrowserModule,

@@ -52,8 +52,8 @@ export class ContadorTragosService {
     }
   }
 
-  set_cero_index(indx: number):void {
-    this.lista_tragos[indx].cant = 0;
+  set_uno_index(indx: number):void {
+    this.lista_tragos[indx].cant = 1;
     this.calculaTragos();
   }
 
