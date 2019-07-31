@@ -1,4 +1,7 @@
-<mat-card class="contenedor">
+<div class="contenedor">
+  <div class="textoIntro">
+    <span class="mat-h1">Vamos entender por </span><span class="negritas mat-h1">TRAGO</span> <span class="mat-h1"> lo siguiente:</span>
+  </div>
 <table mat-table [dataSource]="datos">
 
   <ng-container matColumnDef="tragoImagen">
@@ -16,7 +19,7 @@
   <ng-container matColumnDef="equivalencia">
     <th mat-header-cell *matHeaderCellDef id="cabezera"></th>
     <td mat-cell *matCellDef="let trago" ><span class="espacio"></span><p class="mat-h2 enlinea">{{trago.eq}}</p><span class="espacio"></span>
-      <p class="mat-h2 enlinea">tragos</p><span class="espacio"></span>
+      <p class="mat-h2 enlinea">trago</p><span class="espacio"></span>
     </td>
   </ng-container>
 
@@ -24,4 +27,5 @@
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
 </table>
-</mat-card>
+<br>
+</div>

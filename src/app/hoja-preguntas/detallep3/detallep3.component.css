@@ -11,3 +11,12 @@
 .enlinea{
     display: inline-block;
 }
+
+.negritas{
+  font-weight: bold;
+}
+
+.textoIntro{
+display: block;
+margin-bottom: 15px;
+}

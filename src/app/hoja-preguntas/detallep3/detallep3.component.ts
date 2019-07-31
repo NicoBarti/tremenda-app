@@ -21,10 +21,12 @@ datos = []
   armaLista():void{
 
 this.datos = [
-  {imagen: LISTA_TRAGOS[0].imagen, nombre: '5 copas de vino', eq: 5 },
-  {imagen: LISTA_TRAGOS[3].imagen, nombre: '5 latas cerveza 375cc', eq: 5 },
-  {imagen: LISTA_TRAGOS[5].imagen, nombre: '2 botellas de cerveza', eq: 6 },
-  {imagen: LISTA_TRAGOS[8].imagen, nombre: '3 combinados fuertes', eq: 5 }
+  {imagen: LISTA_TRAGOS[0].imagen, nombre: 'Copa de vino de 100 mL', eq: 1 },
+  {imagen: LISTA_TRAGOS[3].imagen, nombre: 'Lata de cerveza de 375cc', eq: 1 },
+  // {imagen: LISTA_TRAGOS[5].imagen, nombre: 'Botella de cerveza de 1 litro', eq: 3 },
+  {imagen: LISTA_TRAGOS[8].imagen, nombre: 'Combinado fuerte', eq: 2 },
+  // {imagen: LISTA_TRAGOS[1].imagen, nombre: 'Vaso de vino de 200 mL', eq: 2},
+  {imagen: LISTA_TRAGOS[7].imagen, nombre: 'Corto de licor de 30 mL', eq: 1},
 ]
   }
 

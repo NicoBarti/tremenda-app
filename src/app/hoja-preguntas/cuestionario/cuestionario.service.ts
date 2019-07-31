@@ -64,7 +64,7 @@ export class CuestionarioService {
     },
     {id: 3.0,
       orden: 3,
-    texto: 'En los últimos 12 meses, ¿con qué frecuencia ha bebido 5 o más tragos en un mismo día?',
+    texto: 'En los últimos 12 meses, ¿con qué frecuencia ha bebido 5 o más TRAGOS en un mismo día?',
     a1: 'Nunca',
     a2: 'Algunos meses',
     a3: 'Mensualmente',
