@@ -1,13 +1,13 @@
 <!-- <mat-card class="contenedor"> -->
 <div *ngIf="ok"><app-selectorp2></app-selectorp2></div>
 
-  <mat-grid-list cols="4" rowHeight="fit" class="altodelgrid">
+  <mat-grid-list cols="3" rowHeight="fit" class="altodelgrid">
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                 <p class="mat-h2 separadores">Vino</p>
               </mat-grid-tile>
         <mat-grid-tile
-            *ngFor="let dato of datos | slice:0:4 "
+            *ngFor="let dato of datos | slice:0:3 "
             colspan="1"
             rowspan="3"
             class="vineta">
@@ -20,10 +20,10 @@
         </mat-grid-tile>
 
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                     <p class="mat-h2 separadores">Cerveza</p>  </mat-grid-tile>
         <mat-grid-tile
-                *ngFor="let dato of datos | slice:4:8"
+                *ngFor="let dato of datos | slice:3:6"
                 colspan="1"
                 rowspan="3"
                 class="vineta">
@@ -35,10 +35,10 @@
                 </button>
           </mat-grid-tile>
 
-    <mat-grid-tile colspan="4">
+    <mat-grid-tile colspan="3">
                           <p class="mat-h2 separadores">Licor</p>  </mat-grid-tile>
           <mat-grid-tile
-                      *ngFor="let dato of datos | slice:8:12"
+                      *ngFor="let dato of datos | slice:6:9"
                       colspan="1"
                       rowspan="3"
                       class="vineta">

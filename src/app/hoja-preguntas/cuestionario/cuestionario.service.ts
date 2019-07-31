@@ -50,7 +50,7 @@ export class CuestionarioService {
     // },
     {id: 2.0,
       orden: 2,
-    texto: 'Basándose en las siguientes imágenes ¿Cuántas bebidas con alcohol consume en esas ocasiones?',
+    texto: 'Basándose en las siguientes imágenes ¿Cuántas bebidas con alcohol consume en esas ocasiones? (presione las que correspondan)',
     a1: '1 o 2',
     a2: '3 o 4',
     a3: '5 o 6',
