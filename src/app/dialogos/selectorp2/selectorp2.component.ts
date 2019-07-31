@@ -22,8 +22,8 @@ cantidad: number
   ngOnInit() {
     this.cantidad = this.data.cant
     if(this.data.cant === null){
-      this.cantidad = 0;
-      this.contadortragosService.set_cero_index(this.data.indx)
+      this.cantidad = 1;
+      this.contadortragosService.set_uno_index(this.data.indx)
       }
     }
 
