@@ -64,7 +64,7 @@ export class HojaPreguntasComponent implements OnInit {
   teAnimo: boolean
   avanzar: boolean
   retroceder: boolean
-  primeraVuelta3: booleean = true
+  primeraVuelta3: boolean = true
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
