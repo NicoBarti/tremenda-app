@@ -11,16 +11,16 @@ import { ContadorTragosService } from '../hoja-preguntas/p2/contador-tragos.serv
   providedIn: 'root'
 })
 export class ServerService {
-  constructor(private http: HttpClient 
+  constructor(private http: HttpClient
               // private tragosService: ContadorTragosService
             )
               { }
 
 // usar esta linea en development
-base_url = "/api"
+// base_url = "/api"
 
 // usar esta linea para producción
-// base_url = "https://whispering-journey-32807.herokuapp.com"
+base_url = "https://whispering-journey-32807.herokuapp.com"
 
 currentUserId: number
 
