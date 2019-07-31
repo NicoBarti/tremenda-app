@@ -7,10 +7,10 @@
 }
 
 .contenedor_pregunta{
-  width: 85%;
-  height: 90%;
+  width: 95%;
+  height: 100%;
   align-items: center;
-  /* padding: 0px; */
+  padding: 0px;
 }
 
 .flechaIzq{
