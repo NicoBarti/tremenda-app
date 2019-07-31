@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BienvenidaComponent} from './bienvenida/bienvenida.component'
 
@@ -23,7 +24,8 @@ const routes: Routes = [
             },
             {
               path: '',
-              component: BienvenidaComponent
+              component: BienvenidaComponent,
+              data: {animacion: 'BienvenidaAnimacion'}
             },
             {
               path: '**',
