@@ -1,8 +1,10 @@
 <h3 class="mat-display-1">Muchas gracias!</h3>
 <h2 class="mat-headline">Tu participación está ayudando a mejorar esta aplicación</h2>
+<h2 class="mat-headline">Si deseas revisar alguna respuesta antes de terminar, presiona "Volver"</h2>
+
 <br>
 <mat-dialog-actions>
   <!-- <button mat-button [mat-dialog-close]="respuesta">Volver</button> -->
   <button mat-stroked-button class="boton" color="primary" (click)="onNoClick()">Volver</button>
-  <button mat-stroked-button class="boton" color="primary" [mat-dialog-close]="finaliza">Finalizar</button>
+  <button mat-stroked-button class="boton" color="primary" [mat-dialog-close]="finaliza">Salir</button>
 </mat-dialog-actions>

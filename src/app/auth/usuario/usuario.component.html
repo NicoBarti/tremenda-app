@@ -7,24 +7,24 @@
 
     <form [formGroup]="opciones">
       <mat-form-field>
-        <mat-label style="font-size: 1em;">Fecha de Nacimiento</mat-label>
-        <input style="font-size: 1em;"
-             class="mat-h1" matInput type="date"  formControlName="fnac">
+        <mat-label style="font-size: 2em;">Fecha de Nacimiento</mat-label>
+        <input style="font-size: 2em;"
+              matInput type="date"  formControlName="fnac">
       </mat-form-field>
       <!-- <h2 class="alerta" *ngIf="edad.invalid && !edad.pristine">Debes ser mayor de 15 años para responder esta encuesta, gracias.</h2> -->
 <br>
       <mat-form-field>
-          <mat-label style="font-size: 1em;">Sexo</mat-label>
+          <mat-label style="font-size: 2em;">Sexo</mat-label>
         <mat-select formControlName="sexo">
-          <mat-option style="font-size: 1em;" value="femenino">Femenino</mat-option>
-          <mat-option style="font-size: 1em;" value="masculino">Masculino</mat-option>
+          <mat-option style="font-size: 2em;" value="femenino">Femenino</mat-option>
+          <mat-option style="font-size: 2em;" value="masculino">Masculino</mat-option>
         </mat-select>
       </mat-form-field>
 <br>
       <mat-form-field>
-        <mat-label style="font-size: 1em;">Id Participante</mat-label>
-        <input style="font-size: 1em;"
-             class="mat-h1" matInput type="string"  formControlName="userid">
+        <mat-label style="font-size: 2em;">Id Participante</mat-label>
+        <input style="font-size: 2em;"
+             matInput type="string"  formControlName="userid">
       </mat-form-field>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit" [disabled]="!opciones.valid" (click)="enviar()" routerLink="/vista/bienvenida">
