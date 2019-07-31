@@ -4,3 +4,11 @@
   margin-right: auto;
   width: 50%
 }
+
+.boton{
+  text-transform: uppercase;
+  line-height: 55px;
+  font-size: 1.5em;
+  margin: 5px;
+  margin-bottom: 10px;
+}
