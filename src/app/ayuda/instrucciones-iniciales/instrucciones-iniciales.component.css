@@ -1,4 +1,4 @@
-/* .gridalto {
+.gridalto {
   height: 100vh;
 }
 
@@ -11,6 +11,7 @@
   height: 100%;
   align-items: center;
   padding: 0px;
+  background-color: rgba(0, 0, 0, 0)
 }
 
 .flechaIzq{
@@ -60,4 +61,4 @@
 
 #fondo{
   background-color: rgba(0, 0, 0, 0.32)
-} */
+}
