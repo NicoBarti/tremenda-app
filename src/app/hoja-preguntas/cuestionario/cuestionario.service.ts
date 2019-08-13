@@ -186,6 +186,10 @@ get_auditPregunta(secuencia:number) {
   )
 }
 
+get_pregunta1() {
+  return this.auditItems[0]
+}
+
 get_itemid(secuencia:number):number{
     const item = this.auditItems.find(item => item.orden === secuencia)
     if(item === undefined){return}

@@ -26,6 +26,7 @@ import { Confirma0tragosComponent } from './dialogos/confirma0tragos/confirma0tr
 import { ErroreligibilidadComponent } from './dialogos/erroreligibilidad/erroreligibilidad.component';
 import { ErrorValidacion3Component } from './dialogos/error-validacion3/error-validacion3.component';
 import { ErrorValidacion2Component } from './dialogos/error-validacion2/error-validacion2.component';
+import { InstruccionesInicialesComponent } from './ayuda/instrucciones-iniciales/instrucciones-iniciales.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ErrorValidacion2Component } from './dialogos/error-validacion2/error-va
     Confirma0tragosComponent,
     ErroreligibilidadComponent,
     ErrorValidacion3Component,
-    ErrorValidacion2Component
+    ErrorValidacion2Component,
+    InstruccionesInicialesComponent
   ],
   entryComponents: [
     DialogoGraciasComponent,

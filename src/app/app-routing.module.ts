@@ -12,6 +12,8 @@ import { HojaPreguntasComponent } from './hoja-preguntas/hoja-preguntas.componen
 
 import {ErroreligibilidadComponent} from './dialogos/erroreligibilidad/erroreligibilidad.component'
 
+import {InstruccionesInicialesComponent} from './ayuda/instrucciones-iniciales/instrucciones-iniciales.component'
+
 const routes: Routes = [
   { path: '',   redirectTo: '/vista', pathMatch: 'full' },
   {
@@ -21,6 +23,9 @@ const routes: Routes = [
             {
               path: 'mide/:n',
               component: HojaPreguntasComponent
+            },
+            { path: 'ayuda',
+              component: InstruccionesInicialesComponent
             },
             {
               path: '',
