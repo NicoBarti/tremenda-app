@@ -22,17 +22,6 @@ import { Router } from '@angular/router';
       transition(':leave', [
         animate('400ms ease-out', style({ opacity: 0 }))
       ])
-    ]),
-    trigger('myAnimationTrigger2',[
-      state('in', style({ opacity: 1 })),
-      transition(':enter', [
-        // style({ opacity: 0 }),
-        style({ opacity: 0 }),
-        animate('400ms ease-in'),
-      ]),
-      transition(':leave', [
-        animate('400ms ease-out', style({ opacity: 0}))
-      ])
     ])
   ]
 })
@@ -40,7 +29,7 @@ import { Router } from '@angular/router';
 export class BienvenidaComponent {
 
   mostrar1: boolean = true;
-  mostrar2: boolean = false;
+  // mostrar2: boolean = false;
   // ciclo: string = '2.b'
 
   constructor(
@@ -49,16 +38,16 @@ export class BienvenidaComponent {
   ){};
 
   navega(){
-    if(this.mostrar2 == false){
-      this.mostrar1 = false
-      return
-    }
+    // if(this.mostrar2 == false){
+    //   this.mostrar1 = false
+    //   return
+    // }
     this.almacen.reseteaAlmacen();
-    this.router.navigate(['vista/mide' , 1]);
+    this.router.navigate(['vista/ayuda']);
 
   }
 
-  siguienteParrafo(){
-    if(this.mostrar1 == false){this.mostrar2 = true}
-  }
+  // siguienteParrafo(){
+  //   if(this.mostrar1 == false){this.mostrar2 = true}
+  // }
 }

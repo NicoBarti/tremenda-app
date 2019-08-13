@@ -9,7 +9,7 @@ import { trigger, style, animate, state, transition, AnimationEvent} from '@angu
     trigger('routeAnimations',[
       transition('* <=> *', [
         style({ opacity: 0 }),
-      animate('200ms ease-in')
+      animate('1s ease-in')
       ])
     ])
   ]

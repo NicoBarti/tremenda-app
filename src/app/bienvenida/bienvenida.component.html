@@ -13,14 +13,16 @@
 
 
 
-  <h5 @myAnimationTrigger1 *ngIf="mostrar1" class="mat-h1"
-  (@myAnimationTrigger1.done) = "siguienteParrafo()">
+  <h5 @myAnimationTrigger1 *ngIf="mostrar1" class="mat-h1">
     <p>Te invitamos a contestar 10 preguntas sobre tu consumo de alcohol.</p>
     <p>Esto te tomará menos de 5 minutos.</p>
-    </h5>
-  <h5 @myAnimationTrigger2 *ngIf="mostrar2" class="mat-h1">
+    <br>
     <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
-    <p>Todas tus respuestas serán confidenciales.</p></h5>
+    <p>Todas tus respuestas serán confidenciales.</p>
+    </h5>
+  <!-- <h5 @myAnimationTrigger2 *ngIf="mostrar2" class="mat-h1">
+    <p>Podrás conocer tu nivel de consumo y saber si hay algún riesgo para tu salud.</p>
+    <p>Todas tus respuestas serán confidenciales.</p></h5> -->
 <br>
 
     <mat-card-actions class="botones">

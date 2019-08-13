@@ -87,7 +87,7 @@ trigger('bienvenidaAnimacion', [
   state('activo', style({ backgroundColor: 'white', border: '2px', borderColor: '#ff4081', borderStyle: 'solid'})),
   state('inactivo', style({ backgroundColor: 'transparent'})),
  transition('* => activo', [
-   animate('250ms 200ms ease-in')
+   animate('250ms 1200ms ease-in')
 ]),
 transition('* => inactivo', [
   style({opacity: 1}),

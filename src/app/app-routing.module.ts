@@ -22,10 +22,12 @@ const routes: Routes = [
     children: [
             {
               path: 'mide/:n',
-              component: HojaPreguntasComponent
+              component: HojaPreguntasComponent,
+              data: {animacion: 'HojaPreguntasAnimacion'}
             },
             { path: 'ayuda',
-              component: InstruccionesInicialesComponent
+              component: InstruccionesInicialesComponent,
+              data: {animacion: 'InstruccionesInicialesAnimacion'}
             },
             {
               path: '',
