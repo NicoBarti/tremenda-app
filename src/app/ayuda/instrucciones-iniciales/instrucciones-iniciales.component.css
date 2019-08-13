@@ -57,8 +57,28 @@
   text-transform: uppercase;
   line-height: 55px;
   font-size: 1.5em;
+  /* z-index: -1; */
+  margin-left: 15px;
 }
 
 #fondo{
   background-color: rgba(0, 0, 0, 0.32)
+}
+
+#flecha{
+  height: 80px;
+  transform: rotate(270deg);
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#explicacion{
+  margin-left: 100px;
+  margin-right: 50px;
+  margin-top: 50px;
+  position: absolute;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 5px 10px rgba(130, 92, 92, 0.5);
 }

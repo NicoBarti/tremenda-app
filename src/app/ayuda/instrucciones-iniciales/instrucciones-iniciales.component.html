@@ -1,11 +1,11 @@
-<form [formGroup]="respuestaForm" *ngIf="respuestas as r" >
+<form [formGroup]="respuestaForm" *ngIf="respuestas as r" (click)="siguiente()">
 <mat-card color="primary" id='fondo'>
   <mat-grid-list cols="1" rowHeight="fit" class="gridalto">
 
 <!-- Flechas -->
   <mat-grid-tile rowspan="1">
     <div class="flechaIzq">
-      <button type="button" (click)="retrocede()" class = "boton-flecha">
+      <button type="button"  class = "boton-flecha">
         <mat-icon class="flecha">arrow_back</mat-icon>
         </button>
     </div>
@@ -13,7 +13,7 @@
       <p class="mat-h2">Pregunta {{n}} de 10</p>
     </div>
     <div class="flechaDer">
-      <button type="button" [disabled]="item.invalid" (click)="enviar()" class = "boton-flecha">
+      <button type="button" [disabled]="item.invalid"  class = "boton-flecha">
         <mat-icon class="flecha">arrow_forward</mat-icon>
       </button>
     </div>
@@ -28,29 +28,57 @@
         <!-- <app-detallep3 *ngIf="p3detalle"></app-detallep3> -->
 
           <div [@preguntaAnimacion] = "animarPregunta? 'activo' : 'inactivo'">
-            <mat-label class="mat-h1 negritas">{{texto_comp}} {{r.texto}}</mat-label>
+            <mat-label class="mat-h1 ">¿Con qué frecuencia ha visitado al médico últimamente?
+              <!-- {{texto_comp}} {{r.texto}} -->
+            </mat-label>
           </div>
+          <div [@explicacionPregunta] = "animarPregunta? 'activo' : 'inactivo'"
+          *ngIf = "animarPregunta">
+            <img src="../../../assets/imagenes/flechaRoja.png" id='flecha'>
+          </div>
+            <mat-card id='explicacion'   *ngIf = "animarPregunta"
+            [@explicacionPregunta] = "animarPregunta? 'activo' : 'inactivo'">
+              <p class="mat-h1 negritas">Aquí aparecerá la pregunta que debe responder</p>
+            </mat-card>
 
         <br>
           <br>
 
-        <mat-radio-group class="p-radio-group" formControlName="item" *ngIf="!p2" >
-          <mat-radio-button class="mat-h1" [value]="r.p1">{{r.a1}}</mat-radio-button>
-          <mat-radio-button class="mat-h1" [value]="r.p2">{{r.a2}}</mat-radio-button>
-          <mat-radio-button class="mat-h1"  [value]="r.p3">{{r.a3}}</mat-radio-button>
-          <mat-radio-button class="mat-h1" *ngIf="r.a4" [value]="r.p4">{{r.a4}}</mat-radio-button>
-          <mat-radio-button class="mat-h1" *ngIf="r.a5" [value]="r.p5">{{r.a5}}</mat-radio-button>
-        </mat-radio-group>
-
-        <app-p2 *ngIf="p2"></app-p2>
-
-        <div class="siguiente-button-cont">
-          <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button>
+        <div [@respuestasAnimacion] ="animarRespuestas? 'activo' : 'inactivo'">
+          <mat-radio-group class="p-radio-group" formControlName="item">
+            <mat-radio-button class="mat-h1" [value]="r.p1">{{r.a1}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" [value]="r.p2">{{r.a2}}</mat-radio-button>
+            <mat-radio-button class="mat-h1"  [value]="r.p3">{{r.a3}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" *ngIf="r.a4" [value]="r.p4">{{r.a4}}</mat-radio-button>
+            <mat-radio-button class="mat-h1" *ngIf="r.a5" [value]="r.p5">{{r.a5}}</mat-radio-button>
+          </mat-radio-group>
         </div>
 
-        <div *ngIf="p3detalle" class="eq-button-cont">
-          <button mat-raised-button color="accent" class="boton mat-h3" type="button" (click)="abrep3detalle()">ver equivalencias de tragos</button>
+        <div [@explicacionRespuestas] = "animarRespuestas? 'activo' : 'inactivo'"
+        *ngIf = "animarRespuestas">
+          <img src="../../../assets/imagenes/flechaRoja.png" id='flecha'>
         </div>
+          <mat-card id='explicacion'   *ngIf = "animarRespuestas" style="z-index: +2"
+          [@explicacionRespuestas] = "animarRespuestas? 'activo' : 'inactivo'">
+            <p class="mat-h1 negritas">Aquí debe elegir una respuesta tocando sobre una de ellas</p>
+          </mat-card>
+
+
+        <div class="siguiente-button-cont"
+        [@botonesAnimacion] = "animarBotones? 'activo' : 'inactivo'">
+          <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="!animarBotones">Anterior</button>
+          <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="!animarBotones">Siguiente</button>
+        </div>
+
+        <div [@explicacionBotones] = "animarBotones? 'activo' : 'inactivo'"
+        *ngIf = "animarBotones">
+          <img src="../../../assets/imagenes/flechaRoja.png" id='flecha'>
+        </div>
+          <mat-card id='explicacion'   *ngIf = "animarBotones"
+          [@explicacionBotones] = "animarBotones? 'activo' : 'inactivo'">
+            <p class="mat-h1 negritas">Cuando haya elegido una respuesta, los botones se pondrán azules. Con el botón 'SIGUIENTE' se avanza a la seguiente pregunta, y con 'ANTERIOR' se vuelve a la pregunta anterior.</p>
+          </mat-card>
+
         <!-- </form> -->
 
         </mat-card-content>

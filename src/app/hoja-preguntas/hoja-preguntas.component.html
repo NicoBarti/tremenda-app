@@ -44,7 +44,9 @@
           <app-p2 *ngIf="p2"></app-p2>
 
           <div class="siguiente-button-cont">
+            <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Anterior</button>
             <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button>
+
           </div>
 
           <div *ngIf="p3detalle" class="eq-button-cont">
