@@ -11,6 +11,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 // import {MatIconModule} from '@angular/material/icon';
 
 
@@ -32,6 +35,7 @@ import {MatSelectModule} from '@angular/material/select';
   MatFormFieldModule,
   MatSelectModule,
   MatCardModule,
+  MatProgressBarModule
   // MatIconModule
 ],
   exports: [MatToolbarModule,
@@ -50,6 +54,7 @@ import {MatSelectModule} from '@angular/material/select';
   MatSnackBarModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatProgressBarModule
   // MatIconModule
 ],
 })

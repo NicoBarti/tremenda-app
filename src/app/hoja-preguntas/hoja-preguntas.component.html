@@ -4,19 +4,13 @@
 
 <!-- Flechas -->
     <mat-grid-tile rowspan="1">
-      <div class="flechaIzq">
-        <button type="button" (click)="retrocede()" class = "boton-flecha">
-          <mat-icon class="flecha">arrow_back</mat-icon>
-          </button>
-      </div>
-      <div class="">
-        <p class="mat-h2">Pregunta {{n}} de 10</p>
-      </div>
-      <div class="flechaDer">
-        <button type="button" [disabled]="item.invalid" (click)="enviar()" class = "boton-flecha">
-          <mat-icon class="flecha">arrow_forward</mat-icon>
-        </button>
-      </div>
+      <div class="barra">
+        <span class="mat-h2">Pregunta {{n}} de 10</span>
+      <mat-progress-bar
+          mode="Determinate"
+          [value]="barraProgreso">
+      </mat-progress-bar>
+        </div>
     </mat-grid-tile>
 
 <!-- Desarrollo Preguntas -->
@@ -44,7 +38,7 @@
           <app-p2 *ngIf="p2"></app-p2>
 
           <div class="siguiente-button-cont">
-            <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Anterior</button>
+            <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="retrocede()">Anterior</button>
             <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button>
 
           </div>

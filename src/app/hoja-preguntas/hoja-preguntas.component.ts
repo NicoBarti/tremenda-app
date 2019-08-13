@@ -18,6 +18,9 @@ import {ValidacionService} from './validacion.service'
 
 import {Detallep3Component} from '../dialogos/detallep3/detallep3.component'
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 @Component({
   selector: 'app-hoja-preguntas',
   templateUrl: './hoja-preguntas.component.html',
@@ -65,6 +68,7 @@ export class HojaPreguntasComponent implements OnInit {
   avanzar: boolean
   retroceder: boolean
   primeraVuelta3: boolean = true
+  barraProgreso: number
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -76,6 +80,7 @@ export class HojaPreguntasComponent implements OnInit {
         this.avanzar = false
         this.retroceder = false
         this.teAnimo = true
+        this.barraProgreso = this.n*10
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
 
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
