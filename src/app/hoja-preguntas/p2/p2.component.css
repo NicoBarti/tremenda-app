@@ -42,9 +42,15 @@
 
 .vineta {
   margin-top: 0px;
+  border-style: none;
 }
 
 .separadores {
   margin-top: 15px;
   margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.gridColor {
+  background-color: #f7f7f7
 }

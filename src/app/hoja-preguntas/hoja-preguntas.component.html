@@ -27,6 +27,10 @@
           <br>
             <br>
 
+            <div *ngIf="p3detalle" class="eq-button-cont">
+              <button mat-raised-button color="accent" class="boton mat-h3" type="button" (click)="abrep3detalle()">ver tragos</button>
+            </div>
+
           <mat-radio-group class="p-radio-group" formControlName="item" *ngIf="!p2" >
             <mat-radio-button class="mat-h1" [value]="r.p1">{{r.a1}}</mat-radio-button>
             <mat-radio-button class="mat-h1" [value]="r.p2">{{r.a2}}</mat-radio-button>
@@ -38,14 +42,12 @@
           <app-p2 *ngIf="p2"></app-p2>
 
           <div class="siguiente-button-cont">
-            <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="retrocede()">Anterior</button>
+            <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="!botonAntetior" (click)="retrocede()">Anterior</button>
             <button mat-raised-button color="primary" class="boton mat-h3" type="button" [disabled]="item.invalid" (click)="enviar()">Siguiente</button>
 
           </div>
 
-          <div *ngIf="p3detalle" class="eq-button-cont">
-            <button mat-raised-button color="accent" class="boton mat-h3" type="button" (click)="abrep3detalle()">ver equivalencias de tragos</button>
-          </div>
+
           <!-- </form> -->
 
           </mat-card-content>

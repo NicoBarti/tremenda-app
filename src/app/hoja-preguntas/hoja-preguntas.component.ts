@@ -69,6 +69,7 @@ export class HojaPreguntasComponent implements OnInit {
   retroceder: boolean
   primeraVuelta3: boolean = true
   barraProgreso: number
+  botonAntetior: Boolean
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('', Validators.required)})
@@ -76,13 +77,8 @@ export class HojaPreguntasComponent implements OnInit {
     this.respuestas = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.n = +params.get('n')
-        this.texto_comp = null
-        this.avanzar = false
-        this.retroceder = false
-        this.teAnimo = true
-        this.barraProgreso = this.n*10
+        this.variablesInicio()
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
-
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
             if(this.n == 3){this.p3detalle = true}else{this.p3detalle = false}
         const d = new Date()
@@ -146,7 +142,7 @@ export class HojaPreguntasComponent implements OnInit {
 
    finalizar() {
      const dialogRef = this.dialog.open(DialogoGraciasComponent, {
-       width: '450px'
+       width: '500px'
      });
 
      dialogRef.afterClosed().subscribe(finaliza =>{
@@ -186,6 +182,16 @@ abrep3detalle(){
 
   )
 
+}
+
+variablesInicio(){
+  this.texto_comp = null
+  this.avanzar = false
+  this.retroceder = false
+  this.teAnimo = true
+  this.barraProgreso = this.n*10
+  this.botonAntetior = true
+  if(this.n == 1){this.botonAntetior = false}
 }
 
 }

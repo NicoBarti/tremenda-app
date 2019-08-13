@@ -29,8 +29,6 @@ import { Router } from '@angular/router';
 export class BienvenidaComponent {
 
   mostrar1: boolean = true;
-  // mostrar2: boolean = false;
-  // ciclo: string = '2.b'
 
   constructor(
       private almacen: AlmecenResultadosService,
@@ -38,16 +36,9 @@ export class BienvenidaComponent {
   ){};
 
   navega(){
-    // if(this.mostrar2 == false){
-    //   this.mostrar1 = false
-    //   return
-    // }
     this.almacen.reseteaAlmacen();
     this.router.navigate(['vista/ayuda']);
 
   }
 
-  // siguienteParrafo(){
-  //   if(this.mostrar1 == false){this.mostrar2 = true}
-  // }
 }

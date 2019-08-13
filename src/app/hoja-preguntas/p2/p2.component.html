@@ -3,14 +3,14 @@
 
   <mat-grid-list cols="3" rowHeight="fit" class="altodelgrid">
 
-    <mat-grid-tile colspan="3">
-                <p class="mat-h2 separadores">Vino</p>
+    <mat-grid-tile colspan="3" class="gridColor">
+                <p class="mat-h1 separadores">Vino</p>
               </mat-grid-tile>
         <mat-grid-tile
             *ngFor="let dato of datos | slice:0:3 "
             colspan="1"
             rowspan="3"
-            class="vineta">
+            class="vineta gridColor">
             <button type="button" (click)="anima(dato)" mat-raised-button class="boton-vineta">
               <div><img class ="imagenVineta" src="{{dato.imagen}}"></div>
                 <div class="contador-nombre">
@@ -21,7 +21,7 @@
 
 
     <mat-grid-tile colspan="3">
-                    <p class="mat-h2 separadores">Cerveza</p>  </mat-grid-tile>
+                    <p class="mat-h1 separadores">Cerveza</p>  </mat-grid-tile>
         <mat-grid-tile
                 *ngFor="let dato of datos | slice:3:6"
                 colspan="1"
@@ -37,13 +37,13 @@
                 </button>
           </mat-grid-tile>
 
-    <mat-grid-tile colspan="3">
-                          <p class="mat-h2 separadores">Licor</p>  </mat-grid-tile>
+    <mat-grid-tile colspan="3" class='gridColor'>
+                          <p class="mat-h1 separadores">Licor</p>  </mat-grid-tile>
           <mat-grid-tile
                       *ngFor="let dato of datos | slice:6:9"
                       colspan="1"
                       rowspan="3"
-                      class="vineta">
+                      class="vineta gridColor">
                 <button type="button" (click)="anima(dato)" mat-raised-button class="boton-vineta">
                   <div><img class ="imagenVineta" src="{{dato.imagen}}"></div>
                     <div class="contador-nombre">
