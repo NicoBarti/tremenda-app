@@ -5,6 +5,10 @@ import {Preguntas} from '../../hoja-preguntas/cuestionario/preguntas'
 import { trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-instrucciones-iniciales',
@@ -62,13 +66,42 @@ trigger('explicacionBotones', [
     animate('250ms 500ms ease-in', style({opacity: 1}))
   ])
 ]),
+trigger('barraAnimacion', [
+  state('activo', style({ backgroundColor: 'white', border: '2px', borderColor: '#ff4081', borderStyle: 'solid'})),
+  state('inactivo', style({ backgroundColor: 'transparent'})),
+ transition('* => activo', [
+   animate('250ms 200ms ease-in')
+]),
+transition('* => inactivo', [
+  style({opacity: 1}),
+  animate('250ms ease-out')
+])
+]),
+trigger('explicacionBarra', [
+  transition(':enter', [
+    style({opacity : 0}),
+    animate('250ms 500ms ease-in', style({opacity: 1}))
+  ])
+]),
+trigger('bienvenidaAnimacion', [
+  state('activo', style({ backgroundColor: 'white', border: '2px', borderColor: '#ff4081', borderStyle: 'solid'})),
+  state('inactivo', style({ backgroundColor: 'transparent'})),
+ transition('* => activo', [
+   animate('250ms 200ms ease-in')
+]),
+transition('* => inactivo', [
+  style({opacity: 1}),
+  animate('250ms ease-out')
+])
+]),
 ]
 })
 
 export class InstruccionesInicialesComponent implements OnInit {
 
   constructor(
-    private cuestionarioService: CuestionarioService
+    private cuestionarioService: CuestionarioService,
+    private router: Router,
   ) { }
 
   //Variables de contenido para el html, imitando compnente hoja-Respuestas
@@ -79,23 +112,28 @@ export class InstruccionesInicialesComponent implements OnInit {
   animarPregunta: Boolean
   animarRespuestas: Boolean
   animarBotones: Boolean
+  animarBarra: Boolean
+  animarBienvenida: Boolean
 
   //Secuenciador
   i = 0
+  barraProgreso: number = 1
 
 
   ngOnInit() {
     this.respuestaForm  = new FormGroup({'item': new FormControl('')})
     this.respuestas = this.cuestionarioService.get_pregunta1()
     console.log(this.respuestas)
-    this.animarPregunta = true
-
+    this.animarBienvenida = true
   }
 
   get item() { return this.respuestaForm.get('item')};
 
 siguiente(){
-  this.i++
+  if(this.i == 0){
+    this.animarBienvenida = false
+    this.animarPregunta = true
+  }
   if(this.i == 1){
     this.animarPregunta = false
     this.animarRespuestas = true
@@ -104,7 +142,14 @@ siguiente(){
     this.animarRespuestas = false
     this.animarBotones = true
   }
-
+  if(this.i == 3){
+    this.animarBotones = false
+    this.animarBarra = true
+  }
+  if(this.i == 4){
+    this.router.navigate(['vista/mide' , 1]);
+  }
+  this.i++
 }
 
 }

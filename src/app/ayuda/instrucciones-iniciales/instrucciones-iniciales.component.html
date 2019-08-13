@@ -1,23 +1,35 @@
 <form [formGroup]="respuestaForm" *ngIf="respuestas as r" (click)="siguiente()">
 <mat-card color="primary" id='fondo'>
+
+<mat-card id="mensajeBienvenida" *ngIf="animarBienvenida"
+[@bienvenidaAnimacion] = "animarBarra? 'activo' : 'inactivo'">
+  <p class="mat-display-1">Ahora le mostraremos cómo se responden las preguntas</p>
+  <p class="mat-h1">Toque la pantalla en cualquier lugar para continuar</p>
+  </mat-card>
+
   <mat-grid-list cols="1" rowHeight="fit" class="gridalto">
 
-<!-- Flechas -->
-  <mat-grid-tile rowspan="1">
-    <div class="flechaIzq">
-      <button type="button"  class = "boton-flecha">
-        <mat-icon class="flecha">arrow_back</mat-icon>
-        </button>
+<!-- Barra -->
+<mat-grid-tile rowspan="1"
+[@barraAnimacion] = "animarBarra? 'activo' : 'inactivo'">
+  <div class="barra">
+    <span class="mat-h2">Pregunta 1 de 10</span>
+  <mat-progress-bar
+      mode="Determinate"
+      [value]="barraProgreso">
+  </mat-progress-bar>
     </div>
-    <div class="">
-      <p class="mat-h2">Pregunta {{n}} de 10</p>
-    </div>
-    <div class="flechaDer">
-      <button type="button" [disabled]="item.invalid"  class = "boton-flecha">
-        <mat-icon class="flecha">arrow_forward</mat-icon>
-      </button>
-    </div>
-  </mat-grid-tile>
+</mat-grid-tile>
+
+<div [@explicacionBarra] = "animarBarra? 'activo' : 'inactivo'"
+*ngIf = "animarBarra">
+  <img src="../../../assets/imagenes/flechaRoja.png" id='flechaBarra'>
+</div>
+  <mat-card id="explicacionBarra" *ngIf = "animarBarra"
+  [@explicacionBarra] = "animarBarra? 'activo' : 'inactivo'">
+    <p class="mat-h1 negritas">Esta barra irá mostrando el número de preguntas que faltan para terminar</p>
+  </mat-card>
+
 
 <!-- Desarrollo Preguntas -->
   <mat-grid-tile rowspan="9" >
