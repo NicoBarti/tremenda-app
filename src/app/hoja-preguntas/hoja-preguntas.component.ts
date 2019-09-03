@@ -178,10 +178,10 @@ abrep3detalle(){
 
   dialogRef.afterClosed().subscribe(hola=>{
     this.primeraVuelta3 = false
+    const t = new Date()
+    this.almacen.guardaItem(999, 0, t.getTime() - this.tiempoInicio)
   }
-
   )
-
 }
 
 variablesInicio(){
