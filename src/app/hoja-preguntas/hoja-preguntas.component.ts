@@ -80,7 +80,7 @@ export class HojaPreguntasComponent implements OnInit {
         this.variablesInicio()
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
-            if(this.n == 3 | this.n == 4 | this.n == 5){this.p3detalle = true}else{this.p3detalle = false}
+            if(this.n == 3 || this.n == 4 || this.n == 5){this.p3detalle = true}else{this.p3detalle = false}
         const d = new Date()
         this.tiempoInicio = d.getTime()
         this.itemid = this.cuestionarioService.get_itemid(+params.get('n'))
@@ -141,11 +141,16 @@ export class HojaPreguntasComponent implements OnInit {
    }
 
    finalizar() {
+
+     const valor = this.respuestaForm.get('item').value
      const dialogRef = this.dialog.open(DialogoGraciasComponent, {
-       width: '500px'
+       width: '500px',
+       data: this.respuestaForm.get('item').value
      });
 
      dialogRef.afterClosed().subscribe(finaliza =>{
+       this.respuestaForm.patchValue({item: valor})
+
         if(finaliza){
           this.almacen.envia_listatragos();
           this.auth.logout();
