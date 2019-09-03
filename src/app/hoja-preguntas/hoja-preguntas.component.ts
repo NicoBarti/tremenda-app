@@ -173,7 +173,7 @@ if(texto){
 
 abrep3detalle(){
   const dialogRef = this.dialog.open(Detallep3Component, {
-    width: '450px;'
+    width: '500px;'
   });
 
   dialogRef.afterClosed().subscribe(hola=>{
