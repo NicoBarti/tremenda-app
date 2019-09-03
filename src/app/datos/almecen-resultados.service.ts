@@ -5,6 +5,8 @@ import { ServerService } from '../server/server.service'
 import { Trago} from '../hoja-preguntas/cuestionario/trago'
 import { Subscription }   from 'rxjs';
 import { LISTA_TRAGOS } from '../hoja-preguntas/cuestionario/lista_tragos'
+import {CuestionarioService} from '../hoja-preguntas/cuestionario/cuestionario.service'
+
 
 import {ContadorTragosService} from '../hoja-preguntas/p2/contador-tragos.service'
 
@@ -15,7 +17,9 @@ export class AlmecenResultadosService {
 
   constructor(
     private server: ServerService,
-    private contadorTragosService: ContadorTragosService
+    private contadorTragosService: ContadorTragosService,
+    private cuestionarioService: CuestionarioService,
+
   ) {
     this.subscription = this.contadorTragosService.cambios_lista_trago$.
       subscribe(datos => {
@@ -65,8 +69,11 @@ guardaItem(itemid:number, alt:number, tiempo:number):void{
 // }
 
 get_alternativa(n){
+let nOrdenado = this.cuestionarioService.get_itemid(n)
 let secuencia = this.secuencia
-let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n)
+let itemActual = this.audit.filter(respuesta=> respuesta.itemid === nOrdenado)
+// let itemActual = this.audit.filter(respuesta=> respuesta.orden === n)
+
 if (!itemActual || !itemActual.length){return}
 
   for (var i = 0; i < this.audit.length +1; i++) {
@@ -76,7 +83,7 @@ if (!itemActual || !itemActual.length){return}
   secuencia--
   }
 }
-// 
+//
 // get_alternativa_anterior(n){
 // let secuencia = this.secuencia
 // let itemActual = this.audit.filter(respuesta=> respuesta.itemid === n-1)
