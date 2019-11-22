@@ -80,7 +80,7 @@ export class HojaPreguntasComponent implements OnInit {
         this.variablesInicio()
         this.respuestaForm.patchValue({item: this.almacen.get_alternativa(+params.get('n'))})
             if(this.n == 2){this.configuraP2()}else{this.p2 = false}
-            if(this.n == 3 || this.n == 4 || this.n == 5){this.p3detalle = true}else{this.p3detalle = false}
+            if(this.n == 3 || this.n == 4 || this.n == 5 || this.n == 6){this.p3detalle = true}else{this.p3detalle = false}
         const d = new Date()
         this.tiempoInicio = d.getTime()
         this.itemid = this.cuestionarioService.get_itemid(+params.get('n'))
@@ -106,7 +106,7 @@ export class HojaPreguntasComponent implements OnInit {
   }
 
   navega(){
-    if(this.n > 11){this.finalizar(); return}
+    if(this.n > 12){this.finalizar(); return}
     this.avanzar = true
     this.teAnimo = false
     // if(this.n > 9){this.finalizar()}
@@ -117,7 +117,7 @@ export class HojaPreguntasComponent implements OnInit {
 
   terminaAnimacion() {
     if(this.avanzar == true) {
-      if(this.n > 11){
+      if(this.n > 12){
         this.finalizar();
         return}
       else {
@@ -194,7 +194,7 @@ variablesInicio(){
   this.avanzar = false
   this.retroceder = false
   this.teAnimo = true
-  this.barraProgreso = this.n*100/12
+  this.barraProgreso = this.n*100/13
   this.botonAntetior = true
   if(this.n == 1){this.botonAntetior = false}
 }
